@@ -53,8 +53,8 @@
           >
             <li
               class="mr-3"
-              @click="setActive('Services')"
-              :class="navItemClass('Services')"
+              @click="setActive('Home')"
+              :class="navItemClass('Home')"
             >
               <g-link
                 to="/"
