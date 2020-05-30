@@ -2,12 +2,12 @@
   <div>
     <NavBar />
     <!-- <slot /> -->
-    <body
+    <div
       class="leading-normal tracking-normal pt-12"
       style="font-family: 'Source Sans Pro', sans-serif;"
     >
       <slot />
-    </body>
+    </div>
     <Footer />
   </div>
 </template>
