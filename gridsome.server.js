@@ -28,6 +28,32 @@ module.exports = function(api) {
 			});
 		});
 
+		// Realisations
+		const res2 = await graphql(`
+			{
+				allWordPressRealisations {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}
+		`);
+
+		res2.data.allWordPressRealisations.edges.forEach(({ node }) => {
+			// console.log(JSON.stringify(node))
+			createPage({
+				path: `/nos-realisations/${node.slug}`,
+				component: './src/templates/Realisation.vue',
+				context: {
+					realisationId: node.id,
+					realisationSlug: node.slug,
+				},
+			});
+		});
+
 		// Posts
 		const res4 = await graphql(`
 			{
@@ -53,8 +79,5 @@ module.exports = function(api) {
 				},
 			});
 		});
-
-
-		
 	});
 };

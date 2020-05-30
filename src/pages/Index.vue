@@ -5,7 +5,7 @@
       <!--Hero slots section -->
       <SlotTopSection>
         <template v-if="$page.data.acf.repeaterTitle" slot="repeatable-title-1">
-          <h1>Nos domaines d'expertise</h1>
+          Nos domaines d'expertise
         </template>
         <template
         v-if="$page.data.acf.repeaterTitle.length >= 1"
