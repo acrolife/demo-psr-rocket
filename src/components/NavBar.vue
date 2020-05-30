@@ -53,36 +53,36 @@
           >
             <li
               class="mr-3"
-              @click="setActive('Home')"
-              :class="navItemClass('Home')"
-            >
-              <g-link
-                to="/"
-                class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                >Home</g-link
-              >
-            </li>
-            <li
-              class="mr-3"
               @click="setActive('Services')"
               :class="navItemClass('Services')"
             >
               <g-link
-                to="/services/"
+                to="/"
                 class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
                 >Services</g-link
               >
             </li>
             <li
               class="mr-3"
-              @click="setActive('About')"
-              :class="navItemClass('About')"
+              @click="setActive('Réalisations')"
+              :class="navItemClass('Réalisations')"
             >
               <g-link
-                to="/about/"
+                to="/realisations/"
                 class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                >About
-              </g-link>
+                >Réalisations</g-link
+              >
+            </li>
+            <li
+              class="mr-3"
+              @click="setActive('Blog')"
+              :class="navItemClass('Blog')"
+            >
+              <g-link
+                to="/blog/"
+                class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                >Blog</g-link
+              >
             </li>
           </ul>
           <div class="hidden lg:flex">
@@ -98,11 +98,11 @@
 
       <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
-    <div :class="paddingDependsOnEnv">
+    <!-- <div :class="paddingDependsOnEnv">
       {{
         "paddingDependsOnEnv: " + paddingDependsOnEnv + ", after comes the body"
       }}
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -144,12 +144,12 @@ export default {
     },
     menuSvgColor() {
       return this.colorNavBarBin ? "" : "text-teal-700";
-    },
-    paddingDependsOnEnv() {
-      // console.log('mode = ' + process.env.GS_ENV)
-      console.log("mode (data, not .env): " + this.mode);
-      return this.mode === "DEV" ? "pt-30" : "pt-20";
     }
+    // paddingDependsOnEnv() {
+    //   // console.log('mode = ' + process.env.GS_ENV)
+    //   console.log("mode (data, not .env): " + this.mode);
+    //   return this.mode === "DEV" ? "pt-30" : "pt-20";
+    // }
   },
   methods: {
     // ...mapAction({

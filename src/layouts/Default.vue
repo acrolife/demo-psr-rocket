@@ -1,7 +1,13 @@
 <template>
   <div>
     <NavBar />
-    <slot />
+    <!-- <slot /> -->
+    <body
+      class="leading-normal tracking-normal pt-12"
+      style="font-family: 'Source Sans Pro', sans-serif;"
+    >
+      <slot />
+    </body>
     <Footer />
   </div>
 </template>

@@ -28,6 +28,33 @@ module.exports = function(api) {
 			});
 		});
 
+		// Posts
+		const res4 = await graphql(`
+			{
+				allWordPressPost {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}
+		`);
+
+		res4.data.allWordPressPost.edges.forEach(({ node }) => {
+			// console.log(JSON.stringify(node))
+			createPage({
+				path: `/blog/${node.slug}`,
+				component: './src/templates/Article.vue',
+				context: {
+					postId: node.id,
+					postSlug: node.slug,
+				},
+			});
+		});
+
+
 		
 	});
 };
