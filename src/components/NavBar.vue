@@ -110,15 +110,16 @@
 import { mapState, mapAction } from "vuex";
 export default {
   name: "NavBar",
-  data() {
-    return {
-      // mode : "DEV", //simulate .env, as I can't make it work
-      mode: "PROD" //simulate .env, as I can't make it work
-      // process.env.GS_ENV === "DEV
-    };
-  },
+  // data() {
+  //   return {
+  //     // mode : "DEV", //simulate .env, as I can't make it work
+  //     mode: "PROD" //simulate .env, as I can't make it work
+  //     // process.env.GS_ENV === "DEV
+  //   };
+  // },
   beforeMount() {
-    this.$store.commit("setColor0ther");
+    // // Uncomment this to make the navbar color reactive + handleScroll()
+    // this.$store.commit("setColor0ther");
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -152,8 +153,6 @@ export default {
     // }
   },
   methods: {
-    // ...mapAction({
-    // }),
     toggleNav() {
       this.$store.commit("setColorWhite");
       this.$store.commit("toggleMMenu");
@@ -165,12 +164,17 @@ export default {
     navItemClass(navItem) {
       return navItem === this.navItemStored ? "font-bold" : "";
     },
+    // // Uncomment this to make the navbar color reactive + comment out the next handleScroll()
+    // handleScroll(event) {
+    //   return window.scrollY >= 10
+    //     ? this.$store.commit("setColorWhite")
+    //     : this.isExpanded
+    //     ? this.$store.commit("toggleMMenu")
+    //     : this.$store.commit("setColor0ther");
+    // },
     handleScroll(event) {
-      return window.scrollY >= 10
-        ? this.$store.commit("setColorWhite")
-        : this.isExpanded
-        ? this.$store.commit("toggleMMenu")
-        : this.$store.commit("setColor0ther");
+      return window.scrollY >= 10 
+      ? this.isExpanded ? this.$store.commit("toggleMMenu") : null : null
     }
   }
 };
