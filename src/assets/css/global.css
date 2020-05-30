@@ -38,9 +38,19 @@
 .green-psr {
   background: #00b084;
 }
-.green-psr:hover {
+.white-psr {
+  background: #ffffff;
+}
+.green-psr-hover {
   background: #59BE9C;
 }
+.green-psr:hover {
+  @apply green-psr-hover;
+}
+.white-psr:hover {
+  @apply green-psr-hover;
+}
+
 
 .pin-c-x {
   left: 50%;

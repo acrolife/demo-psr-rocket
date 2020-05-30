@@ -231,7 +231,7 @@
           >
             <div class="flex items-center justify-start">
               <button
-                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
               >
                 J'ai un projet similaire
               </button>
@@ -262,7 +262,7 @@
           >
             <div class="flex items-center justify-center">
               <button
-                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
               >
                 J'ai un projet similaire
               </button>
@@ -295,7 +295,7 @@
           >
             <div class="flex items-center justify-end">
               <button
-                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
               >
                 J'ai un projet similaire
               </button>

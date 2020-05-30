@@ -87,7 +87,7 @@
           </ul>
           <div class="hidden lg:flex">
             <g-link
-              class="mx-auto hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 py-4 px-8 shadow opacity-75 lg:mx-0 lg:mt-0 xxl:text-xl"
+              class="mx-auto white-psr text-gray-800 font-bold rounded-full mt-4 py-4 px-8 shadow opacity-75 lg:mx-0 lg:mt-0 xxl:text-xl"
               to="tel:06 37 77 75 32"
             >
               Appeler
