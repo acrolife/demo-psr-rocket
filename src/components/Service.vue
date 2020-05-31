@@ -71,7 +71,7 @@
             </div>
             <div class="flex items-center">
               <div
-                class="w-10 h-10 rounded-full mr-4 bg-cover bg-bottom"
+                class="w-16 h-16 rounded-full mr-4 bg-cover bg-bottom"
                 :style="{
                   backgroundImage: 'url(' + service.acf.pwcIcon + ')'
                 }"
