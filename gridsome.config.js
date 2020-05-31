@@ -2,8 +2,8 @@ module.exports = {
 	// chainWebpack (config) {
 	// 	config.mode('development')
 	// },
-	siteName: 'Gridsome',
-	siteDescription: 'A WordPress starter for Gridsome',
+	siteName: 'PS-Rénovation',
+	siteDescription: 'L\'expertise en rénovation de bâtiment, intérieure, extérieure, et construction d\'extension.',
 
 	templates: {
 		WordPressCategory: '/category/:slug', // adds a route for the "category" post type (Optional)

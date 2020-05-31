@@ -19,23 +19,25 @@
       </template>
     </SlotTopSection>
 
-    <div class="flex mt-10">
-      <div class="flex-1 xl:flex-none xl:px-20"></div>
-      <div
-        class="mx-auto text-gray-700 mt-8 border rounded bg-gray-200 shadow md:mt-10 px-2 md:px-8 md:py-2"
-      >
-        <p>Par {{ post.author.name }}</p>
-        <p>
-          Le {{ post.date.slice(8, 10) }}
-          {{ months[parseInt(post.date.slice(5, 8))] }}
-          {{ post.date.slice(0, 4) }}, à {{ post.date.slice(11, 16) }}
-        </p>
+    <section>
+      <div class="flex mt-12 md:mt-10">
+        <div class="flex-1 md:flex-none md:pl-10"></div>
+        <div
+          class="flex flex-col mx-auto text-gray-700 border rounded bg-teal-200 shadow-lg px-2 px-4 py-2 md:py-4"
+        >
+          <div class="flex mx-auto md:mx-0"> <p class="pr-1">Posté par</p><p class="italic"> {{ post.author.name }},</p> </div>
+          <p class="">
+            le {{ post.date.slice(8, 10) }}
+            {{ months[parseInt(post.date.slice(5, 8))] }}
+            {{ post.date.slice(0, 4) }}, à {{ post.date.slice(11, 16) }}
+          </p>
+        </div>
+        <div class="flex-1"></div>
       </div>
-      <div class="flex-1"></div>
-    </div>
+    </section>
 
     <!-- Section tiles post instance -->
-    <section class="bg-white border-b py-8">
+    <section class="bg-white border-b pt-8 pb-4">
       <div class="container max-w-5xl mx-auto xl:max-w-6xl">
         <h2
           class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
@@ -52,7 +54,7 @@
           <li v-for="(card, index) in post.acf.repeaterCard" :key="index">
             <div v-if="index % 2">
               <div class="grid-cols-1">
-                <div class="flex flex-wrap py-4 my-6">
+                <div class="flex flex-wrap py-4 mt-6">
                   <div class="w-full sm:w-1/2 px-4 md:pl-6 md:pr-3">
                     <h3
                       class="text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
@@ -139,6 +141,7 @@
         </ul>
       </div>
     </section>
+
 
     <!-- Still have to create a structure for Link card -->
 

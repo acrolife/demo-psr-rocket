@@ -16,10 +16,10 @@
                 ></div>
 
                 <div
-                  class="flex h-28 border-r border-b border-l border-gray-400 bg-white rounded-b p-4 leading-normal shadow-lg border-gray-400"
+                  class="flex h-28 border-r border-b border-l border-gray-400 bg-white rounded-b p-4 leading-normal shadow-lg border-gray-400 justify-center"
                 >
-                  <div class="flex flex-col mb-0 h-32">
-                    <div class="text-gray-900 font-bold text-xl text-center">
+                  <div class="flex flex-col mb-">
+                    <div class="text-gray-900 font-bold text-xl text-center h-16">
                       {{ item.node.title }}
                     </div>
                     <!-- <div

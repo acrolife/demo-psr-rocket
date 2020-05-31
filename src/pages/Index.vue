@@ -206,7 +206,7 @@ export default {
     // SvgSquareDots
   },
   metaInfo: {
-    title: "here add metainfo"
+    title: "Domaines d'expertise de PS-Rénovation"
   },
   // computed: {
   //   filename() {

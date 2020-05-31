@@ -7,7 +7,7 @@
           Le blog de PSR
         </template>
         <template slot="repeatable-title-2">
-          Some text pulled
+          Une base de connaissance issue des questions de nos clients
         </template>
         <template slot="cta-text">
           Suggérer un article

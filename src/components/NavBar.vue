@@ -18,7 +18,7 @@
             </g-link>
             <g-link to="/" :class="navbarTitleColorClass">
               <div
-                class="text-white no-underline hover:no-underline font-bold text-xl lg:text-2xl"
+                class="text-white no-underline hover:text-teal-600 font-bold text-xl lg:text-2xl"
                 :class="navbarTitleColorClass"
               >
                 PS-Rénovation
@@ -51,6 +51,17 @@
           <ul
             class="list-reset justify-end flex-1 items-center mb-2 lg:flex lg:mb-0 xxl:text-xl"
           >
+          <li
+              class="mr-3"
+              @click="setActive('Home')"
+              :class="navItemClass('Home')"
+            >
+              <g-link
+                to="/"
+                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                >Home</g-link
+              >
+            </li>
             <li
               class="mr-3"
               @click="setActive('Services')"
@@ -58,7 +69,7 @@
             >
               <g-link
                 to="/"
-                class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
                 >Services</g-link
               >
             </li>
@@ -69,7 +80,7 @@
             >
               <g-link
                 to="/realisations/"
-                class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
                 >Réalisations</g-link
               >
             </li>
@@ -80,7 +91,7 @@
             >
               <g-link
                 to="/blog/"
-                class="inline-block no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
                 >Blog</g-link
               >
             </li>
@@ -119,7 +130,7 @@ export default {
   // },
   beforeMount() {
     // // Uncomment this to make the navbar color reactive + handleScroll()
-    // this.$store.commit("setColor0ther");
+    this.$store.commit("setColor0ther");
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -138,13 +149,13 @@ export default {
     },
     navbarColorClass() {
       setTimeout(() => {}, 100);
-      return this.colorNavBarBin ? "gradient text-white" : "bg-white";
+      return this.colorNavBarBin ? "bg-gray-300 text-gray-700" : "bg-white";
     },
     navbarTitleColorClass() {
-      return this.colorNavBarBin ? "" : "bg-white text-gray-700";
+      return this.colorNavBarBin ? "text-gray-700" : "bg-white text-gray-700";
     },
     menuSvgColor() {
-      return this.colorNavBarBin ? "" : "text-teal-700";
+      return this.colorNavBarBin ? "" : "text-teal-500";
     }
     // paddingDependsOnEnv() {
     //   // console.log('mode = ' + process.env.GS_ENV)
@@ -165,17 +176,17 @@ export default {
       return navItem === this.navItemStored ? "font-bold" : "";
     },
     // // Uncomment this to make the navbar color reactive + comment out the next handleScroll()
-    // handleScroll(event) {
-    //   return window.scrollY >= 10
-    //     ? this.$store.commit("setColorWhite")
-    //     : this.isExpanded
-    //     ? this.$store.commit("toggleMMenu")
-    //     : this.$store.commit("setColor0ther");
-    // },
     handleScroll(event) {
-      return window.scrollY >= 10 
-      ? this.isExpanded ? this.$store.commit("toggleMMenu") : null : null
-    }
+      return window.scrollY >= 10
+        ? this.$store.commit("setColorWhite")
+        : this.isExpanded
+        ? this.$store.commit("toggleMMenu")
+        : this.$store.commit("setColor0ther");
+    },
+    // handleScroll(event) {
+    //   return window.scrollY >= 10 
+    //   ? this.isExpanded ? this.$store.commit("toggleMMenu") : null : null
+    // }
   }
 };
 </script>

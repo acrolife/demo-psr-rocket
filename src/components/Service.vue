@@ -84,7 +84,7 @@
               </div>
             </div>
             <button
-              class="mx-auto hover:underline gradient text-white font-bold rounded-full mt-3 mb-3 py-4 px-8 shadow-lg"
+              class="mx-auto green-psr gradient text-white font-bold rounded-full mt-3 mb-3 py-4 px-8 shadow-lg"
             >
               {{ service.acf.pwcCtaText }}
             </button>
@@ -219,10 +219,10 @@
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir.
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier.
               </p>
             </a>
           </div>
@@ -252,8 +252,8 @@
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. 
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. 
               </p>
             </a>
           </div>
@@ -283,10 +283,10 @@
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier, à voir.
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier.
               </p>
             </a>
           </div>
@@ -349,7 +349,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <button
-                  class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                  class="mx-auto lg:mx-0 green-psr gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
                 >
                   Sign Up
                 </button>
@@ -380,7 +380,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <button
-                  class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                  class="mx-auto lg:mx-0 green-psr gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
                 >
                   Sign Up
                 </button>
@@ -413,7 +413,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <button
-                  class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                  class="mx-auto lg:mx-0 green-psr gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
                 >
                   Sign Up
                 </button>

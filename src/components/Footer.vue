@@ -4,7 +4,7 @@
       <div class="w-full flex flex-col md:flex-row py-6">
         <div class="flex-1 mb-6">
           <g-link
-            class="text-teal-500 no-underline hover:no-underline font-bold text-2xl lg:text-4xl mr-6"
+            class="text-teal-500 no-underline hover:text-teal-600 font-bold text-2xl lg:text-4xl mr-6"
             to="/"
             >PSR
           </g-link>
@@ -17,7 +17,7 @@
               <a
                 href="https://www.facebook.com/unenouvelleviepourvotrebien"
                 target="_blank"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >Facebook</a
               >
             </li>
@@ -25,7 +25,7 @@
               <a
                 to="https://www.linkedin.com/company/ps-renovation/"
                 target="_blank"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >Linkedin</a
               >
             </li>
@@ -37,21 +37,21 @@
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/blog"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >Notre blog</g-link
               >
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/realisations/"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >Nos clients</g-link
               >
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >Contact</g-link
               >
             </li>
@@ -63,14 +63,14 @@
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >CGV</g-link
               >
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/"
-                class="no-underline hover:underline text-gray-800 hover:text-teal-700"
+                class="no-underline hover:text-teal-500 text-gray-800"
                 >Confidentialité</g-link
               >
             </li>
