@@ -1,19 +1,12 @@
 <template>
   <div class="my-10">
-    <!-- <div class="flex"> -->
-    <!-- <div class="xl:w-12 xxl:w-48 3xl:w-64"></div>   -->
-    <!-- <div class="flex-1 mx-2 sm:mx-24 mid:mx-36 md:mx-6 lg:mx-4"> -->
       <ul>
-        <div class="ssm:mx-12 sm:mx-32 mid:mx-40 md:grid md:grid-cols-2 md:gap-6 md:mx-8 mmd:gap-12 mmd:mx-16 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xxl:gap-3 xxl:mx-40">        
-        <!-- <div
-          class="md:grid md:grid-cols-2 md:gap-2 mmd:gap-1 lg:grid-cols-3 xxl:gap-10"
-        > -->
+        <div class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto">        
           <li v-for="(item, index) in cardGridData" :key="index">
             <div class="container mx-auto">
               <!-- 2 Rows Columns of Cards -->
-              <!-- <div class="lg:px-4"></div> -->
               <g-link :to="`/${cardGridSlug}/${item.node.slug}`">
-                <div class="p-4">
+                <div class="p-5">
                   <div
                     class="flex h-64 bg-cover bg-center border-r border-t border-l border-gray-400 rounded-t text-center overflow-hidden shadow-lg"
                     :style="{
@@ -52,10 +45,7 @@
           </li>
         </div>
       </ul>
-    <!-- </div> -->
-    <!-- <div class="xl:w-12 xxl:w-48 3xl:w-64"></div>  -->
   </div>
-  <!-- </div> -->
 </template>
 
 <script>

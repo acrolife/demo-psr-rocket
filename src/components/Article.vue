@@ -25,7 +25,10 @@
         <div
           class="flex flex-col mx-auto text-gray-700 border rounded bg-teal-200 shadow-lg px-2 px-4 py-2 md:py-4"
         >
-          <div class="flex mx-auto md:mx-0"> <p class="pr-1">Posté par</p><p class="italic"> {{ post.author.name }},</p> </div>
+          <div class="flex mx-auto md:mx-0">
+            <p class="pr-1">Posté par</p>
+            <p class="italic">{{ post.author.name }},</p>
+          </div>
           <p class="">
             le {{ post.date.slice(8, 10) }}
             {{ months[parseInt(post.date.slice(5, 8))] }}
@@ -36,111 +39,9 @@
       </div>
     </section>
 
-    <!-- Section tiles post instance -->
-    <section class="bg-white border-b pt-8 pb-4">
-      <div class="container max-w-5xl mx-auto xl:max-w-6xl">
-        <h2
-          class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
-          v-html="post.title"
-        ></h2>
 
-        <!-- Underline for h1 -->
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
-        </div>
-
-        <!-- Here start the tiles section -->
-        <ul>
-          <li v-for="(card, index) in post.acf.repeaterCard" :key="index">
-            <div v-if="index % 2">
-              <div class="grid-cols-1">
-                <div class="flex flex-wrap py-4 mt-6">
-                  <div class="w-full sm:w-1/2 px-4 md:pl-6 md:pr-3">
-                    <h3
-                      class="text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
-                    >
-                      {{ card.title }}
-                    </h3>
-
-                    <div class="text-gray-600 mb-8">
-                      <ul>
-                        <li
-                          v-for="(rparag, index2) in card.repeaterParagraph"
-                          :key="index2"
-                        >
-                          <div
-                            v-html="rparag.htmlParagraph"
-                            class="text-gray-700 text-base text-justify xl:text-xl"
-                          ></div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="w-full m-auto mt-0 sm:w-1/2 px-4 md:pl-3 md:pr-6">
-                    <g-image
-                      class="w-full object-contains"
-                      :src="card.picture"
-                      v-if="card.picture"
-                    />
-
-                    <component
-                      v-else
-                      :is="'Svg' + svgArray[index]"
-                      class="flex w-full align-center h-48 md:h-64 p-5"
-                    ></component>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div v-else>
-              <div class="grid-cols-1">
-                <div
-                  class="flex flex-wrap flex-col-reverse sm:flex-row py-4 my-6"
-                >
-                  <div class="w-full m-auto mt-0 sm:w-1/2 px-4 md:pl-6 md:pr-3">
-                    <g-image
-                      class="w-full object-contains object-top"
-                      :src="card.picture"
-                      v-if="card.picture"
-                    />
-
-                    <component
-                      v-else
-                      :is="'Svg' + svgArray[index]"
-                      class="flex w-full align-center h-48 md:h-64 p-5"
-                    ></component>
-                  </div>
-
-                  <div class="w-full sm:w-1/2 px-4 md:pr-6 md:pl-3">
-                    <div class="align-middle">
-                      <h3
-                        class="text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
-                      >
-                        {{ card.title }}
-                      </h3>
-                      <div class="text-gray-600 mb-8">
-                        <ul>
-                          <li
-                            v-for="(rparag, index2) in card.repeaterParagraph"
-                            :key="index2"
-                          >
-                            <div
-                              v-html="rparag.htmlParagraph"
-                              class="text-gray-700 text-base text-justify xl:text-xl"
-                            ></div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <!-- Section tiles articles instance -->
+    <BaseBlocks :title="post.title" :repeaterCard="post.acf.repeaterCard" :svgArray="svgArray" />
 
 
     <!-- Still have to create a structure for Link card -->
@@ -194,6 +95,7 @@
 <script>
 import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
+import BaseBlocks from "~/components/BaseBlocks.vue";
 import Svg1 from "~/components/svg/undraw_book_lover_mkck.vue";
 import Svg2 from "~/components/svg/undraw_build_your__home_csh6.vue";
 import Svg3 from "~/components/svg/undraw_building_blocks_n0nc.vue";
@@ -232,6 +134,7 @@ export default {
   components: {
     SlotTopSection,
     SlotBottomSection,
+    BaseBlocks,
     Svg1,
     Svg2,
     Svg3,

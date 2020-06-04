@@ -20,6 +20,9 @@
       <template slot="cta-text">
         Demander un devis
       </template>
+      <template slot="form">
+        <Form />
+      </template>
     </SlotTopSection>
 
     <!-- Section People Word Card -->
@@ -94,104 +97,10 @@
     </section>
 
     <!-- Section tiles service instance -->
-    <section class="bg-white border-b pt-10 md:pt-16">
-      <div class="container max-w-5xl mx-auto">
-        <h2
-          class="mx-4 my-2 text-4xl font-bold leading-tight text-center text-gray-800"
-        >
-          Construisons ensemble votre projet
-        </h2>
-
-        <!-- Underline for h1 -->
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
-        </div>
-
-        <!-- Here start the tiles section -->
-        <ul>
-          <li v-for="index in service.acf.repeaterCard.length" :key="index">
-            <div v-if="(index - 1) % 2">
-              <div class="grid-cols-1">
-                <div class="flex flex-wrap py-4 my-6">
-                  <div class="w-full sm:w-1/2 px-4 md:pl-6 md:pr-3">
-                    <h3
-                      class="text-3xl text-gray-800 font-bold leading-none mb-3"
-                    >
-                      {{ service.acf.repeaterCard[index - 1].title }}
-                    </h3>
-
-                    <div class="text-gray-600 mb-8 text-lg">
-                      <ul>
-                        <li
-                          v-for="index2 in service.acf.repeaterCard[index - 1]
-                            .repeaterParagraph.length"
-                          :key="index2"
-                        >
-                          <div
-                            v-html="
-                              service.acf.repeaterCard[index - 1]
-                                .repeaterParagraph[index2 - 1].htmlParagraph
-                            "
-                            class="text-gray-700 text-base text-justify"
-                          ></div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="w-full m-auto mt-0 sm:w-1/2 px-4 md:pl-3 md:pr-6">
-                    <g-image
-                      class="w-full object-contains object-top"
-                      :src="service.acf.repeaterCard[index - 1].picture"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div v-else>
-              <div class="grid-cols-1">
-                <div
-                  class="flex flex-wrap flex-col-reverse sm:flex-row py-4 my-6"
-                >
-                  <div class="w-full m-auto mt-0 sm:w-1/2 px-4 md:pl-6 md:pr-3">
-                    <g-image
-                      class="w-full object-contains object-top"
-                      :src="service.acf.repeaterCard[index - 1].picture"
-                    />
-                  </div>
-                  <div class="w-full sm:w-1/2 px-4 md:pr-6 md:pl-3">
-                    <div class="align-middle">
-                      <h3
-                        class="text-3xl text-gray-800 font-bold leading-none mb-3"
-                      >
-                        {{ service.acf.repeaterCard[index - 1].title }}
-                      </h3>
-                      <div class="text-gray-600 mb-8 text-lg">
-                        <ul>
-                          <li
-                            v-for="index2 in service.acf.repeaterCard[index - 1]
-                              .repeaterParagraph.length"
-                            :key="index2"
-                          >
-                            <div
-                              v-html="
-                                service.acf.repeaterCard[index - 1]
-                                  .repeaterParagraph[index2 - 1].htmlParagraph
-                              "
-                              class="text-gray-700 text-base text-justify"
-                            ></div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <BaseBlocks
+      title="Construisons ensemble votre projet"
+      :repeaterCard="service.acf.repeaterCard"
+    />
 
     <section class="bg-white border-b pt-10 md:pt-16">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
@@ -219,9 +128,11 @@
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. Texte relatif à la
+                réalisation, soit une témoignage, soit une explication détaillée
+                d'un chantier. Texte relatif à la réalisation, soit une
+                témoignage, soit une explication détaillée d'un chantier. Texte
+                relatif à la réalisation, soit une témoignage, soit une
                 explication détaillée d'un chantier.
               </p>
             </a>
@@ -252,8 +163,9 @@
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. 
+                explication détaillée d'un chantier. Texte relatif à la
+                réalisation, soit une témoignage, soit une explication détaillée
+                d'un chantier.
               </p>
             </a>
           </div>
@@ -283,9 +195,11 @@
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la réalisation, soit une témoignage, soit une
+                explication détaillée d'un chantier. Texte relatif à la
+                réalisation, soit une témoignage, soit une explication détaillée
+                d'un chantier. Texte relatif à la réalisation, soit une
+                témoignage, soit une explication détaillée d'un chantier. Texte
+                relatif à la réalisation, soit une témoignage, soit une
                 explication détaillée d'un chantier.
               </p>
             </a>
@@ -304,8 +218,6 @@
         </div>
       </div>
     </section>
-
-
 
     <!-- Section pricing, use somewhere ! -->
     <!-- <section class="bg-gray-100 pt-10 md:pt-16">
@@ -424,8 +336,6 @@
       </div>
     </section> -->
 
-    
-    
     <!-- Remaining content to introduce -->
     <!-- <br />
     <br />
@@ -542,9 +452,6 @@
       <template slot="cta-text">
         Demander un devis
       </template>
-      <template slot="form">
-        <Form />
-      </template>
     </SlotBottomSection>
   </div>
 </template>
@@ -553,12 +460,14 @@
 import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import Form from "~/components/Form.vue";
+import BaseBlocks from "~/components/BaseBlocks.vue";
 
 export default {
   components: {
     SlotTopSection,
     SlotBottomSection,
-    Form
+    Form,
+    BaseBlocks
   },
   props: {
     service: {

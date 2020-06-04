@@ -96,16 +96,35 @@ module.exports = {
     extend: {
       // colors: colors,
       screens: {
-        'ssm': '450px',
-        'sm': '576px',
-        'mid': '650px',
-        'md': '768px',
-        'mmd': '868px',
-        'lg': '992px',
-        'xl': '1200px',
-        'xxl': '1500px',
-        '3xl': '1900px'
+        ssm: '450px',
+        sm: '640px',        
+        md: '768px',
+        mdg: '868px',
+        lg: '1024px',
+        xl: '1280px'
       },
+      // screens: {
+      //   'ssm': {'min': '450px', 'max': '1899px'},
+      //   'sm': {'min': '576px', 'max': '1899px'},
+      //   'mid': {'min': '650px', 'max': '1899px'},
+      //   'md': {'min': '768px', 'max': '1899px'},
+      //   'mdg': {'min': '868px', 'max': '1899px'},
+      //   'lg': {'min': '992px', 'max': '1899px'},
+      //   'xl': {'min': '1200px', 'max': '1899px'},
+      //   'xxl': {'min': '1500px', 'max': '1899px'},
+      //   '3xl': {'min': '1900px'},
+      // },
+      // screens: {
+      //   'ssm': '450px',
+      //   'sm': '576px',
+      //   'mid': '650px',
+      //   'md': '768px',
+      //   'mmd': '868px',
+      //   'lg': '992px',
+      //   'xl': '1200px',
+      //   'xxl': '1500px',
+      //   '3xl': '1900px'
+      // },
       // textColors: colors,
       // backgroundColors: colors,
       height: {
