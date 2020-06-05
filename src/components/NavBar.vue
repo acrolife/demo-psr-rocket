@@ -7,41 +7,43 @@
       <div
         class="container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
       >
-        <div class="pl-4 flex items-center">
-          <div class="flex">
-            <g-link to="/" :class="navbarTitleColorClass">
-              <g-image
-                src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/logo-prestations-services-renovations-10.png"
-                class="h-6 w-auto mx-3 mr-5 mb-1 lg:h-8"
-              >
-              </g-image>
-            </g-link>
-            <g-link to="/" :class="navbarTitleColorClass">
-              <div
-                class="text-white no-underline hover:text-teal-600 font-bold text-xl lg:text-2xl"
-                :class="navbarTitleColorClass"
-              >
-                PS-Rénovation
-              </div>
-            </g-link>
+        <div class="w-full flex flex-cols justify-between lg:w-auto">
+          <div class="pl-4 md:flex items-center">
+            <div class="flex">
+              <g-link to="/" :class="navbarTitleColorClass">
+                <g-image
+                  src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/logo-prestations-services-renovations-10.png"
+                  class="h-6 w-auto mx-3 mr-5 mb-1 lg:h-8"
+                >
+                </g-image>
+              </g-link>
+              <g-link to="/" :class="navbarTitleColorClass">
+                <div
+                  class="text-white no-underline hover:text-teal-600 font-bold text-xl lg:text-2xl"
+                  :class="navbarTitleColorClass"
+                >
+                  PS-Rénovation
+                </div>
+              </g-link>
+            </div>
           </div>
-        </div>
 
-        <div class="block lg:hidden pr-4">
-          <button
-            class="flex items-center p-1 hover:text-gray-900 mr-6"
-            :class="menuSvgColor"
-            @click="toggleNav"
-          >
-            <svg
-              class="fill-current h-6 w-6"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+          <div class="block lg:hidden pr-4">
+            <button
+              class="flex items-center p-1 hover:text-gray-900 mr-6"
+              :class="menuSvgColor"
+              @click="toggleNav"
             >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
+              <svg
+                class="fill-current h-6 w-6"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div
@@ -51,7 +53,7 @@
           <ul
             class="list-reset justify-end flex-1 items-center mb-2 lg:flex lg:mb-0 xxl:text-xl"
           >
-          <li
+            <li
               class="mr-3"
               @click="setActive('Home')"
               :class="navItemClass('Home')"
@@ -182,9 +184,9 @@ export default {
         : this.isExpanded
         ? this.$store.commit("toggleMMenu")
         : this.$store.commit("setColor0ther");
-    },
+    }
     // handleScroll(event) {
-    //   return window.scrollY >= 10 
+    //   return window.scrollY >= 10
     //   ? this.isExpanded ? this.$store.commit("toggleMMenu") : null : null
     // }
   }

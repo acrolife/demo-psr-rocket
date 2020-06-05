@@ -20,7 +20,53 @@
       </template>
     </SlotTopSection>
 
+    <!-- Section tiles realisation instance -->
+    <BaseBlocks
+      :title="
+        'Une réalisation ' +
+          realisation.acf.dateStart.slice(-4, realisation.acf.dateStart.length)
+      "
+      :repeaterCard="realisation.acf.repeaterCard"
+    />
+
+    <!-- Section tiles carousel !! -->
+    <!-- <div class="bg-white border-b pt-8 pb-4">
+      <div class=" max-w-5xl mx-auto xl:max-w-6xl">
+        <CustomCarousel>
+          <slot name="slidesServ">
+            <div
+              v-for="(item, index) in realisation.acf.repeaterCard.rGallery"
+              :key="index"
+            >
+            hello
+              <img :src="item.repeaterImages" />
+            </div>
+          </slot>
+          <slot name="caption"></slot>
+          <template slot="caption">
+          <slot name="captionServ"></slot>
+        </template>
+        </CustomCarousel>
+      </div>
+    </div> -->
+
+    <GalleryGrid
+      :gallery="realisation.acf.rGallery"
+      v-if="realisation.acf.rGallery.length !== 0"
+    />
+
+    <!-- Tiles section -->
     <section class="bg-white py-8">
+      <h2
+        class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+      >
+        Quelques détails...
+      </h2>
+
+      <!-- Underline for h1 -->
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
+      </div>
       <div
         class="p-6 grid grid-cols-1 md:grid-cols-2 md:gap-6 md:w-4/5 md:mx-auto lg:w-3/4 xl:w-2/3"
       >
@@ -134,41 +180,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Section tiles realisation instance -->
-    <BaseBlocks
-      :title="
-        'Réalisation ' +
-          realisation.acf.dateStart.slice(-4, realisation.acf.dateStart.length)
-      "
-      :repeaterCard="realisation.acf.repeaterCard"
-    />
-
-    <!-- Section tiles carousel !! -->
-    <!-- <div class="bg-white border-b pt-8 pb-4">
-      <div class=" max-w-5xl mx-auto xl:max-w-6xl">
-        <CustomCarousel>
-          <slot name="slidesServ">
-            <div
-              v-for="(item, index) in realisation.acf.repeaterCard.rGallery"
-              :key="index"
-            >
-            hello
-              <img :src="item.repeaterImages" />
-            </div>
-          </slot>
-          <slot name="caption"></slot>
-          <template slot="caption">
-          <slot name="captionServ"></slot>
-        </template>
-        </CustomCarousel>
-      </div>
-    </div> -->
-
-    <GalleryGrid
-      :gallery="realisation.acf.rGallery"
-      v-if="realisation.acf.rGallery.length !== 0"
-    />
 
     <!--Pre-footer slots section -->
     <SlotBottomSection>

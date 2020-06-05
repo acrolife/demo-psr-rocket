@@ -9,6 +9,7 @@
       <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
       </div>
+      
       <ul>
         <div
           class="md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3 xl:max-w-screen-xl"
