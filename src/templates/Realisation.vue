@@ -38,6 +38,7 @@ query Realisation ($realisationId: ID!) {
               textBeforeLink
               link { 
                 title
+                url
                 target            
             }
           }

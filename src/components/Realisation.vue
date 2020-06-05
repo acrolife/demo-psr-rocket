@@ -1,4 +1,5 @@
 <template>
+  <!-- <div v-if="realisation.acf.cpkSelector === 'short'">Pas de suite</div> -->
   <div class="gradient pt-12">
     <!--Hero slots -->
     <SlotTopSection>
@@ -9,51 +10,124 @@
         J'ai un projet similaire
       </template>
       <template slot="form">
-        <g-image
-          class="h-64 object-cover rounded-lg opacity-75"
-          :src="realisation.acf.topImage"
-          v-if="realisation.acf.topImage"
-        />
+        <div class="flex justify-center">
+          <g-image
+            class="h-64 object-cover rounded-lg border border-white border-1"
+            :src="realisation.acf.topImage"
+            v-if="realisation.acf.topImage"
+          />
+        </div>
       </template>
     </SlotTopSection>
 
-    <section class="bg-white flex justify-center py-8">
-      <div class="p-4 w-full sm:w-3/4 md:max-w-xl">
-        <!-- <div
-          class="flex h-64 bg-cover bg-center border-r border-t border-l border-gray-400 rounded-t text-center overflow-hidden shadow-lg"
-          :style="{
-            backgroundImage: 'url(' + realisation.acf.topImage + ')'
-          }"
-        ></div> -->
+    <section class="bg-white py-8">
+      <div
+        class="p-6 grid grid-cols-1 md:grid-cols-2 md:gap-6 md:w-4/5 md:mx-auto lg:w-3/4 xl:w-2/3"
+      >
+        <!-- Tile 1 : infos chantier -->
+        <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
+          <div
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10"
+          >
+            <div class="flex flex-col my-4 text-gray-800">
+              <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
+                <div class="flex mb-2">
+                  <p class="pr-1 rounded bg-teal-200 py-1 px-2">
+                    Informations au sujet du chantier
+                  </p>
+                </div>
+                <div class="flex-cols">
+                  <p class="pl-1 pr-1">Nom du chantier:</p>
+                  <p class="font-bold">{{ realisation.acf.name }}</p>
+                </div>
+                <div class="flex">
+                  <p class="pl-1 pr-1">Ayant eu lieu à</p>
+                  <p class="font-bold">{{ realisation.acf.place }}</p>
+                </div>
+                <div class="flex">
+                  <p class="pl-1 pr-1">Débutée le</p>
+                  <p class="font-bold">{{ realisation.acf.dateStart }}</p>
+                </div>
+                <div class="flex">
+                  <p class="pl-1 pr-1">Cloturée le</p>
+                  <p class="font-bold">{{ realisation.acf.dateEnd }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <div
-          class="flex border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-center"
-        >
-          <!-- <div
-          class="flex h-28 border-r border-b border-l border-gray-400 bg-white rounded-b p-4 leading-normal shadow-lg border-gray-400 justify-center"
-        > -->
-          <div class="flex flex-col my-4 text-gray-800">
-            <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
-              <div class="flex mb-2">
-                <p class="pr-1 rounded bg-teal-200 py-1 px-2">
-                  Informations au sujet du chantier
-                </p>
+        <!-- Tile 2 : collaborateurs -->
+        <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
+          <div
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10"
+          >
+            <div class="flex flex-col my-4 text-gray-800">
+              <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
+                <div class="flex mb-2">
+                  <p class="pr-1 rounded bg-teal-200 py-1 px-2">
+                    Références et liens
+                  </p>
+                </div>
+                <ul>
+                  <li
+                    v-for="(collaborateurArray, index) in realisation.acf
+                      .repeaterCollaborateur"
+                    :key="index"
+                  >
+                    <div
+                      class="flex"
+                      v-if="realisation.acf.repeaterCollaborateur.length !== 0"
+                    >
+                      <p class="pl-1 pr-1">Collaborateur(s):</p>
+                      <a
+                        class="font-thin text-teal-500 hover:font-bold"
+                        :href="collaborateurArray.collaborateur"
+                      >
+                        ce lien</a
+                      >
+                    </div>
+                  </li>
+                </ul>
+                <p class="pl-1">{{ realisation.acf.lcTitle }}</p>
               </div>
-              <div class="flex-cols">
-                <p class="pl-1 pr-1">Nom du chantier:</p>
-                <p class="font-bold">{{ realisation.acf.name }}</p>
-              </div>
-              <div class="flex">
-                <p class="pl-1 pr-1">Ayant eu lieu à</p>
-                <p class="font-bold">{{ realisation.acf.place }}</p>
-              </div>
-              <div class="flex">
-                <p class="pl-1 pr-1">Débutée le</p>
-                <p class="font-bold">{{ realisation.acf.dateStart }}</p>
-              </div>
-              <div class="flex">
-                <p class="pl-1 pr-1">Cloturée le</p>
-                <p class="font-bold">{{ realisation.acf.dateEnd }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tile 3 : links -->
+        <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
+          <div
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10"
+          >
+            <div
+              class="flex flex-col my-4 text-gray-800"
+              v-if="realisation.acf.repeaterLink.length !== 0"
+            >
+              <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
+                <div class="flex mb-2">
+                  <p class="pr-1 rounded bg-teal-200 py-1 px-2">
+                    {{ realisation.acf.lcTitle }}
+                  </p>
+                  <p class="pr-1" v-if="realisation.acf.lcContent">
+                    {{ realisation.acf.lcContent }}
+                  </p>
+                </div>
+                <ul>
+                  <li
+                    v-for="(item, index) in realisation.acf.repeaterLink"
+                    :key="index"
+                  >
+                    <div class="flex flex-cols">
+                      <p class="pl-1 pr-1">{{ item.textBeforeLink }}</p>
+                      <a
+                        class="font-thin text-teal-500 hover:font-bold"
+                        :href="item.link.url"
+                        >{{ item.link.title }}
+                      </a>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -61,7 +135,7 @@
       </div>
     </section>
 
-    <!-- Section tiles service instance -->
+    <!-- Section tiles realisation instance -->
     <BaseBlocks
       :title="
         'Réalisation ' +
@@ -70,6 +144,7 @@
       :repeaterCard="realisation.acf.repeaterCard"
     />
 
+    <!-- Section tiles carousel !! -->
     <!-- <div class="bg-white border-b pt-8 pb-4">
       <div class=" max-w-5xl mx-auto xl:max-w-6xl">
         <CustomCarousel>
@@ -90,71 +165,29 @@
       </div>
     </div> -->
 
-    <GalleryGrid :gallery="realisation.acf.rGallery" />
+    <GalleryGrid
+      :gallery="realisation.acf.rGallery"
+      v-if="realisation.acf.rGallery.length !== 0"
+    />
 
-    <!-- <div v-if="realisation.acf.cpkSelector === 'short'">Pas de suite</div> -->
-
-    <div class="text-3xl font-bold text-purple-600">repeaterCollaborateur</div>
-    <ul>
-      <li
-        v-for="index in realisation.acf.repeaterCollaborateur.length"
-        :key="index"
-      >
-        <div
-          v-html="
-            realisation.acf.repeaterCollaborateur[index - 1].collaborateur
-          "
-        ></div>
-      </li>
-    </ul>
-
-    <div class="text-3xl font-bold text-purple-600">Link Card</div>
-    <div class="text-xl font-bold text-purple-600">lcTitle</div>
-    <div v-html="realisation.acf.lcTitle"></div>
-    <div class="text-xl font-bold text-purple-600">lcContent</div>
-    <div v-html="realisation.acf.lcContent"></div>
-    <div class="text-xl font-bold text-purple-600">repeaterLink</div>
-    <ul>
-      <li v-for="index in realisation.acf.repeaterLink.length" :key="index">
-        <p class="text-xl font-bold text-purple-600">
-          Link Instance {{ index }}
-        </p>
-        <div class="text-xl font-bold text-purple-600">
-          repeaterLink[{{ index - 1 }}].textBeforeLink
-        </div>
-        <div
-          v-html="realisation.acf.repeaterLink[index - 1].textBeforeLink"
-        ></div>
-        <ul>
-          <li
-            v-for="index2 in realisation.acf.repeaterLink[index - 1].link
-              .length"
-            :key="index2"
-          >
-            <div class="text-xl font-bold text-purple-600">
-              repeaterLink[{{ index - 1 }}].link[
-              {{ index2 - 1 }}
-              ].htmlParagraph
-            </div>
-            <div
-              v-html="
-                realisation.acf.repeaterLink[index - 1].link[index2 - 1].title
-              "
-            ></div>
-            <div
-              v-html="
-                realisation.acf.repeaterLink[index - 1].link[index2 - 1].target
-              "
-            ></div>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <!--Pre-footer slots section -->
+    <SlotBottomSection>
+      <template slot="main-text">
+        Notre expertise
+      </template>
+      <template slot="secondary-text">
+        Au service de votre projet !
+      </template>
+      <template slot="cta-text">
+        Demander un devis
+      </template>
+    </SlotBottomSection>
   </div>
 </template>
 
 <script>
 import SlotTopSection from "~/components/TopSection.vue";
+import SlotBottomSection from "~/components/BottomSection.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
 import GalleryGrid from "~/components/GalleryGrid.vue";
 import CustomCarousel from "~/components/CustomCarousel.vue";
@@ -162,6 +195,7 @@ import CustomCarousel from "~/components/CustomCarousel.vue";
 export default {
   components: {
     SlotTopSection,
+    SlotBottomSection,
     BaseBlocks,
     GalleryGrid,
     CustomCarousel
