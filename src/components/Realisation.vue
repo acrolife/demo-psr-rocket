@@ -73,7 +73,7 @@
         <!-- Tile 1 : infos chantier -->
         <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
           <div
-            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10"
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-6"
           >
             <div class="flex flex-col my-4 text-gray-800">
               <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
@@ -82,19 +82,19 @@
                     Informations au sujet du chantier
                   </p>
                 </div>
-                <div class="flex-cols">
+                <div class="flex flex-wrap">
                   <p class="pl-1 pr-1">Nom du chantier:</p>
                   <p class="font-bold">{{ realisation.acf.name }}</p>
                 </div>
-                <div class="flex">
+                <div class="flex flex-wrap">
                   <p class="pl-1 pr-1">Ayant eu lieu à</p>
                   <p class="font-bold">{{ realisation.acf.place }}</p>
                 </div>
-                <div class="flex">
+                <div class="flex flex-wrap">
                   <p class="pl-1 pr-1">Débutée le</p>
                   <p class="font-bold">{{ realisation.acf.dateStart }}</p>
                 </div>
-                <div class="flex">
+                <div class="flex flex-wrap">
                   <p class="pl-1 pr-1">Cloturée le</p>
                   <p class="font-bold">{{ realisation.acf.dateEnd }}</p>
                 </div>
@@ -104,9 +104,12 @@
         </div>
 
         <!-- Tile 2 : collaborateurs -->
-        <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
+        <div
+          class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0"
+          v-if="realisation.acf.repeaterCollaborateur.length !== 0"
+        >
           <div
-            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10"
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-6"
           >
             <div class="flex flex-col my-4 text-gray-800">
               <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
@@ -121,10 +124,7 @@
                       .repeaterCollaborateur"
                     :key="index"
                   >
-                    <div
-                      class="flex"
-                      v-if="realisation.acf.repeaterCollaborateur.length !== 0"
-                    >
+                    <div class="flex">
                       <p class="pl-1 pr-1">Collaborateur(s):</p>
                       <a
                         class="font-thin text-teal-500 hover:font-bold"
@@ -142,14 +142,14 @@
         </div>
 
         <!-- Tile 3 : links -->
-        <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
+        <div
+          class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0"
+          v-if="realisation.acf.lcTitle"
+        >
           <div
-            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10"
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-6"
           >
-            <div
-              class="flex flex-col my-4 text-gray-800"
-              v-if="realisation.acf.repeaterLink.length !== 0"
-            >
+            <div class="flex flex-col my-4 text-gray-800">
               <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
                 <div class="flex mb-2">
                   <p class="pr-1 rounded bg-teal-200 py-1 px-2">
