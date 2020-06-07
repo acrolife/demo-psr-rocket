@@ -73,8 +73,10 @@
                   }`
                 "
               >
-                <div class="flex flex-col shadow-2xl border rounded-lg m-2">
-                  <div class="flex justify-center px-10 mt-6 h-12">
+                <div
+                  class="flex flex-col h-128 md:h-144 shadow-2xl border rounded-lg m-2"
+                >
+                  <div class="flex justify-center px-10 mt-10 h-16">
                     <h2
                       class="text-lg uppercase text-gray-700 font-bold md:text-xl"
                     >
@@ -89,7 +91,7 @@
                   </div>
 
                   <div
-                    class="text-lg text-gray-700 md:text-xl px-10 bg-white h-48 mb-2 rounded-lg"
+                    class="text-lg text-gray-700 md:text-xl px-10 bg-white rounded-lg"
                   >
                     <img
                       alt="quote"
@@ -125,90 +127,54 @@
         <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
       </div>
 
-      <!-- <div class="flex m-auto px-6 max-w-screen-xl md:px-12">
-        <div class="text-gray-700 text-base xl:text-xl">
-          <p class="text-justify" v-html="$page.data.acf.icTitle"></p>
-        </div>
-      </div> -->
+      <!-- Rounded wrapper -->
       <div
-        class="flex flex-col m-auto p-4 py-10 max-w-screen-xl  md:p-12 md:flex-row"
-      >
+        class="flex m-auto p-4 py-10 max-w-screen-xl sm:w-2/3 md:w-full md:p-12"
+      > <!--  bg-pink-500  -->
         <div
-          class="flex mx-auto pt-12 w-2/3 rounded-lg bg-white shadow-lg p-4 md:pt-4 md:w-full lg:rounded-none lg:shadow-none"
-        >
+          class="flex flex-col mx-auto py-4 w-full rounded-lg bg-white shadow-lg md:flex-row md:pt-4"
+        > <!-- bg-teal-500 -->
 
-          <div class="flex flex-col">
-            <div class="flex">
-
-              <div class="mx-2 mb-2 md:w-7/12 lg:w-2/3">
-                <div
-                  class="relative mx-auto h-48 ssm:w-96 lg:mx-2 z-30 md:py-48"
-                >
-                  <div class="absolute w-full h-auto pin-c z-20">
-                    <div class="mt-16 md:mt-12 lg:mt-36" @click="playVideo()">
-                      <SvgPlayButton
-                        class="mx-auto w-16 h-16 lg:w-32 lg:h-32 z-30"
-                      />
-                    </div>
-                  </div>
-
-                  <g-image
-                    class="absolute w-full pin-c border rounded-lg shadow-lg z-10"
-                    :src="$page.data.acf.icImage"
+          <!-- Subsection image/video/buttF -->
+          <div class="md:w-7/12 pt-2 px-4 md:px-0 md:pl-4">
+          <!-- bg-blue-500 -->
+            <div class="relative mx-auto h-48 maxmob:w-2/3 middle:w-full z-30">
+              <div class="absolute w-full h-auto pin-c z-20">
+                <div class="md:mt-36 lg:mt-48" @click="playVideo()">
+                  <SvgPlayButton
+                    class="mx-auto w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 z-30"
                   />
-                  <iframe
-                    v-if="videoOnTopClass"
-                    class="absolute w-full h-full pin-c border rounded-lg shadow"
-                    :class="videoOnTopClass"
-                    src="https://www.youtube.com/embed/VZzyFo2V6NI?autoplay=1"
-                  ></iframe>
                 </div>
               </div>
 
-              <div class="flex flex-1 mx-4 pl-2 pr-2 md:w-5/12 lg:w-1/3">
-                <div class="h-auto py-6 md:h-96 lg:px-8">
-                  <div class="text-gray-700 text-lg xl:text-xl">
-                    <p
-                      class="text-justify"
-                      v-html="$page.data.acf.icContent"
-                    ></p>
-                  </div>
-                </div>
-              </div>
+              <g-image
+                class="absolute w-full pin-c border rounded-lg shadow-lg z-10"
+                :class="'video-position'"
+                :src="$page.data.acf.icImage"
+              />
+
+              <iframe
+                v-if="videoOnTopClass"
+                class="absolute w-full h-full pin-c border rounded-lg shadow"
+                :class="videoOnTopClass"
+                src="https://www.youtube.com/embed/VZzyFo2V6NI?autoplay=1"
+              ></iframe>
 
             </div>
-            <!-- <div class="flex pb-10"></div> -->
+          </div>
 
+          <!-- Subsection text -->
+          <div class="flex mx-4 mt-6 mb-4 md:w-5/12">
+          <!-- bg-purple-500 -->
+            <div class="h-auto md:h-96 lg:px-8">
+              <div class="text-gray-700 text-lg xl:text-xl">
+                <p class="text-justify" v-html="$page.data.acf.icContent"></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- <div class="m-auto my-4 w-11/12 ssm:w-10/12">
-        <div class="relative z-30 px-0 py-24 mx-4 ssm:py-32 mid:py-36 mid:mx-6">
-          <div
-            class="absolute w-full h-full pin-c border rounded bg-teal-500 bg-opacity-25 shadow z-20 md:w-4/5 lg:w-2/3 xl:w-1/2"
-          >
-            <div
-              class="mt-16 ssm:mt-24 mid:mt-32 md:mt-40"
-              @click="playVideo()"
-            >
-              <SvgPlayButton
-                class="mx-auto w-12 h-12 ssm:w-16 ssm:h-16 md:w-32 md:h-32 z-30"
-              />
-            </div>
-          </div>
-          <g-image
-            class="absolute w-full h-full pin-c border rounded shadow z-10 md:w-4/5 lg:w-2/3 xl:w-1/2"
-            :src="$page.data.acf.icImage"
-          />
-          <iframe
-            v-if="videoOnTopClass"
-            class="absolute w-full h-full pin-c border rounded shadow md:w-4/5 lg:w-2/3 xl:w-1/2"
-            :class="videoOnTopClass"
-            src="https://www.youtube.com/embed/VZzyFo2V6NI?autoplay=1"
-          ></iframe>
-        </div>
-      </div> -->
       <!-- mute the vid : https://stackoverflow.com/questions/41185416/how-can-i-mute-an-iframe-with-an-embedded-youtube-video-in-html -->
     </section>
 
@@ -229,9 +195,9 @@
       </div>
 
       <div class="flex flex-col m-auto p-4 max-w-screen-xl md:p-12 md:flex-row">
-        <div class="flex pl-4 pr-2 md:flex-col md:w-1/3">
+        <div class="flex pl-4 pr-4 md:flex-col md:w-1/3">
           <div class="flex-1"></div>
-          <div class="flex">
+          <div class="flex lg:rounded lg:border lg:p-4 lg:-mt-6">
             <div class="text-gray-700 text-lg xl:text-xl">
               <p
                 class="text-justify"
@@ -461,9 +427,12 @@ export default {
 </script>
 
 <style>
-.bg-dots{
-  background-image: url(https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5dea7a12bb83ab1f13040de5_cx-dots.svg);
-  /* background-image: url(SvgSquareDots); */
-  background-repeat: no-repeat
+.video-position {
+  @media screen and (min-width: 768px) {
+     top: 10rem;
+  }
+  @media screen and (min-width: 1024px) {
+     top: 12rem;
+  }
 }
 </style>

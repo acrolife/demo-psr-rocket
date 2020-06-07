@@ -96,7 +96,9 @@ module.exports = {
     extend: {
       // colors: colors,
       screens: {
-        ssm: '450px',
+        // ssm: '450px',
+        maxmob: '450px',
+        middle: '640px',
         sm: '640px',        
         md: '768px',    
         mdg: '868px',
