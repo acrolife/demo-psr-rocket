@@ -70,7 +70,7 @@
               :class="navItemClass('Services')"
             >
               <g-link
-                to="/"
+                to="/services"
                 class="inline-block no-underline hover:text-teal-500 py-2 px-4"
                 >Services</g-link
               >

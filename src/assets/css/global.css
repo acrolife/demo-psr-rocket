@@ -32,6 +32,8 @@
   /* background: linear-gradient(90deg, #04AF84 0%, #1b83c7 100%); */
   background: #00b084;
 }
+/* <div class="py-20" style="background: linear-gradient(90deg, #64C389 0%, #00B084 100%)">
+          </div> */
 .router-link-active {
   @apply font-bold;
 }
