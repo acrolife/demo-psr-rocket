@@ -96,13 +96,16 @@ module.exports = {
     extend: {
       // colors: colors,
       screens: {
-        // ssm: '450px',
         maxmob: '450px',
+        ssm: '450px',        
         middle: '640px',
-        sm: '640px',        
+        sm: '640px',    
+        medium: '768px',    
         md: '768px',    
         mdg: '868px',
+        large: '1024px',
         lg: '1024px',
+        xlarge: '1280px',
         xl: '1280px'
       },
       // screens: {

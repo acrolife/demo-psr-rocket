@@ -130,14 +130,16 @@
       <!-- Rounded wrapper -->
       <div
         class="flex m-auto p-4 py-10 max-w-screen-xl sm:w-2/3 md:w-full md:p-12"
-      > <!--  bg-pink-500  -->
+      >
+        <!--  bg-pink-500  -->
         <div
           class="flex flex-col mx-auto py-4 w-full rounded-lg bg-white shadow-lg md:flex-row md:pt-4"
-        > <!-- bg-teal-500 -->
+        >
+          <!-- bg-teal-500 -->
 
           <!-- Subsection image/video/buttF -->
           <div class="md:w-7/12 pt-2 px-4 md:px-0 md:pl-4">
-          <!-- bg-blue-500 -->
+            <!-- bg-blue-500 -->
             <div class="relative mx-auto h-48 maxmob:w-2/3 middle:w-full z-30">
               <div class="absolute w-full h-auto pin-c z-20">
                 <div class="md:mt-36 lg:mt-48" @click="playVideo()">
@@ -153,19 +155,25 @@
                 :src="$page.data.acf.icImage"
               />
 
-              <iframe
-                v-if="videoOnTopClass"
-                class="absolute w-full h-full pin-c border rounded-lg shadow"
-                :class="videoOnTopClass"
-                src="https://www.youtube.com/embed/VZzyFo2V6NI?autoplay=1"
-              ></iframe>
+              <!-- <div class="relative" :class="'video-position'"> -->
 
+              <!-- </div> -->
             </div>
           </div>
 
+          <VideoModal v-if="showModal" @close="showModal = false">    
+            <div slot="body">
+              <iframe                
+                class="w-full h-56 maxmob:h-64 middle:h-80 medium:h-96 large:h-112 xlarge:h-160 rounded-lg"
+                :class="videoOnTopClass"
+                src="https://www.youtube.com/embed/VZzyFo2V6NI?autoplay=1"
+              ></iframe>
+            </div>
+          </VideoModal>
+
           <!-- Subsection text -->
           <div class="flex mx-4 mt-6 mb-4 md:w-5/12">
-          <!-- bg-purple-500 -->
+            <!-- bg-purple-500 -->
             <div class="h-auto md:h-96 lg:px-8">
               <div class="text-gray-700 text-lg xl:text-xl">
                 <p class="text-justify" v-html="$page.data.acf.icContent"></p>
@@ -397,11 +405,13 @@ import SvgWavePostHeader from "~/components/svg/SvgWavePostHeader.vue";
 // import SvgWavesAnimation from "~/components/svg/SvgWavesAnimation.vue";
 import SvgPlayButton from "~/components/svg/play-button.vue";
 // import BannerQualifLong from "~/components/BannerQualifLong.vue";
+import VideoModal from "~/components/VideoModal.vue";
 
 export default {
   data() {
     return {
-      videoOnTopClass: ""
+      videoOnTopClass: "",
+      showModal: false
     };
   },
   components: {
@@ -409,15 +419,17 @@ export default {
     SvgWavePostHeader,
     // SvgWaveIntermediate,
     // SvgWavesAnimation,
-    SvgPlayButton
+    SvgPlayButton,
+    VideoModal
     // BannerQualifLong
   },
   methods: {
     playVideo() {
-      this.videoOnTopClass = "z-40";
-      setTimeout(() => {
-        this.videoOnTopClass = "";
-      }, 95000);
+      this.showModal = true;
+      // this.videoOnTopClass = "z-40";
+      // setTimeout(() => {
+      //   this.videoOnTopClass = "";
+      // }, 95000);
     }
   },
   metaInfo: {
