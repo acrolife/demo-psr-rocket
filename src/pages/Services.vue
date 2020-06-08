@@ -41,11 +41,13 @@
                 <div class="md:text-5xl text-2xl uppercase font-black">
                   <h2>{{ $page.data.acf.repeaterCard[index - 1].title }}</h2>
                 </div>
-                <div class="text-xl mt-4">Contenu spécifique au service. Ce service est articulé autour de..</div>
+                <div class="text-xl mt-4">
+                  {{ $page.service.edges[index - 1].node.acf.repeaterTitle[1].title }}
+                </div>
                 <g-link
                 :to="
                 `/nos-domaines-dexpertise/${
-                  $page.data2.edges[index - 1].node.slug
+                  $page.service.edges[index - 1].node.slug
                 }`
                 "
                 >
@@ -119,11 +121,14 @@
         }
       }
     }
-    data2: allWordPressServices {
+    service: allWordPressServices {
       edges {
         node {
           id
           slug
+          acf {
+            repeaterTitle { title } 
+          }
         }
       }
     }
