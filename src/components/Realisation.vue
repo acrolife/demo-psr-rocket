@@ -201,7 +201,7 @@ import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
 import GalleryGrid from "~/components/GalleryGrid.vue";
-import CustomCarousel from "~/components/CustomCarousel.vue";
+// import CustomCarousel from "~/components/CustomCarousel.vue";
 
 export default {
   components: {
@@ -209,7 +209,7 @@ export default {
     SlotBottomSection,
     BaseBlocks,
     GalleryGrid,
-    CustomCarousel
+    // CustomCarousel
   },
   props: {
     realisation: {

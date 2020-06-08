@@ -97,6 +97,17 @@
                 >Blog</g-link
               >
             </li>
+            <li
+              class="mr-3"
+              @click="setActive('Lentreprise')"
+              :class="navItemClass('Lentreprise')"
+            >
+              <g-link
+                to="/notre-entreprise/"
+                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
+                >L'entreprise</g-link
+              >
+            </li>
           </ul>
           <div class="hidden lg:flex">
             <g-link

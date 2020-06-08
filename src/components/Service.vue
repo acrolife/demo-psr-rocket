@@ -31,7 +31,7 @@
         <!-- component -->
         <div class="w-11/12 md:w-3/4 max-w-4xl lg:flex rounded shadow my-4">
           <div
-            class="h-48 lg:h-auto lg:w-2/5 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            class="h-48 lg:h-auto lg:w-2/5 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
             :style="{
               backgroundImage: 'url(' + service.acf.topImage + ')'
             }"
