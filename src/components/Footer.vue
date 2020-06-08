@@ -23,7 +23,7 @@
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
-                to="https://www.linkedin.com/company/ps-renovation/"
+                href="https://www.linkedin.com/company/ps-renovation/"
                 target="_blank"
                 class="no-underline hover:text-teal-500 text-gray-800"
                 >Linkedin</a
@@ -50,7 +50,7 @@
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
-                to="/"
+                to="/notre-entreprise#contact"
                 class="no-underline hover:text-teal-500 text-gray-800"
                 >Contact</g-link
               >
@@ -60,18 +60,18 @@
         <div class="flex-1">
           <p class="uppercase text-gray-500 md:mb-6">Aspects légaux</p>
           <ul class="list-reset mb-6">
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <!-- <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/"
                 class="no-underline hover:text-teal-500 text-gray-800"
                 >CGV</g-link
               >
-            </li>
+            </li> -->
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
                 to="/"
                 class="no-underline hover:text-teal-500 text-gray-800"
-                >Confidentialité</g-link
+                >Politique de confidentialité</g-link
               >
             </li>
           </ul>
