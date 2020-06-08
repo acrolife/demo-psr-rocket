@@ -198,7 +198,7 @@
       </h2>
 
       <!-- Underline title -->
-      <div class="w-full mb-4">
+      <!-- <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
       </div>
 
@@ -237,7 +237,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="mx-8 mb-8 ssm:mx-12 mid:mx-20 md:mb-12 lg:px-40">
         <div class="text-gray-700 text-base xl:text-xl">
@@ -247,7 +247,7 @@
           ></p>
         </div>
       </div> -->
-      </div>
+      <!-- </div> -->
     </section>
 
     <!--Pre-footer slots section -->
