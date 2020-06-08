@@ -207,13 +207,13 @@
           <div class="flex-1"></div>
           <div class="flex lg:rounded lg:border lg:p-4 lg:-mt-6">
             <div class="text-gray-700 text-lg xl:text-xl">
-              <p
+              <div
                 class="text-justify"
                 v-html="
                   $page.data3.acf.repeaterCard[0].repeaterParagraph[0]
                     .htmlParagraph
                 "
-              ></p>
+              ></div>
             </div>
           </div>
           <div class="flex-1"></div>
