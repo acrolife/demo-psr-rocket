@@ -97,7 +97,7 @@
                 >Blog</g-link
               >
             </li>
-            <li
+            <!-- <li
               class="mr-3"
               @click="setActive('Lentreprise')"
               :class="navItemClass('Lentreprise')"
@@ -107,7 +107,7 @@
                 class="inline-block no-underline hover:text-teal-600 py-2 px-4"
                 >L'entreprise</g-link
               >
-            </li>
+            </li> -->
           </ul>
           <div class="hidden lg:flex">
             <g-link
