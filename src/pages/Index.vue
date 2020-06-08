@@ -161,7 +161,7 @@
             </div>
           </div>
 
-          <VideoModal v-if="showModal" @close="showModal = false">    
+          <!-- <VideoModal v-if="showModal" @close="showModal = false">    
             <div slot="body">
               <iframe                
                 class="w-full h-56 maxmob:h-64 middle:h-80 medium:h-96 large:h-112 xlarge:h-160 rounded-lg"
@@ -169,7 +169,7 @@
                 src="https://www.youtube.com/embed/VZzyFo2V6NI?autoplay=1"
               ></iframe>
             </div>
-          </VideoModal>
+          </VideoModal> -->
 
           <!-- Subsection text -->
           <div class="flex mx-4 mt-6 mb-4 md:w-5/12">
