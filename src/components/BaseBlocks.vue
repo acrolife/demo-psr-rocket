@@ -3,7 +3,7 @@
   <div class="bg-white border-b pt-10 pb-4">
     <div class="container max-w-5xl mx-auto xl:max-w-6xl">
       <h2
-        class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+        class="w-full my-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         v-html="title"
       ></h2>
 
@@ -20,7 +20,7 @@
               <div class="flex flex-wrap py-4 mt-6">
                 <div class="w-full sm:w-1/2 px-4 md:pl-6 md:pr-3">
                   <h3
-                    class="text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
+                    class="text-2xl md:text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
                   >
                     {{ card.title }}
                   </h3>
@@ -84,7 +84,7 @@
                 <div class="w-full sm:w-1/2 px-4 md:pr-6 md:pl-3">
                   <div class="align-middle">
                     <h3
-                      class="text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
+                      class="text-2xl md:text-3xl text-gray-800 font-bold leading-none mb-3 xl:text-4xl"
                     >
                       {{ card.title }}
                     </h3>

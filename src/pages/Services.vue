@@ -26,7 +26,7 @@
 
       <!-- h2 -->
       <h2
-      class="w-full mt-6 mb-2 text-4xl font-bold leading-tight text-center text-gray-800"
+      class="w-full mt-6 mb-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800"
       >PSR | Services</h2>
       <div class="w-full mb-4">
         <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
@@ -42,7 +42,7 @@
                   <h2>{{ $page.data.acf.repeaterCard[index - 1].title }}</h2>
                 </div>
                 <div class="text-xl mt-4">
-                  {{ $page.service.edges[index - 1].node.acf.repeaterTitle[1].title }}
+                  {{ $page.data3.acf.repeaterCard[index - 1].repeaterParagraph[0].htmlParagraph.slice(3, -5) }}
                 </div>
                 <g-link
                 :to="
@@ -67,7 +67,7 @@
                   class="rounded-t"
                   :src="$page.data.acf.repeaterCard[index - 1].picture"
                   />
-                  <div class="text-lg md:text-2xl p-10 bg-white"><img alt="quote" class="float-left mr-1" src="https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5cf8fb1f994fb7168d0d66fb_quote-intro.svg"> {{ $page.data3.acf.repeaterCard[index - 1].repeaterParagraph[0].htmlParagraph.slice(3, -5)}} </div>
+                  <div class="text-lg md:text-2xl p-10 bg-white"><img alt="quote" class="float-left mr-1" src="https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5cf8fb1f994fb7168d0d66fb_quote-intro.svg"> {{ $page.service.edges[index - 1].node.acf.repeaterTitle[1].title }} </div>
                 </div>
               </div>
             </div>
