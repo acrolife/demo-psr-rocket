@@ -1,6 +1,6 @@
   <template>
   <!-- Section tiles post instance -->
-  <div class="bg-white border-b pt-10 pb-4">
+  <div class="bg-white pt-10 pb-4">
     <div class="container max-w-5xl mx-auto xl:max-w-6xl">
       <h2
         class="w-full my-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"

@@ -4,14 +4,14 @@
 
       <!--Hero slots section -->
       <SlotTopSection>
-        <template v-if="$page.data.acf.repeaterTitle" slot="repeatable-title-1">
+        <template v-if="$page.pageservices.acf.repeaterTitle" slot="repeatable-title-1">
           Nos domaines d'expertise
         </template>
         <template
-        v-if="$page.data.acf.repeaterTitle.length >= 1"
+        v-if="$page.pageservices.acf.repeaterTitle.length >= 1"
         slot="repeatable-title-2"
         >
-        {{ $page.data.acf.repeaterTitle[1].title }}
+        {{ $page.pageservices.acf.repeaterTitle[1].title }}
       </template>
       <template slot="cta-text">
         Demander un devis
@@ -34,20 +34,20 @@
 
       <!--  cards  -->
       <ul>
-        <li v-for="index in $page.data.acf.repeaterCard.length" :key="index">
+        <li v-for="index in $page.pageservices.acf.repeaterCard.length" :key="index">
           <div class="m-auto max-w-6xl p-6 md:p-12">
             <div class="flex flex-col md:flex-row">
               <div class="md:w-1/2 max-w-md flex flex-col justify-center">
                 <div class="md:text-5xl text-2xl uppercase font-black">
-                  <h2>{{ $page.data.acf.repeaterCard[index - 1].title }}</h2>
+                  <h2>{{ $page.pageservices.acf.repeaterCard[index - 1].title }}</h2>
                 </div>
                 <div class="text-xl mt-4">
-                  {{ $page.data3.acf.repeaterCard[index - 1].repeaterParagraph[0].htmlParagraph.slice(3, -5) }}
+                  {{ $page.pageaccueil.acf.repeaterCard[index - 1].repeaterParagraph[0].htmlParagraph.slice(3, -5) }}
                 </div>
                 <g-link
                 :to="
                 `/nos-domaines-dexpertise/${
-                  $page.service.edges[index - 1].node.slug
+                  $page.services.edges[index - 1].node.slug
                 }`
                 "
                 >
@@ -65,9 +65,9 @@
                 <div class="shadow-2xl max-w-md z-10 rounded-full mt-6 ml-4">
                   <g-image
                   class="rounded-t"
-                  :src="$page.data.acf.repeaterCard[index - 1].picture"
+                  :src="$page.pageservices.acf.repeaterCard[index - 1].picture"
                   />
-                  <div class="text-lg md:text-2xl p-10 bg-white"><img alt="quote" class="float-left mr-1" src="https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5cf8fb1f994fb7168d0d66fb_quote-intro.svg"> {{ $page.service.edges[index - 1].node.acf.repeaterTitle[1].title }} </div>
+                  <div class="text-lg md:text-2xl p-10 bg-white"><img alt="quote" class="float-left mr-1" src="https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5cf8fb1f994fb7168d0d66fb_quote-intro.svg"> {{ $page.services.edges[index - 1].node.acf.repeaterTitle[1].title }} </div>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
 
 <page-query>
   query {
-    data: wordPressPage(id: 490) {
+    pageservices: wordPressPage(id: 490) {
       id
       slug
       acf {
@@ -121,7 +121,7 @@
         }
       }
     }
-    service: allWordPressServices {
+    services: allWordPressServices {
       edges {
         node {
           id
@@ -132,7 +132,7 @@
         }
       }
     }
-    data3: wordPressPage(id: 464) {
+    pageaccueil: wordPressPage(id: 464) {
           slug
           title
  					acf {     

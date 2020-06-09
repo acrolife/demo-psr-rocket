@@ -47,7 +47,7 @@
         </div>
 
         <div
-          class="mt-2 bg-white p-4 z-20 lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0"
+          class="mt-2 mr-2 md:mr-4 bg-white p-4 z-20 lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0"
           :class="isExpandedClass"
         >
           <ul

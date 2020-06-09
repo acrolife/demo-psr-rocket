@@ -1,12 +1,18 @@
 <template>
   <Layout>
-      <Service :service="$page.wordPressServices" />
+    <Service
+      :service="$page.service"
+      :realisations="$page.realisations"
+      :services="$page.services"
+      :pageservices="$page.pageservices"
+      :pageaccueil="$page.pageaccueil"
+    />
   </Layout>
 </template>
 
 <page-query>
-query Service ($serviceId: ID!) {
-	 wordPressServices (id: $serviceId) {
+query ($serviceId: ID!) {
+	 service: wordPressServices (id: $serviceId) {
     slug
     id
     acf {     
@@ -21,6 +27,7 @@ query Service ($serviceId: ID!) {
           pwcCtaText
           icTitle
           icContent
+          icImage
           repeaterCard {
             ctaText
             picture
@@ -55,71 +62,14 @@ query Service ($serviceId: ID!) {
           bottomCtaTextCopy
         }
   }
-}
-</page-query>
-
-<!--
-<page-query>
-query {
-  data : ($serviceId: ID!) {
-	 wordPressServices (id: $serviceId) {
-    slug
-    id
-    acf {     
-          repeaterTitle { title } 
-          topImage
-          topCtaText 
-          pwcTitle
-          pwcImage
-          pwcIcon
-          pwcRepeaterContent { paragraph }          
-          pwcSignature
-          pwcCtaText
-          icTitle
-          icContent
-          repeaterCard {
-            ctaText
-            picture
-          	repeaterParagraph { 
-              htmlParagraph
-            }
-            title            
-          } 
-          ic2Title
-          ic2Content
-          mcTitle
-          mcRepeaterParagraph { 
-            paragraph
-          	title            
-          }
-          mcTitle2          
-          mcRepeaterParagraph2 {
-            paragraph
-            title            
-          }
-          repeaterCard2 {
-            ctaText
-            picture
-            repeaterParagraph { 
-              htmlParagraph
-            }
-            title            
-          }         
-          trpContent
-          trpPageLink
-          trpTitle
-          bottomCtaTextCopy
-        }
-    } 
-  }
-  data2: allWordPressRealisations {
+  realisations: allWordPressRealisations {
       edges {
         node {
           id
           slug
           title
           acf {
-            topImage
+            dateEnd
             repeaterCard { 
             	repeaterParagraph { 
               htmlParagraph
@@ -128,18 +78,43 @@ query {
           }
         }
       }
+    } 
+  services: allWordPressServices {
+      edges {
+        node {
+          id
+          slug
+        }
+      }
+    }
+  pageaccueil: wordPressPage(id: 464) {
+ 					acf {     
+          repeaterCard {
+            ctaText
+            picture
+          	repeaterParagraph { 
+              htmlParagraph
+            }
+            title            
+          } 
+        }
+      }
+   pageservices: wordPressPage(id: 490) {
+      acf {
+        repeaterCard {
+          title
+          picture
+        }
+      }
     }
 }
 </page-query>
--->
 
 <script>
-import { Pager } from "gridsome";
 import Service from "~/components/Service.vue";
 
 export default {
   components: {
-    Pager,
     Service
   }
   // metaInfo () {

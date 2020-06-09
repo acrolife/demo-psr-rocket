@@ -15,20 +15,20 @@
         </template>
         <template slot="form">
           <div class="flex justify-center">
-            <g-image class="h-40 my-20" :src="$page.data.acf.topImage" />
+            <g-image class="h-40 my-20" :src="$page.pageentreprise.acf.topImage" />
           </div>
         </template>
       </SlotTopSection>
 
       <!-- Section People Word Card -->
-      <section v-if="$page.data.acf.pwcTitle">
+      <section v-if="$page.pageentreprise.acf.pwcTitle">
         <div class="bg-white flex justify-center pt-10 md:pt-16">
           <!-- component -->
           <div class="w-11/12 md:w-3/4 max-w-4xl lg:flex rounded shadow my-4">
             <div
               class="h-48 lg:h-auto lg:w-2/5 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
               :style="{
-                backgroundImage: 'url(' + $page.data.acf.pwcImage + ')'
+                backgroundImage: 'url(' + $page.pageentreprise.acf.pwcImage + ')'
               }"
             ></div>
 
@@ -49,21 +49,21 @@
               Members only
             </p> -->
                 <div class="text-gray-800 font-bold text-xl mb-2">
-                  {{ $page.data.acf.pwcTitle }}
+                  {{ $page.pageentreprise.acf.pwcTitle }}
                 </div>
                 <div class="text-gray-700 text-base">
                   <ul>
                     <li
-                      v-for="index in $page.data.acf.pwcRepeaterContent.length"
+                      v-for="index in $page.pageentreprise.acf.pwcRepeaterContent.length"
                       :key="index"
                     >
                       <div
                         v-html="
-                          $page.data.acf.pwcRepeaterContent[index - 1].paragraph
+                          $page.pageentreprise.acf.pwcRepeaterContent[index - 1].paragraph
                         "
                       ></div>
                       <br
-                        v-if="index < $page.data.acf.pwcRepeaterContent.length"
+                        v-if="index < $page.pageentreprise.acf.pwcRepeaterContent.length"
                       />
                     </li>
                   </ul>
@@ -73,12 +73,12 @@
                 <div
                   class="w-16 h-16 rounded-full mr-4 bg-cover bg-bottom"
                   :style="{
-                    backgroundImage: 'url(' + $page.data.acf.pwcIcon + ')'
+                    backgroundImage: 'url(' + $page.pageentreprise.acf.pwcIcon + ')'
                   }"
                 ></div>
                 <div class="text-sm">
                   <p class="text-gray-800 italic leading-none">
-                    {{ $page.data.acf.pwcSignature }}
+                    {{ $page.pageentreprise.acf.pwcSignature }}
                   </p>
                   <!-- <p class="text-gray-600">Aug 18</p> -->
                 </div>
@@ -86,7 +86,7 @@
               <button
                 class="mx-auto green-psr gradient text-white font-bold rounded-full mt-3 mb-3 py-4 px-8 shadow-lg"
               >
-                {{ $page.data.acf.pwcCtaText }}
+                {{ $page.pageentreprise.acf.pwcCtaText }}
               </button>
             </div>
           </div>
@@ -95,7 +95,7 @@
 
       <BaseBlocks
         title="Le coeur à l'ouvrage"
-        :repeaterCard="$page.data.acf.repeaterCard"
+        :repeaterCard="$page.pageentreprise.acf.repeaterCard"
       />
 
       <!--Qualifications section -->
@@ -123,7 +123,7 @@
                 <p
                   class="text-justify"
                   v-html="
-                    $page.data3.acf.repeaterCard[0].repeaterParagraph[0]
+                    $page.reproduciblebannergest.acf.repeaterCard[0].repeaterParagraph[0]
                       .htmlParagraph
                   "
                 ></p>
@@ -137,7 +137,7 @@
             <div class="flex justify-center mb-8">
               <ul class="flex">
                 <li
-                  v-for="(image, index) in $page.data2.acf.rGallery"
+                  v-for="(image, index) in $page.reproduciblebannerqual.acf.rGallery"
                   :key="index"
                   class="flex-1"
                 >
@@ -168,7 +168,7 @@
                 <p
                   class="text-justify"
                   v-html="
-                    $page.data3.acf.repeaterCard[0].repeaterParagraph[0]
+                    $page.reproduciblebannergest.acf.repeaterCard[0].repeaterParagraph[0]
                       .htmlParagraph
                   "
                 ></p>
@@ -181,7 +181,7 @@
             <div class="text-gray-700 text-lg xl:text-xl">
               <p
                 class="text-justify"
-                v-html="$page.data2.acf.riRepeaterContent[0].content"
+                v-html="$page.reproduciblebannerqual.acf.riRepeaterContent[0].content"
               ></p>
             </div>
           </div>
@@ -193,7 +193,7 @@
           <div class="text-gray-700 text-base xl:text-xl">
             <p
               class="text-justify"
-              v-html="$page.data2.acf.riRepeaterContent[0].content"
+              v-html="$page.reproduciblebannerqual.acf.riRepeaterContent[0].content"
             ></p>
           </div>
         </div> -->
@@ -217,7 +217,7 @@
 
 <page-query>
   query {
-    data: wordPressPage(id: 454) {
+    pageentreprise: wordPressPage(id: 454) {
           slug
           title
  					acf {     
@@ -272,7 +272,7 @@
           lcContent 
         }
       }
-    data2: wordPressReproducible(id: 438) {
+    reproduciblebannerqual: wordPressReproducible(id: 438) {
           id
           slug
           acf {
@@ -301,7 +301,7 @@
             }                  	  
          }
        }      
-    data3: wordPressReproducible(id: 566) {
+    reproduciblebannergest: wordPressReproducible(id: 566) {
         acf {
           repeaterCard { 
             title

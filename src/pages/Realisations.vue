@@ -20,7 +20,7 @@
 
 
       <!-- Realisations cards - Horizontal tiles -->
-      <CardGrid cardGridSlug="nos-realisations" :cardGridData="$page.data.edges">
+      <CardGrid cardGridSlug="nos-realisations" :cardGridData="$page.realisations.edges">
         <template slot="cta-text">
           Découvrir le projet
         </template>
@@ -46,7 +46,7 @@
 
 <page-query>
   query {
-    data: allWordPressRealisations {
+    realisations: allWordPressRealisations {
       edges {
         node {
           id

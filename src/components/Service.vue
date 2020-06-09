@@ -25,13 +25,41 @@
       </template>
     </SlotTopSection>
 
+    <!-- Section Introduction Card -->
+    <section v-if="service.acf.icTitle">
+      <div class="bg-white flex justify-center pt-10 md:pt-16">
+        <!-- component -->
+        <div class="w-11/12 md:w-3/4 max-w-4xl lg:flex rounded shadow my-4">
+          <div
+            class="h-48 lg:h-auto lg:w-1/2 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            :style="{
+              backgroundImage: 'url(' + service.acf.icImage + ')'
+            }"
+          ></div>
+
+          <div
+            class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+          >
+            <div class="mb-4">
+              <div class="text-gray-800 font-bold text-xl mb-2">
+                {{ service.acf.icTitle }}
+              </div>
+              <div class="text-gray-700 text-base">
+                <div v-html="service.acf.icContent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section People Word Card -->
     <section v-if="service.acf.pwcTitle">
       <div class="bg-white flex justify-center pt-10 md:pt-16">
         <!-- component -->
         <div class="w-11/12 md:w-3/4 max-w-4xl lg:flex rounded shadow my-4">
           <div
-            class="h-48 lg:h-auto lg:w-2/5 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            class="h-48 lg:h-auto lg:w-1/2 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
             :style="{
               backgroundImage: 'url(' + service.acf.topImage + ')'
             }"
@@ -102,10 +130,10 @@
       :repeaterCard="service.acf.repeaterCard"
     />
 
-    <section class="bg-white border-b pt-10 md:pt-16">
+    <section class="bg-white pt-10 md:pt-16">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2
-          class="w-full my-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800"
+          class="w-full my-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         >
           Réalisations
         </h2>
@@ -116,240 +144,159 @@
         </div>
 
         <div class="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                Terminé le 20 mars 2018
-              </p>
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Rénovation d'un cabinet dentaire à Paris, 19ème
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la
-                réalisation, soit une témoignage, soit une explication détaillée
-                d'un chantier. Texte relatif à la réalisation, soit une
-                témoignage, soit une explication détaillée d'un chantier. Texte
-                relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier.
-              </p>
-            </a>
-          </div>
-          <div
-            class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
-          >
-            <div class="flex items-center justify-start">
-              <button
-                class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-              >
-                J'ai un projet similaire
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                Terminé le 10 juillet 2019
-              </p>
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Construction d'une annexe à Neuilly-sur-Seine
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la
-                réalisation, soit une témoignage, soit une explication détaillée
-                d'un chantier.
-              </p>
-            </a>
-          </div>
-          <div
-            class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
-          >
-            <div class="flex items-center justify-center">
-              <button
-                class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-              >
-                J'ai un projet similaire
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                Terminé le 5 octobre 2017
-              </p>
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Ravalement de façade ancienne à Montgeron
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Texte relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier. Texte relatif à la
-                réalisation, soit une témoignage, soit une explication détaillée
-                d'un chantier. Texte relatif à la réalisation, soit une
-                témoignage, soit une explication détaillée d'un chantier. Texte
-                relatif à la réalisation, soit une témoignage, soit une
-                explication détaillée d'un chantier.
-              </p>
-            </a>
-          </div>
-          <div
-            class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
-          >
-            <div class="flex items-center justify-end">
-              <button
-                class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-              >
-                J'ai un projet similaire
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section pricing, use somewhere ! -->
-    <!-- <section class="bg-gray-100 pt-10 md:pt-16">
-      <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
-        <h1
-          class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
-        >
-          Pricing
-        </h1>
-        <div class="w-full mb-4">
-          <div
-            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
-          ></div>
-        </div>
-
-        <div
-          class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4"
-        >
-          <div
-            class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4"
-          >
-            <div
-              class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow"
-            >
-              <div class="p-8 text-3xl font-bold text-center border-b-4">
-                Free
-              </div>
-              <ul class="w-full text-center text-sm">
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-              </ul>
-            </div>
-            <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
-            >
-              <div
-                class="w-full pt-6 text-3xl text-gray-600 font-bold text-center"
-              >
-                £0 <span class="text-base">for one user</span>
-              </div>
-              <div class="flex items-center justify-center">
-                <button
-                  class="mx-auto lg:mx-0 green-psr gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-white mt-4 sm:-mt-6 shadow-lg z-10"
+          <g-link
+            class="flex flex-col h-full"
+            :to="
+              'nos-realisations/' +
+                realisations.edges[reaArrayIndex[0]].node.slug
+            "
           >
             <div
               class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
             >
-              <div class="w-full p-8 text-3xl font-bold text-center">Basic</div>
-              <div class="h-1 w-full gradient my-0 py-0 rounded-t"></div>
-              <ul class="w-full text-center text-base font-bold">
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-              </ul>
+              <div class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full text-gray-600 text-xs md:text-sm px-6">
+                  Terminé le
+                  {{
+                    realisations.edges[reaArrayIndex[0]].node.acf.dateEnd ||
+                      "non-renseigné"
+                  }}
+                </div>
+                <div class="w-full font-bold text-xl text-gray-800 px-6">
+                  {{ realisations.edges[reaArrayIndex[0]].node.title }}
+                </div>
+                <div
+                  v-html="
+                    realisations.edges[reaArrayIndex[0]].node.acf
+                      .repeaterCard[0].repeaterParagraph[0].htmlParagraph
+                  "
+                  class="text-gray-800 text-base px-6 mb-5"
+                ></div>
+              </div>
             </div>
             <div
               class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
             >
-              <div class="w-full pt-6 text-4xl font-bold text-center">
-                £x.99 <span class="text-base">/ per user</span>
-              </div>
-              <div class="flex items-center justify-center">
+              <div class="flex items-center justify-start">
                 <button
-                  class="mx-auto lg:mx-0 green-psr gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                  class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
                 >
-                  Sign Up
+                  En savoir plus
                 </button>
               </div>
             </div>
-          </div>
+          </g-link>
+        </div>
 
-          <div
-            class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4"
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+          <g-link
+            class="flex flex-col h-full"
+            :to="
+              'nos-realisations/' +
+                realisations.edges[reaArrayIndex[1]].node.slug
+            "
           >
             <div
-              class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow"
+              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
             >
-              <div class="p-8 text-3xl font-bold text-center border-b-4">
-                Pro
+              <div class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full text-gray-600 text-xs md:text-sm px-6">
+                  Terminé le
+                  {{
+                    realisations.edges[reaArrayIndex[1]].node.acf.dateEnd ||
+                      "non-renseigné"
+                  }}
+                </div>
+                <div class="w-full font-bold text-xl text-gray-800 px-6">
+                  {{ realisations.edges[reaArrayIndex[1]].node.title }}
+                </div>
+                <div
+                  v-html="
+                    realisations.edges[reaArrayIndex[1]].node.acf
+                      .repeaterCard[0].repeaterParagraph[0].htmlParagraph
+                  "
+                  class="text-gray-800 text-base px-6 mb-5"
+                ></div>
               </div>
-              <ul class="w-full text-center text-sm">
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-              </ul>
             </div>
             <div
               class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
             >
-              <div
-                class="w-full pt-6 text-3xl text-gray-600 font-bold text-center"
-              >
-                £x.99 <span class="text-base">/ per user</span>
-              </div>
               <div class="flex items-center justify-center">
                 <button
-                  class="mx-auto lg:mx-0 green-psr gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                  class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
                 >
-                  Sign Up
+                  En savoir plus
                 </button>
               </div>
             </div>
-          </div>
+          </g-link>
+        </div>
+
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+          <g-link
+            class="flex flex-col h-full"
+            :to="
+              'nos-realisations/' +
+                realisations.edges[reaArrayIndex[2]].node.slug
+            "
+          >
+            <div
+              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
+            >
+              <div class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full text-gray-600 text-xs md:text-sm px-6">
+                  Terminé le
+                  {{
+                    realisations.edges[reaArrayIndex[2]].node.acf.dateEnd ||
+                      "non-renseigné"
+                  }}
+                </div>
+                <div class="w-full font-bold text-xl text-gray-800 px-6">
+                  {{ realisations.edges[reaArrayIndex[2]].node.title }}
+                </div>
+                <div
+                  v-html="
+                    realisations.edges[reaArrayIndex[2]].node.acf
+                      .repeaterCard[0].repeaterParagraph[0].htmlParagraph
+                  "
+                  class="text-gray-800 text-base px-6 mb-5"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
+            >
+              <div class="flex items-center justify-end">
+                <button
+                  class="mx-auto lg:mx-0 green-psr text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                >
+                  En savoir plus
+                </button>
+              </div>
+            </div>
+          </g-link>
         </div>
       </div>
-    </section> -->
+    </section>
+
+    <!-- Section pricing ?? -->
+
+    <!-- H2 & Card section -->
+    <CardGridMenu
+      :cardGridMenuData1="pageservices"
+      :cardGridMenuData2="pageaccueil"
+      :cardGridMenuSlug="services"
+    >
+      <template slot="title">
+        Autres domaines d'expertise
+      </template>
+    </CardGridMenu>
 
     <!-- Remaining content to introduce -->
-    <!-- <br />
-    <br />
+    <!-- 
     <div class="text-3xl font-bold text-purple-600">topCtaText</div>
     <div v-html="service.acf.topCtaText"></div>
-
-    <br />
-    <br />
-    <div class="text-3xl font-bold text-purple-600">Introduction Card</div>
-    <div class="text-xl font-bold text-purple-600">icTitle</div>
-    <div v-html="service.acf.icTitle"></div>
-    <div class="text-xl font-bold text-purple-600">icContent</div>
-    <div v-html="service.acf.icContent"></div>
-
     <br />
     <br />
     <div class="text-3xl font-bold text-purple-600">Main Card</div>
@@ -386,7 +333,7 @@
       </li>
     </ul>
 
-    <div class="text-3xl font-bold text-purple-600">repeaterCard2</div>   
+    <div class="text-3xl font-bold text-purple-600">repeaterCard2</div>
     <ul>
       <li v-for="index in service.acf.repeaterCard2.length" :key="index">
         <p class="text-xl font-bold text-purple-600">Card {{ index }}</p>
@@ -461,19 +408,50 @@ import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import Form from "~/components/Form.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
+import CardGridMenu from "~/components/CardGridMenu.vue";
 
 export default {
+  data() {
+    return {
+      reaArrayIndex: [],
+      nbOfIndexes: 3,
+      rdnArrayIndexLength: 10
+    };
+  },
   components: {
     SlotTopSection,
     SlotBottomSection,
     Form,
-    BaseBlocks
+    BaseBlocks,
+    CardGridMenu
   },
   props: {
     service: {
       type: Object,
       required: true
+    },
+    realisations: {
+      type: Object,
+      required: true
+    },
+    services: {
+      type: Object,
+      required: true
+    },
+    pageservices: {
+      type: Object,
+      required: true
+    },
+    pageaccueil: {
+      type: Object,
+      required: true
     }
+  },
+  created() {
+    const reaArrayIndexLocal = [...Array(this.rdnArrayIndexLength)].map(_ =>
+      Math.floor(Math.random() * this.realisations.edges.length)
+    );
+    this.reaArrayIndex = [...new Set(reaArrayIndexLocal)];
   }
 };
 </script>
