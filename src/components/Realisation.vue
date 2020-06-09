@@ -248,18 +248,17 @@ export default {
     const reaArrayIndexLocal = [...Array(this.rdnArrayIndexLength)].map(_ =>
       Math.floor(Math.random() * this.realisations.edges.length)
     );
-    this.reaArrayIndex = [...new Set(reaArrayIndexLocal)];
     const indexSelector = [...Array(this.nbOfIndexes).keys()];
-    this.reaArrayIndex = this.reaArrayIndex.filter(
+    this.reaArrayIndex = [...new Set(reaArrayIndexLocal)].filter(
       (item, index) => indexSelector.includes(index)
     )
     this.realisationsSelection = this.realisations.edges.filter(
       (realisationItem, index) => this.reaArrayIndex.includes(index) && realisationItem.node.id !== this.realisation.id
     );
-    this.realisationsSelection.length !== 3 ? 
-    this.realisationsSelection = this.realisations.edges.filter(
-      (realisationItem, index) => this.reaArrayIndex.slice(0,3).includes(index)
-    ) : null
+    console.log(this.realisation.id)
+    console.log(this.realisationsSelection.map(item => item.node.id))
+    this.realisationsSelection = this.realisationsSelection.length > 3 ? this.realisationsSelection.slice(0,3) : this.realisationsSelection
+    console.log(this.realisationsSelection.map(item => item.node.id))
   }
 };
 </script>
