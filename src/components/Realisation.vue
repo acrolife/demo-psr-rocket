@@ -258,7 +258,7 @@ export default {
     console.log(this.realisation.id)
     console.log(this.realisationsSelection.map(item => item.node.id))
     this.realisationsSelection = this.realisationsSelection.length > 3 ? this.realisationsSelection.slice(0,3) : this.realisationsSelection
-    console.log(this.realisationsSelection.map(item => item.node.id))
+    console.log(this.realisationsSelection.map(item => item.node.id)) 
   }
 };
 </script>
