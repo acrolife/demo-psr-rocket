@@ -33,7 +33,7 @@
               "
             >
             <div
-              class="flex flex-col h-128 md:h-144 shadow-2xl border rounded-lg m-2"
+              class="flex flex-col h-128 md:h-144 shadow-lg hover:shadow-2xl border rounded-lg m-2"
             >
               <div class="flex justify-center px-10 mt-10 h-16">
                 <h2

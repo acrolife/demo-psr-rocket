@@ -131,30 +131,32 @@
     />
 
     <section class="bg-white pt-10 md:pt-16">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+      <div class="mx-auto flex flex-wrap pt-4 pb-12 m-auto p-4 max-w-screen-xl md:p-12">
+
         <h2
           class="w-full my-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         >
           Réalisations
         </h2>
+
         <div class="w-full mb-4">
           <div
-            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
+            class="h-1 mx-auto w-64 opacity-25 my-0 py-0"
           ></div>
         </div>
 
-        <div class="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="w-full md:w-1/2 lg:w-2/3 py-6 px-2 flex flex-col flex-grow flex-shrink">
           <g-link
-            class="flex flex-col h-full"
+            class="flex flex-col h-full shadow-lg hover:shadow-2xl rounded-lg border pt-4"
             :to="
               'nos-realisations/' +
                 realisations.edges[reaArrayIndex[0]].node.slug
             "
           >
             <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
+              class="flex-1 bg-white overflow-hidden"
             >
-              <div class="flex flex-wrap no-underline hover:no-underline">
+              <div class="flex flex-wrap no-underline">
                 <div class="w-full text-gray-600 text-xs md:text-sm px-6">
                   Terminé le
                   {{
@@ -175,7 +177,7 @@
               </div>
             </div>
             <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
+              class="flex-none mt-auto bg-white overflow-hidden p-6 rounded-lg"
             >
               <div class="flex items-center justify-start">
                 <button
@@ -188,18 +190,18 @@
           </g-link>
         </div>
 
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="w-full md:w-1/2 lg:w-1/3 py-6 px-2  flex flex-col flex-grow flex-shrink">
           <g-link
-            class="flex flex-col h-full"
+            class="flex flex-col h-full shadow-lg hover:shadow-2xl rounded-lg border pt-4"
             :to="
               'nos-realisations/' +
                 realisations.edges[reaArrayIndex[1]].node.slug
             "
           >
             <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
+              class="flex-1 bg-white overflow-hidden"
             >
-              <div class="flex flex-wrap no-underline hover:no-underline">
+              <div class="flex flex-wrap no-underline">
                 <div class="w-full text-gray-600 text-xs md:text-sm px-6">
                   Terminé le
                   {{
@@ -220,7 +222,7 @@
               </div>
             </div>
             <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
+              class="flex-none mt-auto bg-white overflow-hidden p-6 rounded-lg"
             >
               <div class="flex items-center justify-center">
                 <button
@@ -233,18 +235,18 @@
           </g-link>
         </div>
 
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="w-full md:w-1/3 py-6 px-2 flex flex-col flex-grow flex-shrink">
           <g-link
-            class="flex flex-col h-full"
+            class="flex flex-col h-full shadow-lg hover:shadow-2xl rounded-lg border pt-4"
             :to="
               'nos-realisations/' +
                 realisations.edges[reaArrayIndex[2]].node.slug
             "
           >
             <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
+              class="flex-1 bg-white overflow-hidden shadow"
             >
-              <div class="flex flex-wrap no-underline hover:no-underline">
+              <div class="flex flex-wrap no-underline">
                 <div class="w-full text-gray-600 text-xs md:text-sm px-6">
                   Terminé le
                   {{
@@ -265,7 +267,7 @@
               </div>
             </div>
             <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6"
+              class="flex-none mt-auto bg-white overflow-hidden p-6 rounded-lg"
             >
               <div class="flex items-center justify-end">
                 <button
@@ -277,6 +279,7 @@
             </div>
           </g-link>
         </div>
+
       </div>
     </section>
 
