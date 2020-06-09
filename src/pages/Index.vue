@@ -43,7 +43,7 @@
       </div>
     </section>
 
-    <!-- H2 & Card section -->
+    <!-- H2 & Card Menu section -->
     <CardGridMenu
       :cardGridMenuData1="$page.pageservices"
       :cardGridMenuData2="$page.pageaccueil"

@@ -1,6 +1,6 @@
 <template>
   <!-- H2 & Card section -->
-  <div class="bg-white">
+  <div class="bg-white pb-10">
     <!-- h2 -->
     <h2
       class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800"
@@ -14,61 +14,52 @@
     </div>
 
     <!--  cards  -->
-    <ul
-      class="sm:w-2/3 md:w-full m-auto p-4 max-w-screen-xl md:p-12 md:grid md:grid-cols-2 lg:grid-cols-3"
-    >
-      <li
-        v-for="(item, index) in cardGridMenuOthersData1.acf.repeaterCard"
-        :key="index"
+    <ul>
+      <div
+        class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
       >
-        <div>
-          <div class="flex">
-            <!-- <div class="flex flex-col md:flex-row"> -->
+        <li v-for="(item, index) in cardGridMenuOthersData" :key="index">
+          <div class="container mx-auto">
+            <!-- 2 Rows Columns of Cards -->
+            <g-link :to="`/${cardGridMenuOthersSlug}/${item.node.slug}`">
+              <div class="p-5">
+                <div
+                  class="flex h-64 bg-cover bg-center border-r border-t border-l border-gray-400 rounded-t text-center overflow-hidden shadow-lg"
+                  :style="{
+                    backgroundImage: 'url(' + item.node.acf.topImage + ')'
+                  }"
+                ></div>
 
-            <g-link
-              :to="
-                `/nos-domaines-dexpertise/${
-                  cardGridMenuOthersSlug.edges[index].node.slug
-                }`
-              "
-            >
-            <div
-              class="flex flex-col h-128 md:h-144 shadow-2xl border rounded-lg m-2"
-            >
-              <div class="flex justify-center px-10 mt-10 h-16">
-                <h2
-                  class="text-lg uppercase text-gray-700 font-bold md:text-xl"
+                <div
+                  class="flex h-28 border-r border-b border-l border-gray-400 bg-white rounded-b p-4 leading-normal shadow-lg border-gray-400 justify-center"
                 >
-                  {{ item.title }}
-                </h2>
+                  <div class="flex flex-col mb-">
+                    <div
+                      class="text-gray-900 font-bold text-xl text-center h-16"
+                    >
+                      {{ item.node.title }}
+                    </div>
+                    <!-- <div
+                            v-html="
+                              item.node.acf.repeaterCard[0].repeaterParagraph[0]
+                                .htmlParagraph
+                            "
+                            class="overflow-auto py-2 h-32 lg:text-lg lg:h-48"
+                          ></div> -->
+                    <!-- <p class="mt-6 lg:text-lg">En savoir plus</p> -->
+                    <button
+                      class="text-center mx-auto green-psr text-white font-bold rounded-full mt-3 mb-3 py-3 px-6 shadow-xl"
+                    >
+                      <slot name="cta-text"></slot>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="flex justify-center md:justify-start">
-                <g-image
-                  class="flex rounded-full h-32 w-32 bg-cover bg-center md:ml-10 my-6 ssm:h-44 ssm:w-44"
-                  :src="item.picture"
-                />
-              </div>
-
-              <div
-                class="text-lg text-gray-700 md:text-xl px-10 bg-white rounded-lg"
-              >
-                <img
-                  alt="quote"
-                  class="float-left mr-1"
-                  src="https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5cf8fb1f994fb7168d0d66fb_quote-intro.svg"
-                />
-                {{
-                  cardGridMenuOthersData2.acf.repeaterCard[
-                    index
-                  ].repeaterParagraph[0].htmlParagraph.slice(3, -5)
-                }}
-              </div>
-            </div>
             </g-link>
+            <!-- END 2 Rows Columns of Cards -->
           </div>
-          <!-- <div class="flex md:justify-end w-full md:w-1/3 -mt-5"></div> -->
-        </div>
-      </li>
+        </li>
+      </div>
     </ul>
   </div>
 </template>
@@ -77,17 +68,29 @@
 export default {
   props: {
     cardGridMenuOthersSlug: {
-      type: Object,
+      type: String,
       required: true
     },
-    cardGridMenuOthersData1: {
-      type: Object,
-      required: true
-    },
-    cardGridMenuOthersData2: {
+    cardGridMenuOthersData: {
       type: Object,
       required: true
     }
+  }
+};
+</script>
+</template>
+
+<script>
+export default {
+  props: {
+    cardGridMenuOthersSlug: {
+      type: String,
+      required: true
+    },
+    cardGridMenuOthersData: {
+      type: Array,
+      required: true
+    },
   }
 };
 </script>

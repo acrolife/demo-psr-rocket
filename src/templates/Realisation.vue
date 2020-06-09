@@ -1,13 +1,13 @@
 
 <template>
   <Layout>
-      <Realisation :realisation="$page.wordPressRealisations" />
+      <Realisation :realisation="$page.realisation" :realisations="$page.realisations" />
   </Layout>
 </template>
 
 <page-query>
-query Realisation ($realisationId: ID!) {
-	 wordPressRealisations (id: $realisationId) {
+query ($realisationId: ID!) {
+	 realisation: wordPressRealisations (id: $realisationId) {
           slug
     			id
 				  acf {  
@@ -44,6 +44,23 @@ query Realisation ($realisationId: ID!) {
           }
         }
   }
+  realisations: allWordPressRealisations {
+      edges {
+        node {    
+          id      
+          slug
+          title
+          acf {
+            topImage
+            repeaterCard { 
+            	repeaterParagraph { 
+              htmlParagraph
+              }
+            }
+          }
+        }
+      }
+    } 
 }
 </page-query>
 

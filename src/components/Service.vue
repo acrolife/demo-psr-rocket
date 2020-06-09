@@ -285,7 +285,7 @@
 
     <!-- Section pricing ?? -->
 
-    <!-- H2 & Card section -->
+    <!-- H2 & Card Menu section -->
     <CardGridMenu
       :cardGridMenuData1="pageservices"
       :cardGridMenuData2="pageaccueil"
@@ -455,6 +455,10 @@ export default {
       Math.floor(Math.random() * this.realisations.edges.length)
     );
     this.reaArrayIndex = [...new Set(reaArrayIndexLocal)];
+        const indexSelector = [...Array(this.nbOfIndexes).keys()];
+    this.reaArrayIndex = this.reaArrayIndex.filter(
+      (item, index) => indexSelector.includes(index)
+    )
   }
 };
 </script>
