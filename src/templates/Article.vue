@@ -1,13 +1,13 @@
 
 <template>
   <Layout>
-      <Article :post="$page.wordPressPost" />
+      <Article :post="$page.article" :posts="$page.articles" />
   </Layout>
 </template>
 
 <page-query>
-query Post ($postId: ID!) {
-	 wordPressPost (id: $postId) {
+query ($postId: ID!) {
+	 article: wordPressPost (id: $postId) {
           slug
     			id
           title
@@ -37,7 +37,24 @@ query Post ($postId: ID!) {
           tbpContent
           tbpPageLink
       		} 
-  }
+   }
+  articles: allWordPressPost {
+      edges {
+        node {    
+          id      
+          slug
+          title
+          acf {
+            topImage
+            repeaterCard { 
+            	repeaterParagraph { 
+              htmlParagraph
+              }
+            }
+          }
+        }
+      }
+    }   
 }
 </page-query>
 

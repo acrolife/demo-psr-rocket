@@ -39,10 +39,26 @@
       </div>
     </section>
 
-
     <!-- Section tiles articles instance -->
-    <BaseBlocks :title="post.title" :repeaterCard="post.acf.repeaterCard" :svgArray="svgArray" />
+    <BaseBlocks
+      :title="post.title"
+      :repeaterCard="post.acf.repeaterCard"
+      :svgArray="svgArray"
+    />
 
+    <!-- H2 & Card Menu section -->
+    <CardGridMenuOthers
+      cardGridMenuOthersSlug="blog"
+      :cardGridMenuOthersData="postsSelection"
+      @gen-rdn-rea-array="genRdnReaArray"
+    >
+      <template slot="title">
+        Autres articles
+      </template>
+      <template slot="cta-text">
+        Lire cet article
+      </template>
+    </CardGridMenuOthers>
 
     <!-- Still have to create a structure for Link card -->
 
@@ -96,6 +112,8 @@
 import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
+import CardGridMenuOthers from "~/components/CardGridMenuOthers.vue";
+
 import Svg1 from "~/components/svg/undraw_book_lover_mkck.vue";
 import Svg2 from "~/components/svg/undraw_build_your__home_csh6.vue";
 import Svg3 from "~/components/svg/undraw_building_blocks_n0nc.vue";
@@ -128,13 +146,18 @@ export default {
         "octobre",
         "novembre",
         "décembre"
-      ]
+      ],
+      postsArrayIndex: [],
+      nbOfIndexes: 4,
+      rdnArrayIndexLength: 10,
+      postsSelection: []
     };
   },
   components: {
     SlotTopSection,
     SlotBottomSection,
     BaseBlocks,
+    CardGridMenuOthers,
     Svg1,
     Svg2,
     Svg3,
@@ -152,14 +175,47 @@ export default {
     post: {
       type: Object,
       required: true
+    },
+    posts: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    // Articles array : random selection of 3 elements (4, minus a possible duplicate from the current article)
+    genRdnReaArray(cardId = this.post.id) {
+      // console.log("From parent, generate random array");
+      const postsArrayIndexLocal = [...Array(this.rdnArrayIndexLength)].map(_ =>
+        Math.floor(Math.random() * this.posts.edges.length)
+      );
+      const indexSelector = [...Array(this.nbOfIndexes).keys()];
+      this.postsArrayIndex = [
+        ...new Set(postsArrayIndexLocal)
+      ].filter((item, index) => indexSelector.includes(index));
+      this.postsSelection = this.posts.edges.filter(
+        (postItem, index) =>
+          this.postsArrayIndex.includes(index) && postItem.node.id !== cardId
+      );
+      // console.log("From parent, cardId =" + cardId);
+      // console.log(this.postsSelection.map(item => item.node.id))
+      this.postsSelection =
+        this.postsSelection.length > 3
+          ? this.postsSelection.slice(0, 3)
+          : this.postsSelection;
+      // console.log(this.postsSelection.map(item => item.node.id));
+    },
+    genRdnSvgArray() {
+      // Svg array : create random array to display in a random way
+      const svgArray = [...Array(this.svgArrayLength)].map(_ =>
+        Math.ceil(Math.random() * this.nbOfSvg)
+      );
+      this.svgArray = [...new Set(svgArray)]; //remove duplicates, make unique
+      // console.log(this.svgArray);
     }
   },
   created() {
-    const svgArray = [...Array(this.svgArrayLength)].map(_ =>
-      Math.ceil(Math.random() * this.nbOfSvg)
-    );
-    this.svgArray = [...new Set(svgArray)]; //remove duplicates, make unique
-    // console.log(this.svgArray);
+    this.genRdnReaArray();
+    this.genRdnSvgArray();
   }
 };
 </script>

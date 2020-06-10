@@ -185,6 +185,7 @@
     <CardGridMenuOthers
       cardGridMenuOthersSlug="nos-realisations"
       :cardGridMenuOthersData="realisationsSelection"
+      @gen-rdn-rea-array="genRdnReaArray"
     >
       <template slot="title">
         Autres réalisations
@@ -244,21 +245,33 @@ export default {
       required: true
     }
   },
+  methods: {
+    // Réalisations array : random selection of 3 elements (4, minus a possible duplicate from the current article)
+    genRdnReaArray(cardId = this.realisation.id) {
+      // console.log("From parent, generate random array");
+      const reaArrayIndexLocal = [...Array(this.rdnArrayIndexLength)].map(_ =>
+        Math.floor(Math.random() * this.realisations.edges.length)
+      );
+      const indexSelector = [...Array(this.nbOfIndexes).keys()];
+      this.reaArrayIndex = [
+        ...new Set(reaArrayIndexLocal)
+      ].filter((item, index) => indexSelector.includes(index));
+      this.realisationsSelection = this.realisations.edges.filter(
+        (realisationItem, index) =>
+          this.reaArrayIndex.includes(index) &&
+          realisationItem.node.id !== cardId
+      );
+      // console.log("From parent, cardId =" + cardId);
+      // console.log(this.realisationsSelection.map(item => item.node.id))
+      this.realisationsSelection =
+        this.realisationsSelection.length > 3
+          ? this.realisationsSelection.slice(0, 3)
+          : this.realisationsSelection;
+      // console.log(this.realisationsSelection.map(item => item.node.id));
+    }
+  },
   created() {
-    const reaArrayIndexLocal = [...Array(this.rdnArrayIndexLength)].map(_ =>
-      Math.floor(Math.random() * this.realisations.edges.length)
-    );
-    const indexSelector = [...Array(this.nbOfIndexes).keys()];
-    this.reaArrayIndex = [...new Set(reaArrayIndexLocal)].filter(
-      (item, index) => indexSelector.includes(index)
-    )
-    this.realisationsSelection = this.realisations.edges.filter(
-      (realisationItem, index) => this.reaArrayIndex.includes(index) && realisationItem.node.id !== this.realisation.id
-    );
-    console.log(this.realisation.id)
-    console.log(this.realisationsSelection.map(item => item.node.id))
-    this.realisationsSelection = this.realisationsSelection.length > 3 ? this.realisationsSelection.slice(0,3) : this.realisationsSelection
-    console.log(this.realisationsSelection.map(item => item.node.id)) 
+    this.genRdnReaArray();
   }
 };
 </script>
