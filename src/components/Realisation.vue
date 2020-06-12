@@ -73,9 +73,9 @@
         <!-- Tile 1 : infos chantier -->
         <div class="py-4 sm:w-2/3 sm:mx-auto md:w-full md:mx-0 md:py-0">
           <div
-            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-6"
+            class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-10"
           >
-            <div class="flex flex-col my-4 text-gray-800">
+            <div class="flex flex-col mt-4 mb-10 text-gray-800">
               <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
                 <div class="flex mb-2">
                   <p class="pr-1 rounded bg-teal-200 py-1 px-2">
@@ -111,7 +111,7 @@
           <div
             class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-6"
           >
-            <div class="flex flex-col my-4 text-gray-800">
+            <div class="flex flex-col mt-4 mb-10 text-gray-800">
               <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
                 <div class="flex mb-2">
                   <p class="pr-1 rounded bg-teal-200 py-1 px-2">
@@ -149,7 +149,7 @@
           <div
             class="flex h-full border border-gray-400 bg-white rounded p-4 leading-normal shadow-lg border-gray-400 justify-left px-4 md:px-10 pb-6"
           >
-            <div class="flex flex-col my-4 text-gray-800">
+            <div class="flex flex-col mt-4 mb-10 text-gray-800">
               <div class="flex flex-col pb-2 lg:text-lg lg:h-48">
                 <div class="flex mb-2">
                   <p class="pr-1 rounded bg-teal-200 py-1 px-2">

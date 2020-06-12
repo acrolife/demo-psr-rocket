@@ -50,13 +50,14 @@
               </div>
 
               <div
-                class="text-lg text-gray-700 md:text-xl px-10 bg-white rounded-lg"
+                class="text-lg text-gray-700 md:text-xl px-10"
+                style=""
               >
-                <img
+                <!-- <img
                   alt="quote"
                   class="float-left mr-1"
                   src="https://assets-global.website-files.com/5b5a66e9f3166b36708705fa/5cf8fb1f994fb7168d0d66fb_quote-intro.svg"
-                />
+                /> -->
                 {{
                   cardGridMenuData2.acf.repeaterCard[
                     index

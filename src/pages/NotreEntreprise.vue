@@ -15,7 +15,10 @@
         </template>
         <template slot="form">
           <div class="flex justify-center">
-            <g-image class="h-40 my-20" :src="$page.pageentreprise.acf.topImage" />
+            <g-image
+              class="h-40 my-20"
+              :src="$page.pageentreprise.acf.topImage"
+            />
           </div>
         </template>
       </SlotTopSection>
@@ -28,7 +31,8 @@
             <div
               class="h-48 lg:h-auto lg:w-2/5 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
               :style="{
-                backgroundImage: 'url(' + $page.pageentreprise.acf.pwcImage + ')'
+                backgroundImage:
+                  'url(' + $page.pageentreprise.acf.pwcImage + ')'
               }"
             ></div>
 
@@ -54,16 +58,21 @@
                 <div class="text-gray-700 text-base">
                   <ul>
                     <li
-                      v-for="index in $page.pageentreprise.acf.pwcRepeaterContent.length"
+                      v-for="index in $page.pageentreprise.acf
+                        .pwcRepeaterContent.length"
                       :key="index"
                     >
                       <div
                         v-html="
-                          $page.pageentreprise.acf.pwcRepeaterContent[index - 1].paragraph
+                          $page.pageentreprise.acf.pwcRepeaterContent[index - 1]
+                            .paragraph
                         "
                       ></div>
                       <br
-                        v-if="index < $page.pageentreprise.acf.pwcRepeaterContent.length"
+                        v-if="
+                          index <
+                            $page.pageentreprise.acf.pwcRepeaterContent.length
+                        "
                       />
                     </li>
                   </ul>
@@ -73,7 +82,8 @@
                 <div
                   class="w-16 h-16 rounded-full mr-4 bg-cover bg-bottom"
                   :style="{
-                    backgroundImage: 'url(' + $page.pageentreprise.acf.pwcIcon + ')'
+                    backgroundImage:
+                      'url(' + $page.pageentreprise.acf.pwcIcon + ')'
                   }"
                 ></div>
                 <div class="text-sm">
@@ -112,9 +122,7 @@
           <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
         </div>
 
-        <div
-          class="flex flex-col m-auto px-4 max-w-screen-xl md:flex-row"
-        >
+        <div class="flex flex-col m-auto px-4 max-w-screen-xl md:flex-row">
           <!-- Text before icons -->
           <div class="flex pl-4 pr-4 md:hidden md:flex-col md:w-1/3">
             <div class="flex-1"></div>
@@ -123,8 +131,8 @@
                 <p
                   class="text-justify"
                   v-html="
-                    $page.reproduciblebannergest.acf.repeaterCard[0].repeaterParagraph[0]
-                      .htmlParagraph
+                    $page.reproduciblebannergest.acf.repeaterCard[0]
+                      .repeaterParagraph[0].htmlParagraph
                   "
                 ></p>
               </div>
@@ -137,7 +145,8 @@
             <div class="flex justify-center mb-8">
               <ul class="flex">
                 <li
-                  v-for="(image, index) in $page.reproduciblebannerqual.acf.rGallery"
+                  v-for="(image, index) in $page.reproduciblebannerqual.acf
+                    .rGallery"
                   :key="index"
                   class="flex-1"
                 >
@@ -160,33 +169,33 @@
         <div
           class="flex flex-col md:mx-12 p-4 mb-10 max-w-screen-xl md:flex-row"
         >
-
-        <div class="flex pl-4 pr-4 md:flex-col md:w-1/3">
-        
+          <div class="flex pl-4 pr-4 md:flex-col md:w-1/3">
             <div class="hidden md:flex md:flex-1 md:rounded md:border md:p-4">
               <div class="text-gray-700 text-lg xl:text-xl">
                 <p
                   class="text-justify"
                   v-html="
-                    $page.reproduciblebannergest.acf.repeaterCard[0].repeaterParagraph[0]
-                      .htmlParagraph
+                    $page.reproduciblebannergest.acf.repeaterCard[0]
+                      .repeaterParagraph[0].htmlParagraph
                   "
                 ></p>
               </div>
-            </div>           
-          </div>
-
-        <div class="pl-4 pr-4 md:flex-col md:w-2/3">         
-          <div class="flex flex-1 md:rounded md:border md:p-4">
-            <div class="text-gray-700 text-lg xl:text-xl">
-              <p
-                class="text-justify"
-                v-html="$page.reproduciblebannerqual.acf.riRepeaterContent[0].content"
-              ></p>
             </div>
           </div>
+
+          <div class="pl-4 pr-4 md:flex-col md:w-2/3">
+            <div class="flex flex-1 md:rounded md:border md:p-4">
+              <div class="text-gray-700 text-lg xl:text-xl">
+                <p
+                  class="text-justify"
+                  v-html="
+                    $page.reproduciblebannerqual.acf.riRepeaterContent[0]
+                      .content
+                  "
+                ></p>
+              </div>
+            </div>
           </div>
-        
         </div>
 
         <!-- <div class="mx-8 mb-8 ssm:mx-12 mid:mx-20 md:mb-12 lg:px-40">
@@ -198,6 +207,125 @@
           </div>
         </div> -->
       </section>
+
+      <!-- h2 Témoignages -->
+      <section>
+        <h2
+          class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+        >
+          Les mots de nos clients et collaborateurs
+        </h2>
+
+        <!-- Underline title -->
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
+        </div>
+
+        <ul>
+          <div class="mt-10 mb-20">
+            <div
+              class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
+            >
+              <li
+                v-for="temoignage in $page.temoignages.edges"
+                :key="temoignage.id"
+              >
+                <Temoignage :temoignage="temoignage.node" />
+                <!-- <Temoignage
+                :temoignage="temoignage.node"
+                :shortOrCardClass="
+                  shortOrCardClass(temoignage.node.acf.cpkSelector)
+                "
+              /> -->
+              </li>
+            </div>
+          </div>
+        </ul>
+      </section>
+
+
+      <!-- ######################## -->
+      <!-- h2 Company info / Office info / Form -->
+      <div class="bg-gray-300 m-4 p-4">
+        <div>companyinfo</div>
+
+        <div v-html="$page.companyinfo.acf.riTitle"></div>
+        <div v-html="$page.companyinfo.acf.riAdress"></div>
+        <div v-html="$page.companyinfo.acf.riEmail"></div>
+        <div v-html="$page.companyinfo.acf.riPhoneNumber"></div>
+        <!-- <div v-html="$page.companyinfo.acf.linkedin"></div> -->
+        <!-- <div v-html="$page.companyinfo.acf.facebook"></div> -->
+        <br />
+
+        <div>officeinfo</div>
+        <div v-html="$page.officeinfo.acf.riTitle"></div>
+        <ul>
+          <li
+            v-for="(riRepeaterContent, index) in $page.officeinfo.acf
+              .riRepeaterContent"
+            :key="index"
+          >
+            <div
+              v-html="$page.officeinfo.acf.riRepeaterContent[index].content"
+            ></div>
+            <br />
+          </li>
+        </ul>
+        <ul>
+          <li
+            v-for="index in $page.officeinfo.acf.rGallery.length"
+            :key="index"
+          >
+            <g-image
+              class="h-32 w-1/4 object-cover"
+              :src="$page.officeinfo.acf.rGallery[index - 1].repeaterImages"
+              v-if="$page.officeinfo.acf.rGallery[index - 1].repeaterImages"
+            />
+            <div v-else>No image to display</div>
+            <br />
+          </li>
+        </ul>
+        <br />
+
+        <div>forminfo riRepeaterContent</div>
+        <div v-html="$page.forminfo.acf.riTitle"></div>
+        <ul>
+          <li
+            v-for="(riRepeaterContent, index) in $page.forminfo.acf
+              .riRepeaterContent"
+            :key="index"
+          >
+            <div
+              v-html="$page.forminfo.acf.riRepeaterContent[index].content"
+            ></div>
+            <br />
+          </li>
+        </ul>
+        <br />
+        <div>forminfo rfRepeaterField</div>
+        <div v-html="$page.forminfo.acf.rfTitle"></div>
+        <ul>
+          <li
+            v-for="(rfRepeaterField, index) in $page.forminfo.acf
+              .rfRepeaterField"
+            :key="index"
+          >
+            <div v-html="$page.forminfo.acf.rfRepeaterField[index].text"></div>
+            <br />
+          </li>
+        </ul>
+        <ul>
+          <li v-for="index in $page.forminfo.acf.rGallery.length" :key="index">
+            <g-image
+              class="h-32 w-1/4 object-cover"
+              :src="$page.forminfo.acf.rGallery[index - 1].repeaterImages"
+              v-if="$page.forminfo.acf.rGallery[index - 1].repeaterImages"
+            />
+            <div v-else>No image to display</div>
+            <br />
+          </li>
+        </ul>
+      </div>
 
       <!--Pre-footer slots section -->
       <SlotBottomSection>
@@ -310,7 +438,70 @@
             }   
           }           
     	  }
-      }      
+      }    
+    companyinfo: wordPressReproducible (id: 440) { 
+          acf {
+            riTitle
+            riAdress
+            riEmail
+            riPhoneNumber
+            linkedin
+            facebook
+         }
+      }   
+    officeinfo: wordPressReproducible (id: 439) { 
+          acf {
+            riTitle
+            riRepeaterContent {
+              content
+            }
+            rGallery { 
+              repeaterImages
+            }
+         }
+      }   
+    forminfo: wordPressReproducible (id: 435  ) { 
+          acf {
+            riTitle
+            riCtaText
+            riRepeaterContent {
+              content
+            }
+            rfRepeaterField {
+              text
+            }
+            rGallery { 
+              repeaterImages
+            }            
+         }
+      }  
+    temoignages: allWordPressTemoignages (sortBy: "pSelecto", order: DESC) {
+      edges {
+        node {
+          id
+          slug
+         acf {  
+            pSelecto
+            cpkSelector
+  					pwcTitle
+          	pwcImage
+            pwcIcon
+          	pwcRepeaterContent { paragraph }          
+          	pwcSignature
+          	pwcCtaText
+            lcTitle
+            lcContent 
+  					repeaterLink {               
+              textBeforeLink
+              link { 
+                title
+                target            
+            }
+          }
+          }
+        }
+      }
+    }  
     }
   </page-query>
 
@@ -318,12 +509,20 @@
 import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
+import Temoignage from "~/components/Temoignage.vue";
 
 export default {
   components: {
     SlotTopSection,
     SlotBottomSection,
-    BaseBlocks
+    BaseBlocks,
+    Temoignage
   }
+  // methods: {
+  //   shortOrCardClass(cpkSelector) {
+  //     console.log(cpkSelector)
+  //     return cpkSelector === "short" ? "h-20" : "h-40";
+  //   }
+  // }
 };
 </script>

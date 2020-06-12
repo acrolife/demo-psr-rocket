@@ -8,7 +8,7 @@
     >
       <slot />
     </div>
-    <Footer />
+    <Footer :companyinfo="$page.companyinfo" />
   </div>
 </template>
 
