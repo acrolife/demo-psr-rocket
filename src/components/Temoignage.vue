@@ -6,7 +6,7 @@
       <!-- 2 Rows Columns of Cards -->
       <div class="p-5">
         <div
-          class="flex h-64 bg-cover bg-center border-r border-t border-l border-gray-400 rounded-t text-center overflow-hidden shadow-lg"
+          class="flex h-80 bg-cover bg-center border-r border-t border-l border-gray-400 rounded-t text-center overflow-hidden shadow-lg"
           :style="{
             backgroundImage: 'url(' + temoignage.acf.pwcImage + ')'
           }"
