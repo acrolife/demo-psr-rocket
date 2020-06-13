@@ -213,7 +213,7 @@
         <h2
           class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         >
-          Les mots de nos clients et collaborateurs
+          Les mots de nos clients et partenaires
         </h2>
 
         <!-- Underline title -->

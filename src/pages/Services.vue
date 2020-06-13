@@ -186,14 +186,6 @@
           lcTitle
           lcContent 
         }
-      }
-      companyinfo: wordPressReproducible (id: 440) { 
-          acf {
-            riEmail
-            riPhoneNumber
-            linkedin
-            facebook
-         }
       } 
   }
 </page-query>

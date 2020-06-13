@@ -21,7 +21,7 @@
             </div>
 
             <!-- <div :class="shortOrCardClass"> -->
-                        <div :class="'h-40'">
+                        <div :class="'h-48'">
               <ul>
                 <li
                   v-for="(pwcRepeaterContent, index) in temoignage.acf
@@ -43,12 +43,14 @@
             </div>
 
             <div class="flex items-center">
+              <div>
               <div
-                class="w-16 h-16 rounded-full mr-4 bg-cover bg-center shadow-lg border"
+                class="w-16 h-16 p-1 rounded-full mr-2 bg-cover bg-center shadow-lg border"
                 :style="{
                   backgroundImage: 'url(' + temoignage.acf.pwcIcon + ')'
                 }"
               ></div>
+              </div>
               <div class="text-sm">
                 <p class="text-gray-800 italic leading-none">
                   {{ temoignage.acf.pwcSignature }}
