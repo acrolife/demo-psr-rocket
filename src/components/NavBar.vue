@@ -20,7 +20,7 @@
               <g-link to="/" :class="navbarTitleColorClass">
                 <div
                   class="text-white no-underline text-gray-700 green-psr-menu
-              hover:text-gray-300 font-bold hover:px-5 text-xl lg:text-2xl"
+              hover:text-gray-200 font-bold hover:px-5 text-xl lg:text-2xl"
                   :class="'polygon-navbar'"
                 >
                   PS-Rénovation
@@ -64,7 +64,7 @@
             >
               <g-link
                 to="/"
-                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                class="inline-block no-underline green-psr-menu hover:text-gray-200 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Home</g-link
               >
@@ -76,7 +76,7 @@
             >
               <g-link
                 to="/services"
-                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                class="inline-block no-underline green-psr-menu hover:text-gray-200 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Services</g-link
               >
@@ -88,7 +88,7 @@
             >
               <g-link
                 to="/realisations/"
-                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                class="inline-block no-underline green-psr-menu hover:text-gray-200 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Réalisations</g-link
               >
@@ -100,7 +100,7 @@
             >
               <g-link
                 to="/blog/"
-                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                class="inline-block no-underline green-psr-menu hover:text-gray-200 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Blog</g-link
               >
@@ -112,7 +112,7 @@
             >
               <g-link
                 to="/notre-entreprise/"
-                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                class="inline-block no-underline green-psr-menu hover:text-gray-200 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >L'entreprise</g-link
               >
@@ -172,7 +172,7 @@ export default {
     },
     navbarColorClass() {
       setTimeout(() => {}, 100);
-      return this.colorNavBarBin ? "bg-gray-300 text-gray-700" : "bg-white";
+      return this.colorNavBarBin ? "bg-gray-200 text-gray-700" : "bg-white";
     },
     navbarTitleColorClass() {
       return this.colorNavBarBin ? "text-gray-700" : "bg-white text-gray-700";
