@@ -88,6 +88,7 @@ let colors = {
   'turquoise': 'turquoise',
   'sunset': 'ffc266',
   'yellow': '#fffe0069',
+  // 'greenpsr': '#59BE9C'
 }
 
 module.exports = {

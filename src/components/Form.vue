@@ -1,6 +1,6 @@
 <template>
   <div
-    class="block w-full bg-gray-200 border rounded-lg py-3 px-4 mb-3 leading-tight"
+    class="block w-full h-128 bg-gray-200 border rounded-lg py-3 px-4 mb-3 leading-tight"
   >
     <form
       name="contact"

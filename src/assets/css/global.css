@@ -52,6 +52,12 @@
 .white-psr:hover {
   @apply green-psr-hover;
 }
+.green-psr-menu {
+  background: transparent;
+}
+.green-psr-menu:hover {
+  background: #00b084;
+}
 
 
 .pin-c-x {

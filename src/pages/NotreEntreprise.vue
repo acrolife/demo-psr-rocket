@@ -118,7 +118,7 @@
         </h2>
 
         <!-- Underline title -->
-        <div class="w-full mb-4">
+        <div class="w-full mb-10">
           <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
         </div>
 
@@ -243,89 +243,35 @@
         </ul>
       </section>
 
-
-      <!-- ######################## -->
-      <!-- h2 Company info / Office info / Form -->
-      <div class="bg-gray-300 m-4 p-4">
-        <div>companyinfo</div>
-
-        <div v-html="$page.companyinfo.acf.riTitle"></div>
-        <div v-html="$page.companyinfo.acf.riAdress"></div>
-        <div v-html="$page.companyinfo.acf.riEmail"></div>
-        <div v-html="$page.companyinfo.acf.riPhoneNumber"></div>
-        <!-- <div v-html="$page.companyinfo.acf.linkedin"></div> -->
-        <!-- <div v-html="$page.companyinfo.acf.facebook"></div> -->
-        <br />
-
-        <div>officeinfo</div>
-        <div v-html="$page.officeinfo.acf.riTitle"></div>
-        <ul>
-          <li
-            v-for="(riRepeaterContent, index) in $page.officeinfo.acf
-              .riRepeaterContent"
-            :key="index"
-          >
-            <div
-              v-html="$page.officeinfo.acf.riRepeaterContent[index].content"
-            ></div>
-            <br />
-          </li>
-        </ul>
-        <ul>
-          <li
-            v-for="index in $page.officeinfo.acf.rGallery.length"
-            :key="index"
-          >
-            <g-image
-              class="h-32 w-1/4 object-cover"
-              :src="$page.officeinfo.acf.rGallery[index - 1].repeaterImages"
-              v-if="$page.officeinfo.acf.rGallery[index - 1].repeaterImages"
-            />
-            <div v-else>No image to display</div>
-            <br />
-          </li>
-        </ul>
-        <br />
-
-        <div>forminfo riRepeaterContent</div>
-        <div v-html="$page.forminfo.acf.riTitle"></div>
-        <ul>
-          <li
-            v-for="(riRepeaterContent, index) in $page.forminfo.acf
-              .riRepeaterContent"
-            :key="index"
-          >
-            <div
-              v-html="$page.forminfo.acf.riRepeaterContent[index].content"
-            ></div>
-            <br />
-          </li>
-        </ul>
-        <br />
-        <div>forminfo rfRepeaterField</div>
-        <div v-html="$page.forminfo.acf.rfTitle"></div>
-        <ul>
-          <li
-            v-for="(rfRepeaterField, index) in $page.forminfo.acf
-              .rfRepeaterField"
-            :key="index"
-          >
-            <div v-html="$page.forminfo.acf.rfRepeaterField[index].text"></div>
-            <br />
-          </li>
-        </ul>
-        <ul>
-          <li v-for="index in $page.forminfo.acf.rGallery.length" :key="index">
-            <g-image
-              class="h-32 w-1/4 object-cover"
-              :src="$page.forminfo.acf.rGallery[index - 1].repeaterImages"
-              v-if="$page.forminfo.acf.rGallery[index - 1].repeaterImages"
-            />
-            <div v-else>No image to display</div>
-            <br />
-          </li>
-        </ul>
-      </div>
+      <!--Contact full section -->
+      <ContactFull :bgimage="$page.forminfo.acf.rGallery[0].repeaterImages">
+        <template slot="title">
+          {{ $page.forminfo.acf.riTitle }}
+        </template>
+        <template slot="divLeft">
+          <ul>
+            <li
+              v-for="(riRepeaterContent, index) in $page.forminfo.acf
+                .riRepeaterContent"
+              :key="index"
+            >
+              <div class="mb-2" v-html="riRepeaterContent.content"></div>
+            </li>
+          </ul>
+        </template>
+        <template slot="divLeftImage">
+          <g-image
+            class="w-full mb-3 rounded-lg opacity-75"
+            :src="$page.forminfo.acf.rGallery[1].repeaterImages"
+          />
+        </template>
+        <!-- <template slot="cta-text">
+          Demander un devis
+        </template> -->
+        <template slot="form">
+          <Form />
+        </template>
+      </ContactFull>
 
       <!--Pre-footer slots section -->
       <SlotBottomSection>
@@ -337,6 +283,61 @@
         </template>
         <template slot="cta-text">
           Contacter PS-Rénovation
+        </template>
+        <template slot="titleLeft">
+          {{ $page.companyinfo.acf.riTitle }}
+        </template>
+        <template slot="divLeft">
+          <div class="flex-col h-40">
+            <div v-html="$page.companyinfo.acf.riAdress"></div>
+            <div v-html="$page.companyinfo.acf.riEmail"></div>
+            <div v-html="$page.companyinfo.acf.riPhoneNumber"></div>
+            <div class="flex my-2 justify-center md:justify-start">
+              <div>
+                <a
+                  :href="$page.companyinfo.acf.linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <g-image
+                    class="h-8"
+                    src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/facebook-logo.png"
+                  />
+                </a>
+              </div>
+              <div class="px-1">
+                <a
+                  :href="$page.companyinfo.acf.facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <g-image
+                    class="h-8"
+                    src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/linkedin-logo.png"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template slot="titleRight">
+          {{ $page.officeinfo.acf.riTitle }}
+        </template>
+        <template slot="divRight">
+          <div>
+            <ul>
+              <li
+                v-for="(riRepeaterContent, index) in $page.officeinfo.acf
+                  .riRepeaterContent"
+                :key="index"
+              >
+                <div
+                  v-html="$page.officeinfo.acf.riRepeaterContent[index].content"
+                ></div>
+                <br />
+              </li>
+            </ul>
+          </div>
         </template>
       </SlotBottomSection>
     </div>
@@ -510,13 +511,17 @@ import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
 import Temoignage from "~/components/Temoignage.vue";
+import Form from "~/components/Form.vue";
+import ContactFull from "~/components/ContactFull.vue";
 
 export default {
   components: {
     SlotTopSection,
     SlotBottomSection,
     BaseBlocks,
-    Temoignage
+    Temoignage,
+    Form,
+    ContactFull
   }
   // methods: {
   //   shortOrCardClass(cpkSelector) {

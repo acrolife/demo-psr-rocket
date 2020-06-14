@@ -21,7 +21,7 @@
             </div>
 
             <!-- <div :class="shortOrCardClass"> -->
-                        <div :class="'h-48'">
+            <div :class="'h-48'">
               <ul>
                 <li
                   v-for="(pwcRepeaterContent, index) in temoignage.acf
@@ -44,12 +44,12 @@
 
             <div class="flex items-center">
               <div>
-              <div
-                class="w-16 h-16 p-1 rounded-full mr-2 bg-cover bg-center shadow-lg border"
-                :style="{
-                  backgroundImage: 'url(' + temoignage.acf.pwcIcon + ')'
-                }"
-              ></div>
+                <div
+                  class="w-16 h-16 p-1 rounded-full mr-2 bg-cover bg-center shadow-lg border"
+                  :style="{
+                    backgroundImage: 'url(' + temoignage.acf.pwcIcon + ')'
+                  }"
+                ></div>
               </div>
               <div class="text-sm">
                 <p class="text-gray-800 italic leading-none">
@@ -97,7 +97,7 @@ export default {
     temoignage: {
       type: Object,
       required: true
-    },
+    }
     // shortOrCardClass: {
     //   type: String,
     //   required: true
@@ -107,9 +107,3 @@ export default {
 </script>
 
 
-<!--
-<div>Dav put condition on top image to make it robust... => made the field required</div> 
-    -->
-<!--
-Bumped on a stupid limitation of graphQL+WP. When the first image of a query comes with the value "false" because the field is empty, on purpose.. well then GraphQL decides the field is a Boolean :man-facepalming::skin-tone-4: then you're f***** for the rest of your images in this build : QQL trhows the error (visible in GraphiQL, and GS shows an error stating that he can't display an image whith a boolean variable. Only solution I found, is to put a dummy image on the first instance (of temoignage, here) OR a strict condition like "required field" but you don't have images all the times in temoignages.. altouhght maybe this one would be better, and more robust/relibale, and after all, if the client/Eric just explains the temoignage without any picture what the point (I have such examples in the end oof the page "temoignages" on ps-renovation.com. The weirdness of it is that it occurs only when the first image GQL "sees", is "false"...  mmm thinking deeeper, there should be a way to make it more robust changing the source-wp code to output something else than false if no image or change graphql ccode to deal better with the value false..  or simply not assuming the type of the field based on its value, if value if false..
--->

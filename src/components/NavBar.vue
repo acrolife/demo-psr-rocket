@@ -5,7 +5,7 @@
       :class="navbarColorClass"
     >
       <div
-        class="container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
+        class="container mx-auto flex flex-wrap items-center justify-between mt-0 py-2 lg:my-2"
       >
         <div class="w-full flex flex-cols justify-between lg:w-auto">
           <div class="pl-4 md:flex items-center">
@@ -19,12 +19,16 @@
               </g-link>
               <g-link to="/" :class="navbarTitleColorClass">
                 <div
-                  class="text-white no-underline hover:text-teal-600 font-bold text-xl lg:text-2xl"
-                  :class="navbarTitleColorClass"
+                  class="text-white no-underline text-gray-700 green-psr-menu
+              hover:text-gray-300 font-bold hover:px-5 text-xl lg:text-2xl"
+                  :class="'polygon-navbar'"
                 >
                   PS-Rénovation
                 </div>
               </g-link>
+
+     
+              
             </div>
           </div>
 
@@ -54,64 +58,69 @@
             class="list-reset justify-end flex-1 items-center mb-2 lg:flex lg:mb-0 xxl:text-xl"
           >
             <li
-              class="mr-3"
+              class="mr-0"
               @click="setActive('Home')"
               :class="navItemClass('Home')"
             >
               <g-link
                 to="/"
-                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                :class="'polygon-navbar'"
                 >Home</g-link
               >
             </li>
             <li
-              class="mr-3"
+              class="mr-0"
               @click="setActive('Services')"
               :class="navItemClass('Services')"
             >
               <g-link
                 to="/services"
-                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                :class="'polygon-navbar'"
                 >Services</g-link
               >
             </li>
             <li
-              class="mr-3"
+              class="mr-0"
               @click="setActive('Réalisations')"
               :class="navItemClass('Réalisations')"
             >
               <g-link
                 to="/realisations/"
-                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                :class="'polygon-navbar'"
                 >Réalisations</g-link
               >
             </li>
             <li
-              class="mr-3"
+              class="mr-0"
               @click="setActive('Blog')"
               :class="navItemClass('Blog')"
             >
               <g-link
                 to="/blog/"
-                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
+                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                :class="'polygon-navbar'"
                 >Blog</g-link
               >
             </li>
             <li
-              class="mr-3"
+              class="mr-0"
               @click="setActive('Lentreprise')"
               :class="navItemClass('Lentreprise')"
             >
               <g-link
                 to="/notre-entreprise/"
-                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
+                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                :class="'polygon-navbar'"
                 >L'entreprise</g-link
               >
             </li>
           </ul>
-          <div class="hidden lg:flex">
+          <div class="flex md:hidden">
             <g-link
-              class="mx-auto white-psr text-gray-800 font-bold rounded-full mt-4 py-4 px-8 shadow opacity-75 lg:mx-0 lg:mt-0 xxl:text-xl"
+              class="mx-auto white-psr text-gray-800 font-bold rounded-full py-4  px-8 shadow opacity-75 lg:mx-0 lg:mt-0 xxl:text-xl"
               to="tel:06 37 77 75 32"
             >
               Appeler
@@ -136,9 +145,10 @@ export default {
   name: "NavBar",
   // data() {
   //   return {
-  //     // mode : "DEV", //simulate .env, as I can't make it work
-  //     mode: "PROD" //simulate .env, as I can't make it work
-  //     // process.env.GS_ENV === "DEV
+      //     // mode : "DEV", //simulate .env, as I can't make it work
+      //     mode: "PROD" //simulate .env, as I can't make it work
+      //     // process.env.GS_ENV === "DEV
+  //     test: test
   //   };
   // },
   beforeMount() {
@@ -203,3 +213,94 @@ export default {
   }
 };
 </script>
+
+<style>
+.polygon-navbar:hover {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+</style>
+
+<!--
+           <g-link to="/" :class="navbarTitleColorClass">
+                <div
+                  class="text-white no-underline hover:text-teal-600 font-bold text-xl lg:text-2xl"
+                  :class="navbarTitleColorClass"
+                >
+                  PS-Rénovation
+                </div>
+              </g-link>
+              -->
+
+<!--
+          <g-link
+                to="/services"
+                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
+                :class="'polygon-navbar'"
+                >Services</g-link
+              >
+-->
+
+<!--
+                        <ul
+            class="list-reset justify-end flex-1 items-center mb-2 lg:flex lg:mb-0 xxl:text-xl"
+          >
+            <li
+              class="mr-3"
+              @click="setActive('Home')"
+              :class="navItemClass('Home')"
+            >
+              <g-link
+                to="/"
+                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                >Home</g-link
+              >
+            </li>
+            <li
+              class="mr-3"
+              @click="setActive('Services')"
+              :class="navItemClass('Services')"
+            >
+              <g-link
+                to="/services"
+                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                >Services</g-link
+              >
+            </li>
+            <li
+              class="mr-3"
+              @click="setActive('Réalisations')"
+              :class="navItemClass('Réalisations')"
+            >
+              <g-link
+                to="/realisations/"
+                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
+                >Réalisations</g-link
+              >
+            </li>
+            <li
+              class="mr-3"
+              @click="setActive('Blog')"
+              :class="navItemClass('Blog')"
+            >
+              <g-link
+                to="/blog/"
+                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
+                >Blog</g-link
+              >
+            </li>
+            <li
+              class="mr-3"
+              @click="setActive('Lentreprise')"
+              :class="navItemClass('Lentreprise')"
+            >
+              <g-link
+                to="/notre-entreprise/"
+                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
+                >L'entreprise</g-link
+              >
+            </li>
+          </ul>
+          -->
