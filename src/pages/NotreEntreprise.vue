@@ -295,7 +295,7 @@
             <div class="flex my-2 justify-center md:justify-start">
               <div>
                 <a
-                  :href="$page.companyinfo.acf.linkedin"
+                  :href="$page.companyinfo.acf.facebook"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -307,7 +307,7 @@
               </div>
               <div class="px-1">
                 <a
-                  :href="$page.companyinfo.acf.facebook"
+                  :href="$page.companyinfo.acf.linkedin"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

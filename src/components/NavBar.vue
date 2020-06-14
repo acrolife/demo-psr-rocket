@@ -23,12 +23,14 @@
               hover:text-gray-100 font-bold hover:px-5 text-xl lg:text-2xl"
                   :class="'polygon-navbar'"
                 >
+                  <!-- <div
+                  class="text-white no-underline green-psr
+              text-gray-100 font-bold hover:px-5 py-1 text-xl lg:text-2xl"
+                  :class="'polygon-navbar'"
+                > -->
                   PS-Rénovation
                 </div>
               </g-link>
-
-     
-              
             </div>
           </div>
 
@@ -145,9 +147,9 @@ export default {
   name: "NavBar",
   // data() {
   //   return {
-      //     // mode : "DEV", //simulate .env, as I can't make it work
-      //     mode: "PROD" //simulate .env, as I can't make it work
-      //     // process.env.GS_ENV === "DEV
+  //     // mode : "DEV", //simulate .env, as I can't make it work
+  //     mode: "PROD" //simulate .env, as I can't make it work
+  //     // process.env.GS_ENV === "DEV
   //     test: test
   //   };
   // },
@@ -197,6 +199,7 @@ export default {
     },
     navItemClass(navItem) {
       return navItem === this.navItemStored ? "font-bold" : "";
+      // return navItem === this.navItemStored ? "polygon-navbar text-gray-100 font-bold" : "";
     },
     // // Uncomment this to make the navbar color reactive + comment out the next handleScroll()
     handleScroll(event) {
@@ -215,7 +218,8 @@ export default {
 </script>
 
 <style>
-.polygon-navbar:hover {
+.polygon-navbar {
+  /* background: #00b084; */
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
