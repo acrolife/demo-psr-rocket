@@ -23,6 +23,7 @@
               hover:text-gray-100 font-bold hover:px-5 text-xl lg:text-2xl"
                   :class="'polygon-navbar'"
                 >
+                <!-- trial shows when active -->
                   <!-- <div
                   class="text-white no-underline green-psr
               text-gray-100 font-bold hover:px-5 py-1 text-xl lg:text-2xl"
@@ -225,6 +226,14 @@ export default {
   -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
   clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 }
+/* 
+Trial new title like Malt !
+.polygon-navbar {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(30% 50%, 100% 50%, 100% 100%, 30% 100%);
+} */
 </style>
 
 <!--
