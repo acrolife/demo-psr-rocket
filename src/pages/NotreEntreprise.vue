@@ -166,33 +166,35 @@
         </div>
 
         <!-- Text after icons -->
-        <div
-          class="flex flex-col md:mx-12 p-4 mb-10 max-w-screen-xl md:flex-row"
-        >
-          <div class="flex pl-4 pr-4 md:flex-col md:w-1/3">
-            <div class="hidden md:flex md:flex-1 md:rounded md:border md:p-4">
-              <div class="text-gray-700 text-lg xl:text-xl">
-                <p
-                  class="text-justify"
-                  v-html="
-                    $page.reproduciblebannergest.acf.repeaterCard[0]
-                      .repeaterParagraph[0].htmlParagraph
-                  "
-                ></p>
+        <div class="flex justify-center">
+          <div
+            class="flex flex-col md:mx-12 p-4 mb-10 max-w-screen-xl md:flex-row"
+          >
+            <div class="flex pl-4 pr-4 md:flex-col md:w-1/3">
+              <div class="hidden md:flex md:flex-1 md:rounded md:border md:p-4">
+                <div class="text-gray-700 text-lg xl:text-xl">
+                  <p
+                    class="text-justify"
+                    v-html="
+                      $page.reproduciblebannergest.acf.repeaterCard[0]
+                        .repeaterParagraph[0].htmlParagraph
+                    "
+                  ></p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="pl-4 pr-4 md:flex-col md:w-2/3">
-            <div class="flex flex-1 md:rounded md:border md:p-4">
-              <div class="text-gray-700 text-lg xl:text-xl">
-                <p
-                  class="text-justify"
-                  v-html="
-                    $page.reproduciblebannerqual.acf.riRepeaterContent[0]
-                      .content
-                  "
-                ></p>
+            <div class="pl-4 pr-4 md:flex-col md:w-2/3">
+              <div class="flex flex-1 md:rounded md:border md:p-4">
+                <div class="text-gray-700 text-lg xl:text-xl">
+                  <p
+                    class="text-justify"
+                    v-html="
+                      $page.reproduciblebannerqual.acf.riRepeaterContent[0]
+                        .content
+                    "
+                  ></p>
+                </div>
               </div>
             </div>
           </div>
@@ -210,37 +212,86 @@
 
       <!-- h2 Témoignages -->
       <section>
-        <h2
-          class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
-        >
-          Les mots de nos clients et partenaires
-        </h2>
+        <div class="mb-20">
+          <!-- Reviews -->
+          <h2
+            class="w-full px-2 pt-10 mb-4 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+          >
+            Nouveaux avis de nos clients et partenaires
+          </h2>
 
-        <!-- Underline title -->
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
-        </div>
+          <!-- Underline title -->
+          <div class="w-full mb-10">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
+          </div>
 
-        <ul>
-          <div class="mt-10 mb-20">
-            <div
-              class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
-            >
-              <li
-                v-for="temoignage in $page.temoignages.edges"
-                :key="temoignage.id"
+          <ul>
+            <div class="mb-4">
+              <div
+                class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
               >
-                <Temoignage :temoignage="temoignage.node" />
-                <!-- <Temoignage
+                <li v-for="review in reviewsArray.slice(0, 3)" :key="review.id">
+                  <Review :review="review.node" />
+                </li>
+              </div>
+            </div>
+          </ul>
+
+          <div class="flex justify-center mb-12">
+            <g-link :to="`/avis-et-temoignages`">
+              <div class="h-16">
+                <div
+                  class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
+                >
+                  Lire plus d'avis
+                </div>
+              </div>
+            </g-link>
+          </div>
+
+          <!-- Témoignages -->
+          <h2
+            class="w-full px-2 pt-10 mb-4 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+          >
+            Autres témoignages : ils parlent de PSR!
+          </h2>
+          <!-- Underline title -->
+          <div class="w-full mb-10">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
+          </div>
+          <ul>
+            <div class="mb-4">
+              <div
+                class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
+              >
+                <li
+                  v-for="temoignage in temoignagesArray.slice(0, 3)"
+                  :key="temoignage.id"
+                >
+                  <Temoignage :temoignage="temoignage.node" />
+                  <!-- <Temoignage
                 :temoignage="temoignage.node"
                 :shortOrCardClass="
                   shortOrCardClass(temoignage.node.acf.cpkSelector)
                 "
               /> -->
-              </li>
+                </li>
+              </div>
             </div>
+          </ul>
+
+          <div class="flex justify-center mb-0">
+            <g-link :to="`/avis-et-temoignages`">
+              <div class="h-16">
+                <div
+                  class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
+                >
+                  Lire plus d'avis
+                </div>
+              </div>
+            </g-link>
           </div>
-        </ul>
+        </div>
       </section>
 
       <!--Contact full section -->
@@ -476,12 +527,13 @@
             }            
          }
       }  
-    temoignages: allWordPressTemoignages (sortBy: "pSelecto", order: DESC) {
+    temoignages: allWordPressTemoignages (sortBy: "order", order: ASC) {
       edges {
         node {
           id
           slug
          acf {  
+            order
             pSelecto
             cpkSelector
   					pwcTitle
@@ -497,13 +549,33 @@
               link { 
                 title
                 target            
+              }
             }
-          }
           }
         }
       }
     }  
+    reviews: allWordPressReview (sortBy: "order", order: ASC) {
+      edges {
+        node {
+          id
+          slug
+          acf {
+            order
+            title
+            review
+            name
+            structure
+            relation
+            picture   
+            avatar
+            stars
+            validated
+          } 
+        } 
+      }
     }
+  }
   </page-query>
 
 <script>
@@ -511,17 +583,33 @@ import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import BaseBlocks from "~/components/BaseBlocks.vue";
 import Temoignage from "~/components/Temoignage.vue";
+import Review from "~/components/Review.vue";
 import Form from "~/components/Form.vue";
 import ContactFull from "~/components/ContactFull.vue";
 
 export default {
+  data() {
+    return {
+      temoignagesArray: [],
+      reviewsArray: []
+    };
+  },
   components: {
     SlotTopSection,
     SlotBottomSection,
     BaseBlocks,
     Temoignage,
+    Review,
     Form,
     ContactFull
+  },
+  created() {
+    this.temoignagesArray = this.$page.temoignages.edges.sort(
+      (a, b) => a.node.acf.order - b.node.acf.order
+    );
+    this.reviewsArray = this.$page.reviews.edges.sort(
+      (a, b) => a.node.acf.order - b.node.acf.order
+    );
   }
   // methods: {
   //   shortOrCardClass(cpkSelector) {

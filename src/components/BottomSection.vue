@@ -21,6 +21,7 @@
 
         <button
           class="mx-auto lg:mx-0 white-psr bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+          v-if="!noCtaButton"
         >
           <slot name="cta-text"></slot>
         </button>
@@ -96,6 +97,12 @@
 <script>
 import SvgWavePreFooter from "~/components/svg/SvgWavePreFooter.vue";
 export default {
+    props: {
+    noCtaButton: {
+      type: Boolean,
+      require: false
+    }
+  },
   components: {
     SvgWavePreFooter
   }
