@@ -188,7 +188,9 @@ export default {
     this.temoignagesArray = this.$page.temoignages.edges.sort(
       (a, b) => a.node.acf.order - b.node.acf.order
     );
-    this.reviewsArray = this.$page.reviews.edges.sort(
+    this.reviewsArray = this.$page.reviews.edges
+    .filter( (item) => item.node.acf.validated )
+    .sort(
       (a, b) => a.node.acf.order - b.node.acf.order
     );
     // console.log(this.temoignagesArray);
