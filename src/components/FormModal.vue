@@ -75,8 +75,12 @@
 .button-container {
   display: flex;
   justify-content: flex-start;
-  margin-left: -4.5rem;
-  margin-top: -3rem;
+  margin-left: -2.5rem;
+  margin-top: -3.5rem;
+  @media screen and (min-width: 450px) {
+      margin-left: -4.5rem;
+      margin-top: -3rem;
+  }
 }
 .modal-default-button {     
   border-style: solid;
