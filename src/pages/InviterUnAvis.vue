@@ -31,7 +31,7 @@
             <form
               name="review"
               method="post"
-              v-on:submit.prevent="onSendReview"
+              v-on:submit.prevent="onSendInvite"
               action="https://vuejs.org/"
               class="w-full"
             >
@@ -137,25 +137,11 @@ export default {
     return {
       formData: {
         fields: {
-          // name: "Speedy Gonzales",
-          // review: "Avis from Postman",
-          // title: "Une collaboration parfaite",
-          structure: "entreprise",
-          relation: "collaborateur",
-          avatar:
-            "https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/user-icon.png",
-          stars: 5
-        }
-        // title: 'Test review from the GS Api',
-        // fields: {
-        //     name: 'Speedy Gonzales',
-        //     review: 'Avis from Postman',
-        //     title: 'Une collaboration parfaite',
-        //     structure: 'entreprise',
-        //     relation: 'collaborateur',
-        //     avatar: 'https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/user-icon.png',
-        //     stars: 5
-        // }
+          name: "Speedy Gonzales",
+          review: "Avis from Postman",
+          title: "Une collaboration parfaite",
+        },
+        title: 'Test review from the GS Api',
       }
     };
   },
@@ -178,7 +164,7 @@ export default {
           if (response.status === 201) {
             this.$router.push({ path: "/success/" });
           } else {
-            alert("Sorry smt went wrong with your review :(");
+            alert("Une erreur s'est produite, votre avis n'a pu être soummis. Pouvez-vous nous prévenir de ce pas par email svp ?");
           }
         })
         .catch(error => alert(error));

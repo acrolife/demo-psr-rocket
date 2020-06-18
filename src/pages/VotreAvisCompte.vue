@@ -257,7 +257,7 @@
 
 
 <script>
-import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating/src"; 
 // source :  https://github.com/craigh411/vue-star-rating
 import { sendReview } from "~/services/api.js";
 
