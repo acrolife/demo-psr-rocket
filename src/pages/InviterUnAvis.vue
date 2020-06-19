@@ -271,8 +271,9 @@ export default {
           avatar:
             "https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/user-icon.png",
           picture:
-            "https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/icone-maison.png",          
-        }        
+            "https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/icone-maison.png",
+          postedOnce: false
+        }
       },
       status: "publish",
       guestTitleArray: ["Monsieur", "Madame", "Mademoiselle", "Entreprise"],
@@ -307,16 +308,14 @@ export default {
   methods: {
     onSendInvite() {
       this.formData.fields.token = generatePassword();
-      console.log(this.formData.fields.token)
+      // console.log(this.formData.fields.token)
       this.validation();
       setTimeout(() => {
         if (this.formValidated) {
           this.showModal = true;
-          // console.log("SEND INVITATION");
-          // console.log(this.formData);
-          // console.log(this.title);
+          console.log("SEND INVITATION");
+          // console.log(this.formData, this.title);
           postReview(this.title, this.formData.fields, this.status)
-            // .then(() => this.$router.push('/success'))
             .then(response => {
               // console.log(response.json());
               if (response.status === 201) {

@@ -1,26 +1,26 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper" @click="$emit('close')">
-        <div class="modal-container" @click.stop>
-          <div class="modal-header">
+    <div class="video-modal-mask">
+      <div class="video-modal-wrapper" @click="$emit('close')">
+        <div class="video-modal-container" @click.stop>
+          <div class="video-modal-header">
             <slot name="header">
               <!-- default header -->
             </slot>
           </div>
 
-          <div class="button-container">
-            <button class="modal-default-button" @click="$emit('close')">
+          <div class="video-modal-button-container">
+            <button class="video-modal-default-button" @click="$emit('close')">
               x
             </button>
           </div> 
-          <div class="modal-body">
+          <div class="video-modal-body">
             <slot name="body">
               <!-- default body -->
             </slot>
           </div>
 
-          <div class="modal-footer">
+          <div class="video-modal-footer">
             <slot name="footer">
               <!-- default footer -->
             </slot>
@@ -32,7 +32,7 @@
 </template>
 
 <style>
-.modal-mask {
+.video-modal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -44,12 +44,12 @@
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
+.video-modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.video-modal-container {
   display: flex; 
   flex-direction: column;
   width: 90%; 
@@ -65,21 +65,21 @@
   }
 }
 
-.modal-header h3 {
+.video-modal-header h3 {
   margin-top: 0;
   color: #42b983;
 }
 
-.modal-body {
+.video-modal-body {
   margin: 10px 0;
 }
 
-.button-container {
+.video-modal-button-container {
   display: flex;
   justify-content: flex-start;
   margin-left: -1rem;
 }
-.modal-default-button {     
+.video-modal-default-button {     
   border-style: solid;
   border-radius: 9999px;
   background-color: rgb(207, 206, 206, .5);
@@ -96,16 +96,16 @@
  * these styles.
  */
 
-.modal-enter {
+.video-modal-enter {
   opacity: 0;
 }
 
-.modal-leave-active {
+.video-modal-leave-active {
   opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.video-modal-enter .video-modal-container,
+.video-modal-leave-active .video-modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

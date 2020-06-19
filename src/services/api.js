@@ -15,8 +15,16 @@ headers.Authorization =
 // headers.Authorization = 'Basic ' + btoaCustom(username + ':' + password);
 // headers.Authorization = 'Basic ' + btoa(username + ':' + password);
 
+export const getReviews = () => {
+	console.log('FromPSR GS site/Admin, getting review object to backend:');
+	console.log(`Calling api on ${apiUrl}/wp-json/wp/v2/review`);
+	console.log('Waiting backend answer, hopefully 200 !');
+	return fetch(`${apiUrl}/wp-json/wp/v2/review`).then((res) => res.json());
+};
+
 export const postReview = (title, fields, status) => {
-	console.log('FromPSR GS site/Admin, sent pre-review object to backend:');
+	console.log('FromPSR GS site/Admin, sending pre-review object to backend:');
+	console.log(`Calling api on ${apiUrl}/wp-json/wp/v2/review`);
 	console.log(JSON.stringify({ title, fields, status }));
 	console.log('Waiting backend answer, hopefully 201 !');
 
@@ -27,15 +35,18 @@ export const postReview = (title, fields, status) => {
 	});
 };
 
-export const patchReview = (title, fields, id) => {	
-		console.log('From PSR GS site/guest, for review, sent review object to backend:');
-		console.log(JSON.stringify({ title, fields, id}));
-		console.log('Waiting backend answer, hopefully 201 !');
+export const patchReview = (title, fields, id) => {
+	console.log(
+		'From PSR GS site/guest, for review, sending review object to backend:'
+	);
+	console.log(`Calling api on ${apiUrl}/wp-json/wp/v2/review/${id}`);
+	console.log(`The review "${title}" will be sent to backend.`)
+	// console.log(JSON.stringify({ title, fields, id }));
+	console.log('Waiting backend answer, hopefully 200 !');
 
-		return fetch(`${apiUrl}/wp-json/wp/v2/review/${id}`, {
-			method: 'PATCH',
-			headers,
-			body: JSON.stringify({ title, fields}),
-		});
-
+	return fetch(`${apiUrl}/wp-json/wp/v2/review/${id}`, {
+		method: 'PATCH',
+		headers,
+		body: JSON.stringify({ title, fields }),
+	});
 };

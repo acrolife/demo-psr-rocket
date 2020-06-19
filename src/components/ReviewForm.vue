@@ -1,28 +1,6 @@
     
 <template>
   <div>
-    <!--Hero slots section -->
-    <SlotTopSection class="pt-12" :noCtaButton="true">
-      <template slot="repeatable-title-1">
-        Bienvenue!
-      </template>
-      <template slot="repeatable-title-2">
-        Ce page est conçue pour permettre à un client ou partenaires de rédiger
-        un avis au sujet d'une prestation de PSR.
-      </template>
-      <!-- <template slot="cta-text">
-          Confier un projet à PSR
-        </template> -->
-      <template slot="form">
-        <div class="flex justify-center">
-          <g-image
-            class="my-10 rounded-lg"
-            src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
-          />
-        </div>
-      </template>
-    </SlotTopSection>
-
     <div class="flex justify-center mt-12">
       <div class="my-10 w-full mx-4 md:mx-0 md:w-3/5">
         <div
@@ -83,7 +61,8 @@
                     ></textarea>
                     <p class="text-gray-600 text-xs italic">
                       Il s'agit d'un texte d'une longueur entre en une phrase et
-                      300 caractères. Il reste {{ 300 - reviewCharacterCounter }} caractères.
+                      300 caractères. Il reste
+                      {{ 300 - reviewCharacterCounter }} caractères.
                     </p>
                   </div>
                 </div>
@@ -218,19 +197,6 @@
         <div class="text-lg text-gray-800" v-html="errorMsg"></div>
       </div>
     </FormModal>
-
-    <!--Pre-footer slots section -->
-    <SlotBottomSection :noCtaButton="true">
-      <template slot="main-text">
-        Notre expertise
-      </template>
-      <template slot="secondary-text">
-        Au service de votre projet !
-      </template>
-      <!-- <template slot="cta-text">
-            J'ai un projet
-          </template> -->
-    </SlotBottomSection>
   </div>
 </template>
 
@@ -241,9 +207,6 @@ import StarRating from "vue-star-rating/src";
 // source :  https://github.com/craigh411/vue-star-rating
 import { patchReview } from "~/services/api.js";
 
-import SlotTopSection from "~/components/TopSection.vue";
-import SlotBottomSection from "~/components/BottomSection.vue";
-import SvgWavePostHeader from "~/components/svg/SvgWavePostHeader.vue";
 import FormModal from "~/components/FormModal.vue";
 
 export default {
@@ -270,9 +233,6 @@ export default {
     };
   },
   components: {
-    SlotTopSection,
-    SlotBottomSection,
-    SvgWavePostHeader,
     StarRating,
     FormModal
   },
@@ -281,8 +241,11 @@ export default {
       return "Review from " + this.formData.fields.name;
     },
     reviewCharacterCounter() {
-      this.formData.fields.review = this.formData.fields.review.length >= 300 ? this.formData.fields.review.slice(0,300) : this.formData.fields.review
-      return this.formData.fields.review.length
+      this.formData.fields.review =
+        this.formData.fields.review.length >= 300
+          ? this.formData.fields.review.slice(0, 300)
+          : this.formData.fields.review;
+      return this.formData.fields.review.length;
     },
     ratingComment() {
       return this.formData.fields.stars
@@ -316,19 +279,19 @@ export default {
       // Triggers the api call, with the patchReview, if the form has been validated
       setTimeout(() => {
         if (this.formValidated) {
-          this.showModal = true
+          this.showModal = true;
           patchReview(this.title, this.formData.fields, this.review.id)
             // console.log(this.formData)
             .then(response => {
               // console.log(response.json());
-              if (response.status === 200) {                
+              if (response.status === 200) {
                 this.$router.push({ path: "/success/" });
               } else {
                 alert(
-                  "Un problème technique est survenu quant à l'envoi de votre avis : Erreur " 
-                  + response.status 
-                  + " " 
-                  + "Voudriez-vous s'il-vous-plaît contacter par PSR via notre formulaire de contact ? Merci!"
+                  "Un problème technique est survenu quant à l'envoi de votre avis : Erreur " +
+                    response.status +
+                    " " +
+                    "Voudriez-vous s'il-vous-plaît contacter par PSR via notre formulaire de contact ? Merci!"
                 );
               }
             })
@@ -352,9 +315,9 @@ export default {
     }
   },
   created() {
-      this.formData.fields.structure = this.review.acf.structure;
-      this.formData.fields.relation = this.review.acf.relation;
-      this.formData.fields.name = this.review.acf.name;
+    this.formData.fields.structure = this.review.acf.structure;
+    this.formData.fields.relation = this.review.acf.relation;
+    this.formData.fields.name = this.review.acf.name;
   }
 };
 </script>

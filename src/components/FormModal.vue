@@ -1,25 +1,25 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper" @click="$emit('close')">
-        <div class="modal-container" @click.stop>
-          <div class="button-container">
-            <button class="modal-default-button" @click="$emit('close')">
+    <div class="form-modal-mask">
+      <div class="form-modal-wrapper" @click="$emit('close')">
+        <div class="form-modal-container" @click.stop>
+          <div class="form-modal-button-container">
+            <button class="form-modal-default-button" @click="$emit('close')">
               x
             </button>
           </div>
-          <div class="modal-header">
+          <div class="form-modal-header">
             <slot name="header">
               <!-- default header -->
             </slot>
           </div>
-          <div class="modal-body">
+          <div class="form-modal-body">
             <slot name="body">
               <!-- default body -->
             </slot>
           </div>
 
-          <div class="modal-footer">
+          <div class="form-modal-footer">
             <slot name="footer">
               <!-- default footer -->
             </slot>
@@ -31,7 +31,7 @@
 </template>
 
 <style>
-.modal-mask {
+.form-modal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -43,12 +43,12 @@
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
+.form-modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.form-modal-container {
   display: flex; 
   flex-direction: column;
   width: 90%; 
@@ -64,15 +64,15 @@
   }
 }
 
-.modal-header {
+.form-modal-header {
   margin-top: 1rem;
 }
 
-.modal-body {
+.form-modal-body {
   margin: 10px 0;
 }
 
-.button-container {
+.form-modal-button-container {
   display: flex;
   justify-content: flex-start;
   margin-left: -2.5rem;
@@ -82,7 +82,7 @@
       margin-top: -3rem;
   }
 }
-.modal-default-button {     
+.form-modal-default-button {     
   border-style: solid;
   border-radius: 9999px;
   background-color: rgba(224, 222, 222, 0.678);
@@ -100,16 +100,16 @@
  * these styles.
  */
 
-.modal-enter {
+.form-modal-enter {
   opacity: 0;
 }
 
-.modal-leave-active {
+.form-modal-leave-active {
   opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.form-modal-enter .form-modal-container,
+.form-modal-leave-active .form-modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

@@ -80,28 +80,28 @@ module.exports = function(api) {
 			});
 		});
 
-		// Reviews
-		const res5 = await graphql(`
-			{
-				allWordPressReview {
-					edges {
-						node {
-							id
-						}
-					}
-				}
-			}
-		`);
+		// // Reviews
+		// const res5 = await graphql(`
+		// 	{
+		// 		allWordPressReview {
+		// 			edges {
+		// 				node {
+		// 					id
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// `);
 
-		res5.data.allWordPressReview.edges.forEach(({ node }) => {
-			createPage({
-				path: `/votre-avis-compte/${node.id}`,
-				component: './src/templates/VotreAvisCompte.vue',
-				context: {
-					reviewId: node.id,
-				},
-			});
-		});
+		// res5.data.allWordPressReview.edges.forEach(({ node }) => {
+		// 	createPage({
+		// 		path: `/votre-avis-compte/${node.id}`,
+		// 		component: './src/templates/VotreAvisCompte.vue',
+		// 		context: {
+		// 			reviewId: node.id,
+		// 		},
+		// 	});
+		// });
 
 
 	});

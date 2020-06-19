@@ -24,68 +24,70 @@
         </template>
       </SlotTopSection>
 
-      <div class="flex justify-center mt-12">
-        <div class="my-10 w-full mx-4 md:mx-0 md:w-3/5">
-          <div
-            class="w-full bg-gray-200 border rounded-lg py-3 px-4 mb-3 leading-tight"
-          >
-            <form
-              name="review"
-              method="post"
-              v-on:submit.prevent="onTokenValidation"
-              action="https://vuejs.org/"
-              class="w-full"
+      <!--IdentificationInvitation section -->
+      <section v-if="!routeToForm">
+        <div class="flex justify-center mt-12">
+          <div class="my-10 w-full mx-4 md:mx-0 md:w-3/5">
+            <div
+              class="w-full bg-gray-200 border rounded-lg py-3 px-4 mb-3 leading-tight"
             >
-              <!-- Welcome bots, there you go -->
-              <!-- <input type="hidden" name="form-name" value="contact" />
+              <form
+                name="review"
+                method="post"
+                v-on:submit.prevent="onTokenValidation"
+                action="https://vuejs.org/"
+                class="w-full"
+              >
+                <!-- Welcome bots, there you go -->
+                <!-- <input type="hidden" name="form-name" value="contact" />
       <p hidden>
         <label> Don’t fill this out: <input name="bot-field" /> </label>
       </p> -->
-              <!-- End of the bots stuff -->
+                <!-- End of the bots stuff -->
 
-              <div
-                class="block uppercase tracking-wide text-gray-600 text-lg font-bold mb-6"
-              >
-                Mon avis : identification
-              </div>
+                <div
+                  class="block uppercase tracking-wide text-gray-600 text-lg font-bold mb-6"
+                >
+                  Mon avis : identification
+                </div>
 
-              <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full px-3 mb-0 md:mb-0">
-                  <!-- Token -->
-                  <div class="my-4">
-                    <label
-                      for="token  "
-                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    >
-                      Token
-                    </label>
-                    <input
-                      type="text"
-                      name="token"
-                      v-model="formData.fields.token"
-                      placeholder="nIHUbpiEG5FwYgsHfMm3niEbT76ltrFn"
-                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    />
-                    <p class="text-gray-600 text-xs italic">
-                      Le token est un mot de passe indiqué dans l'email
-                      d'invitation sécurisant l'envoi dee votre avis.
-                    </p>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                  <div class="w-full px-3 mb-0 md:mb-0">
+                    <!-- Token -->
+                    <div class="my-4">
+                      <label
+                        for="token  "
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                      >
+                        Token
+                      </label>
+                      <input
+                        type="text"
+                        name="token"
+                        v-model="formData.fields.token"
+                        placeholder="nIHUbpiEG5FwYgsHfMm3niEbT76ltrFn"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                      />
+                      <p class="text-gray-600 text-xs italic">
+                        Le token est un mot de passe indiqué dans l'email
+                        d'invitation sécurisant l'envoi dee votre avis.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <button
-                type="submit"
-                class="mx-auto bg-pink-500 text-white font-bold rounded-full mt-0 mb-3 py-4 px-8 shadow-lg flex justify-center"
-              >
-                Vérifier mon token
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  class="mx-auto bg-pink-500 text-white font-bold rounded-full mt-0 mb-3 py-4 px-8 shadow-lg flex justify-center"
+                >
+                  Vérifier mon token
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- <div class="flex justify-center mt-12">
+        <!-- <div class="flex justify-center mt-12">
         <div class="my-10 w-full mx-4 md:mx-0 md:w-3/5">
           <div
             class="w-full bg-gray-200 border rounded-lg py-3 px-4"
@@ -94,26 +96,22 @@
         </div>
       </div> -->
 
-      <FormModal v-if="showModal" @close="onCloseFormModal">
-        <div slot="header">
-          <div class="text-xl text-gray-800 font-bold">
-            Soumission de votre avis...
+        <FormModal v-if="showModal" @close="onCloseFormModal">
+          <div slot="header">
+            <div class="text-xl text-gray-800 font-bold">
+              Soumission de votre avis...
+            </div>
           </div>
-        </div>
-        <div slot="body">
-          <div class="text-lg text-gray-800" v-html="errorMsg"></div>
-        </div>
-      </FormModal>
+          <div slot="body">
+            <div class="text-lg text-gray-800" v-html="errorMsg"></div>
+          </div>
+        </FormModal>
+      </section>
 
-      <!-- <div class="flex h-20 my-12 justify-center">
-          <div
-            class="align-center py-5 px-8 bg-pink-500 text-white text-2xl font-bold rounded-lg shadow-lg"
-            @click="onSendReview()"
-          >
-            Send my review
-          </div>
-        </div>
-      </div> -->
+      <!--Filling Form section -->
+      <section v-if="routeToForm">
+        <ReviewForm :review="review"/>
+      </section>
 
       <!--Pre-footer slots section -->
       <SlotBottomSection :noCtaButton="true">
@@ -134,14 +132,18 @@
 
 
 <script>
+import { getReviews } from "~/services/api.js";
+
 import SlotTopSection from "~/components/TopSection.vue";
 import SlotBottomSection from "~/components/BottomSection.vue";
 import SvgWavePostHeader from "~/components/svg/SvgWavePostHeader.vue";
 import FormModal from "~/components/FormModal.vue";
+import ReviewForm from "~/components/ReviewForm.vue";
 
 export default {
   data() {
     return {
+      routeToForm: false,
       showModal: false,
       formValidated: false,
       errorList: [],
@@ -160,7 +162,8 @@ export default {
     SlotTopSection,
     SlotBottomSection,
     SvgWavePostHeader,
-    FormModal
+    FormModal,
+    ReviewForm
   },
   computed: {
     errorMsg() {
@@ -183,14 +186,12 @@ export default {
       this.showModal = false;
       this.errorList = [];
     },
-    onTokenValidation() {
+    async onTokenValidation() {
       this.formValidation();
       if (this.formValidated) {
-        this.review = this.$page.reviews.edges.filter(
-          review => review.node.acf.token === this.formData.fields.token
-        )[0].node;
         // console.log(JSON.stringify(this.review))
         // TEST TOKEN : nIHUbpiEG5FwYgsHfMm3niEbT76ltrFn
+        await this.getOneReview();
         if (this.review.id) {
           console.log("Token validated");
           // console.log("this.review.id: " + JSON.stringify(this.review.id));
@@ -199,8 +200,9 @@ export default {
           //   "this.review.acf.postedOnce: " + this.review.acf.postedOnce
           // );
           if (!this.review.acf.postedOnce) {
-            this.errorList = []
-            this.$router.push({ path: `/votre-avis-compte/${this.review.id}` });
+            this.errorList = [];
+            this.routeToForm = true;
+            // this.$router.push({ path: `/votre-avis-compte/${this.review.id}` });
           } else {
             this.showModal = true;
           }
@@ -210,39 +212,16 @@ export default {
       } else {
         this.showModal = true;
       }
+    },
+    async getOneReview() {
+      const reviews = await getReviews();
+      // console.log(reviews);
+      this.review = reviews.filter(
+        review => review.acf.token === this.formData.fields.token
+      )[0];
+      // console.log(JSON.stringify(this.review));
     }
   }
 };
 </script>
-<!--  
-https://www.howtographql.com/graphql-js/8-filtering-pagination-and-sorting/
-selectedReview: allWordPressReview (filter: String): [Link!]! 
--->
-
-<page-query>
-  query { 
-    reviews: allWordPressReview {
-      edges {
-        node {
-          id          
-          acf {
-            order
-            title
-            review
-            name
-            structure
-            relation
-            picture   
-            avatar
-            stars
-            validated
-            token
-            postedOnce
-          } 
-        } 
-      }
-    }
-  }
-</page-query>
-
 
