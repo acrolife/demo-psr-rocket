@@ -177,15 +177,7 @@ export default {
       Il s'agit
       
       ${this.errorList
-        .map(
-          item =>
-            "<li>" +
-            "du " +
-            "<strong>" +
-            item +
-            "</strong>" +
-            "</li>"
-        )
+        .map(item => "<li>" + "du " + "<strong>" + item + "</strong>" + "</li>")
         .join("")}.</p>`
         : !this.credentialsValidated
         ? `<p> Un ou plusieurs des <strong>champs identifiants</strong> comporte(nt) une <strong>erreur</strong>. Si le problème persiste veuillez contacter l'administrateur du site.<p>`
