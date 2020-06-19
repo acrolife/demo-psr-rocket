@@ -91,7 +91,7 @@
         <div class="my-10 w-full mx-4 md:mx-0 md:w-3/5">
           <div
             class="w-full bg-gray-200 border rounded-lg py-3 px-4"
-            v-html="errorMsg"
+            v-html="formMessage"
           ></div>
         </div>
       </div> -->
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div slot="body">
-            <div class="text-lg text-gray-800" v-html="errorMsg"></div>
+            <div class="text-lg text-gray-800" v-html="formMessage"></div>
           </div>
         </FormModal>
       </section>
@@ -166,7 +166,7 @@ export default {
     ReviewForm
   },
   computed: {
-    errorMsg() {
+    formMessage() {
       return this.errorList.length
         ? `<p>Le champ "Token" n'est pas rempli, voudriez-vous les compléter s'il-vous-plaît?</p>`
         : this.tokenValidated
