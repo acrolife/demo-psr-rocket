@@ -25,8 +25,7 @@ export const getReviews = () => {
 	console.log('FromPSR GS site/Admin, getting review object to backend:');
 	console.log(`Calling api on ${wpApiUrl}/wp-json/wp/v2/review`);
 	console.log('Waiting backend answer, hopefully 200 !');
-	return fetch(`${wpApiUrl}/wp-json/wp/v2/review`)
-	.then((res) => res.json());
+	return fetch(`${wpApiUrl}/wp-json/wp/v2/review`).then((res) => res.json());
 };
 
 export const postReview = (title, fields, status) => {
@@ -39,7 +38,7 @@ export const postReview = (title, fields, status) => {
 		method: 'POST',
 		headers,
 		body: JSON.stringify({ title, fields, status }),
-	})
+	});
 };
 
 export const patchReview = (title, fields, id) => {
@@ -60,33 +59,43 @@ export const patchReview = (title, fields, id) => {
 
 // Custom backend calls to use mailjet
 // const formData = {
-// 	name: 'Gilbert',
-// 	guestTitle: 'Monsieur',
-// 	relation: 'client',
-// 	structure: 'particulier',
-// 	token: 'dslkdnqkfnqskf89273',
-// 	email: 'david.dedobbeleer@gmail.com',
+// 	fromEmailClient: 'eric.renard@ps-renovation.com',
+// 	fromEmailAdmin: 'website-admin@ps-renovation.com',
+// 	toEmail,
+// 	toEmailCopy: 'eric.renard@ps-renovation.com',
+// 	nameEmailClient: 'PS-Rénovation - Une nouvelle vie pour votre bien!',
+// 	nameEmailAdmin: 'PS-Rénovation Website-Admin',
+// 	subjectClient: 'Invitation à écrire un avis pour PS-Rénovation',
+// 	subjectAdmin: "Copie d'une invitation à laisser un avis",
 // };
-const invitationData = {
-	// review: 'Test message from GS Heroku',
-	invitationTitle: 'Invitation à déposer un avis sur le site de PS-Rénovation',
+
+const customMailData = {
+	// review-tx -----------------------------------------
+	invitationTitle: 'Invitation à déposer un avis',
+	// invitationIntro: 'Pour ce faire il vous suffit de vous rendre sur ',
+	invitationLink: 'https://demo-psr-rocket.netlify.app/votre-avis-compte',
 	invitationMsgBody:
 		"Vous avez fait confiance à PS-Rénovation lors de travaux réalisés récemment dans votre bâtiment. Voudriez-vous nous accorder environ 6 minutes de votre temps que nous savons précieux, afin d'écrire un avis et laisser une évaluation ?",
 	invitationThanks:
-		"Merci par avance, grâce à vous d'autres particuliers et entreprises sauront qu'il peuvent compter sur nous pour la rénovation de leur bien!",
-	invitationLink: 'https://demo-psr-rocket.netlify.app/votre-avis-compte',
+		"Merci par avance! Grâce à vous, d'autres particuliers et entreprises sauront qu'il peuvent compter sur nous pour la rénovation de leur bien.",
+	// review-rx -----------------------------------------
+	reviewPostedTitle: 'Copie de votre avis',
+	reviewPostedBody: "Voici l'avis que vous avez déposé sur le site de PS-Rénovation",
+	reviewPostedThanks:
+		"Grâce à vous, d'autres particuliers et entreprises sauront qu'il peuvent compter sur nous pour la rénovation de leur bien.",
 };
 
-export const sendEmail = (formData) => {
-	// export const sendEmail = (messageClient, email) => {
+export const sendEmail = (formData, mailSelector) => {
 	console.log(
-		'From GS api.js: ' +
-			JSON.stringify({formData, invitationData})
+		'From GS api.js: ' + JSON.stringify({ formData, customMailData })
 	);
-	return fetch(`${psrmailApiUrl}/api/send_email`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({formData, invitationData}),
-	})
-	//  .then((res) => console.log(res)) // can't add it if used on the componennt siide as .then()	
+	return fetch(
+		`${psrmailApiUrl}/api/send-email?mail-selector=${mailSelector}`,
+		{
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ formData, customMailData }),
+		}
+	);
+	//  .then((res) => console.log(res)) // can't add it if used on the componennt siide as .then()
 };

@@ -148,7 +148,7 @@
                   <input
                     type="email"
                     name="email"
-                    v-model="formData.fields.email"
+                    v-model="formData.fields.toEmail"
                     placeholder="jean.dumont@yahoo.fr"
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   />
@@ -213,7 +213,6 @@ export default {
     return {
       formData: {
         fields: {
-          emailCopy: "david.dedobbeleer@gmail.com",
           name: "",
           guestTitle: "",
           token: "",
@@ -222,7 +221,15 @@ export default {
             "https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/user-icon.png",
           picture:
             "https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/icone-maison.png",
-          postedOnce: false
+          postedOnce: false,
+          fromEmailClient: "eric.renard@ps-renovation.com",
+          fromEmailAdmin: "website-admin@ps-renovation.com",
+          toEmail: "",
+          toEmailCopy: "david.dedobbeleer@gmail.com",
+          nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
+          nameEmailAdmin: "PS-Rénovation Website-Admin",
+          subjectClient: "Invitation à écrire un avis pour PS-Rénovation",
+          subjectAdmin: "Copie d'une invitation à laisser un avis",
         }
       },
       status: "publish",
@@ -249,14 +256,14 @@ export default {
       ${this.errorList
         .map(item => "<li>" + "du " + "<strong>" + item + "</strong>" + "</li>")
         .join("")} du client ou partenaire.</p>`
-        : `<p> Veuillez patienter quelques instants, les électrons (ou photons) transmettent vos données à environ 2/3 de la vitesse de la lumière, soit 200.000 km/s! <p>`;
+        : `<p> Veuillez patienter quelques instants, vos données sont transmises au backend afin de créer la strcuture du futur avis!<p>`;
     }
   },
   methods: {
     onSendInvite() {
-      this.formData.fields.token = generatePassword();
-      // console.log(this.formData.fields.token)
       this.validation();
+      this.formData.fields.token = generatePassword(this.formData.fields.toEmail);
+      // console.log(this.formData.fields.token)
       setTimeout(() => {
         if (this.formValidated) {
           this.showModal = true;
@@ -266,14 +273,17 @@ export default {
             .then(response => {
               // console.log(response.json());
               if (response.status === 201) {
-                sendEmail(this.formData.fields).then(response => {
+                sendEmail(this.formData.fields, "review-tx").then(response => {
                   if (response.status == 200) {
                     this.$router.push({ path: "/invitation-envoyee" });
-                  }
+                  } else
+                    alert(
+                      "psrmail-api Backend Error: Une erreur s'est produite au niveau de la communication avec le backend psrmail-api, votre invitation n'a pu être envoyéee. Pouvez-vous prévenir l'administrateur du site svp ?"
+                    );
                 });
               } else {
                 alert(
-                  "Une erreur s'est produite, votre avis n'a pu être soummis. Pouvez-vous nous prévenir de ce pas par email svp ?"
+                  "WP Backend Error: Une erreur s'est produite au niveau de la communication avec le backend Wordpress, la structure de l'avis n'a pas pu être crée. Pouvez-vous prévenir l'administrateur du site svp ?"
                 );
               }
             })
@@ -291,7 +301,7 @@ export default {
       this.formData.fields.relation
         ? null
         : this.errorList.push("rapport à PSR");
-      this.formData.fields.email ? null : this.errorList.push("courriel");
+      this.formData.fields.toEmail ? null : this.errorList.push("courriel");
       this.formData.fields.token ? null : this.errorList.push("token");
       this.errorList.length === 0 ? (this.formValidated = true) : null;
       // console.log(this.errorList)

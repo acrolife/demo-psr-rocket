@@ -40,7 +40,7 @@
           </button>
         </div>
         <!--Right Col-->
-        <div class="w-full md:w-2/5 py-6 text-center">
+        <div class="w-full h-auto md:w-2/5 py-6 text-center">
           <slot name="form"></slot>
         </div>
         <!-- </div> -->

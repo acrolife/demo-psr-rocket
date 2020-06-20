@@ -17,7 +17,7 @@
         <template slot="form">
           <div class="flex justify-center">
             <g-image
-              class="my-10 rounded-lg"
+              class="my-10 rounded-lg w-full h-auto"
               src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
             />
           </div>
@@ -70,7 +70,7 @@
                       />
                       <p class="text-gray-600 text-xs italic">
                         Le token est un mot de passe indiqué dans l'email
-                        d'invitation sécurisant l'envoi dee votre avis.
+                        d'invitation sécurisant l'envoi de votre avis.
                       </p>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default {
       errorList: [],
       formData: {
         fields: {
-          postedOnce: true
+          postedOnce: true         
         }
       },
       tokenValidated: false,
@@ -168,7 +168,7 @@ export default {
   computed: {
     formMessage() {
       return this.errorList.length
-        ? `<p>Le champ "Token" n'est pas rempli, voudriez-vous les compléter s'il-vous-plaît?</p>`
+        ? `<p>Le champ "Token" n'est pas rempli ou comporte une valeur erronée, voudriez-vous les compléter/vérifier s'il-vous-plaît?</p>`
         : this.tokenValidated
         ? this.review.acf.postedOnce
           ? `<p> Il semble que vous ayez déjà rédigé et soumis un avis. Voudriez-vous s'il-vous-plaît contacter PSR pour mentionner le problème ? Merci! <p>`
@@ -207,6 +207,7 @@ export default {
             this.showModal = true;
           }
         } else {
+          !this.tokenValidated ? this.errorList.push("token") : null
           this.showModal = true;
         }
       } else {

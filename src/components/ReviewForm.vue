@@ -227,7 +227,16 @@ export default {
           postedOnce: true,
           structure: "",
           relation: "",
-          review: ""
+          review: "",
+          stars: "",
+          fromEmailClient: "eric.renard@ps-renovation.com",
+          fromEmailAdmin: "website-admin@ps-renovation.com",
+          toEmail: "",
+          toEmailCopy: "david.dedobbeleer@gmail.com",
+          nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
+          nameEmailAdmin: "PS-Rénovation Website-Admin",
+          subjectClient: "Copie de l'avis écrit pour PS-Rénovation",
+          subjectAdmin: "Copie d'un avis déposé par un client",
         }
       }
     };
@@ -276,6 +285,7 @@ export default {
     onSendReview() {
       // Triggers the form validation (formValidation method)
       this.formValidation();
+      this.formData.fields.toEmail = generatePassword(this.formData.fields.token);
       // Triggers the api call, with the patchReview, if the form has been validated
       setTimeout(() => {
         if (this.formValidated) {
@@ -285,7 +295,14 @@ export default {
             .then(response => {
               // console.log(response.json());
               if (response.status === 200) {
-                this.$router.push({ path: "/success/" });
+                sendEmail(this.formData.fields, "review-rx").then(response => {
+                  if (response.status == 200) {
+                    this.$router.push({ path: "/success/" });
+                  } else
+                    console.log(
+                      "psrmail-api Backend Error: couldn't send warning email about the submitted review"
+                    );
+                });                
               } else {
                 alert(
                   "Un problème technique est survenu quant à l'envoi de votre avis : Erreur " +
@@ -318,6 +335,7 @@ export default {
     this.formData.fields.structure = this.review.acf.structure;
     this.formData.fields.relation = this.review.acf.relation;
     this.formData.fields.name = this.review.acf.name;
+    this.formData.fields.token = review.acf.token;
   }
 };
 </script>
