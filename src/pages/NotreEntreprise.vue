@@ -214,82 +214,93 @@
       <section>
         <div class="mb-20">
           <!-- Reviews -->
-          <h2
-            class="w-full px-2 pt-10 mb-4 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
-          >
-            Nouveaux avis de nos clients et partenaires
-          </h2>
+          <div v-if="reviewsArray.length">
+            <h2
+              class="w-full px-2 pt-10 mb-4 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+            >
+              Nouveaux avis de nos clients et partenaires
+            </h2>
 
-          <!-- Underline title -->
-          <div class="w-full mb-10">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
-          </div>
-
-          <ul>
-            <div class="mb-4">
-              <div
-                class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
-              >
-                <li v-for="review in reviewsArray.slice(0, 3)" :key="review.id">
-                  <Review :review="review.node" />
-                </li>
-              </div>
+            <!-- Underline title -->
+            <div class="w-full mb-10">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
             </div>
-          </ul>
 
-          <div class="flex justify-center mb-12">
-            <g-link :to="`/avis-et-temoignages`">
-              <div class="h-16">
+            <ul>
+              <div class="mb-4">
                 <div
-                  class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
+                  class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
                 >
-                  Lire plus d'avis
+                  <li
+                    v-for="review in reviewsArray.slice(0, 3)"
+                    :key="review.id"
+                  >
+                    <Review :review="review.node" />
+                  </li>
                 </div>
               </div>
-            </g-link>
+            </ul>
+
+            <div class="flex justify-center mb-12">
+              <g-link :to="`/avis-et-temoignages`">
+                <div class="h-16">
+                  <div
+                    class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
+                  >
+                    Lire plus d'avis
+                  </div>
+                </div>
+              </g-link>
+            </div>
           </div>
 
           <!-- Témoignages -->
-          <h2
-            class="w-full px-2 pt-10 mb-4 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
-          >
-            Autres témoignages : ils parlent de PSR!
-          </h2>
-          <!-- Underline title -->
-          <div class="w-full mb-10">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
-          </div>
-          <ul>
-            <div class="mb-4">
-              <div
-                class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
-              >
-                <li
-                  v-for="temoignage in temoignagesArray.slice(0, 3)"
-                  :key="temoignage.id"
+          <div>
+            <h2
+              class="w-full px-2 pt-10 mb-4 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+            >
+              {{
+                reviewsArray.length
+                  ? "Autres témoignages: ils parlent de PSR!"
+                  : "Témoignages: ils parlent de PSR!"
+              }}
+            </h2>
+            <!-- Underline title -->
+            <div class="w-full mb-10">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
+            </div>
+            <ul>
+              <div class="mb-4">
+                <div
+                  class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
                 >
-                  <Temoignage :temoignage="temoignage.node" />
-                  <!-- <Temoignage
+                  <li
+                    v-for="temoignage in temoignagesArray.slice(0, 3)"
+                    :key="temoignage.id"
+                  >
+                    <Temoignage :temoignage="temoignage.node" />
+                    <!-- <Temoignage
                 :temoignage="temoignage.node"
                 :shortOrCardClass="
                   shortOrCardClass(temoignage.node.acf.cpkSelector)
                 "
               /> -->
-                </li>
-              </div>
-            </div>
-          </ul>
-
-          <div class="flex justify-center mb-0">
-            <g-link :to="`/avis-et-temoignages`">
-              <div class="h-16">
-                <div
-                  class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
-                >
-                  Lire plus d'avis
+                  </li>
                 </div>
               </div>
-            </g-link>
+            </ul>
+
+            <div class="flex justify-center mb-0">
+              <g-link :to="`/avis-et-temoignages`">
+                <div class="h-16">
+                  <div
+                    class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
+                  >
+                    Lire plus d'avis
+                  </div>
+                </div>
+              </g-link>
+            </div>
           </div>
         </div>
       </section>
@@ -608,10 +619,8 @@ export default {
       (a, b) => a.node.acf.order - b.node.acf.order
     );
     this.reviewsArray = this.$page.reviews.edges
-    .filter( (item) => item.node.acf.validated )
-    .sort(
-      (a, b) => a.node.acf.order - b.node.acf.order
-    );
+      .filter(item => item.node.acf.validated)
+      .sort((a, b) => a.node.acf.order - b.node.acf.order);
   }
   // methods: {
   //   shortOrCardClass(cpkSelector) {
