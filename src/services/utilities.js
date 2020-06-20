@@ -1,7 +1,5 @@
-const secret = 'bUt6t0vJ3eowElk11KzIrAE2kuugFcOu'; // should go in .env
 // // Generates a password from an email (string) and secret key 
-const secret = 'bUt6t0vJ3eowElk11KzIrAE2kuugFcOu';
-
+const secret = 'bUt6t0vJ3eowElk11KzIrAE2kuugFcOu'; // should go in .env
 export const generatePassword = (email) => {
 	return Buffer.from(email + secret, 'binary').toString('base64');
 };
