@@ -8,7 +8,7 @@
           Félicitations.
         </template>
         <template slot="repeatable-title-2">
-          Votre avis a bien été envoyé, une copie vous a été envoyée par email.
+          Votre avis a bien été transmis, une copie vous a été envoyée par email.
         </template>
         <!-- <template slot="cta-text">
           Confier un projet à PSR
@@ -29,9 +29,10 @@
           class="flex flex-col justify-center my-20 mx-4 md:mx-20 py-6 md:py-10 px-4 md:px-20 bg-green-200 text-gray-700 font-bold rounded-lg shadow-lg"
         >
           <div class="flex justify-center mb-3 text-2xl md:text-3xl">
-            Au nom de PSR, merci! ✨
+            Votre avis a été transmis ✅ et une copie vous a été envoyée            
           </div>
           <div class="flex justify-center text-justify text-lg font-bold">
+            Au nom de PSR, merci! ✨
             Votre avis contribue à valoriser l'image de l'entreprise sur
             internet et cela est très important pour nous 😃
           </div>

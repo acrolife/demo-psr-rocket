@@ -21,6 +21,7 @@ headers.Authorization =
 // headers.Authorization = 'Basic ' + btoa(username + ':' + password);
 
 // WP REST API calls
+// Review --------------------------------------
 export const getReviews = () => {
 	console.log('FromPSR GS site/Admin, getting review object to backend:');
 	console.log(`Calling api on ${wpApiUrl}/wp-json/wp/v2/review`);
@@ -57,6 +58,20 @@ export const patchReview = (title, fields, id) => {
 	});
 };
 
+// Leads --------------------------------------
+export const postMessage = (title, fields) => {
+	console.log('FromPSR GS site/Admin, sending message object to backend:');
+	console.log(`Calling api on ${wpApiUrl}/wp-json/wp/v2/lead`);
+	console.log(JSON.stringify({ title, fields }));
+	console.log('Waiting backend answer, hopefully 201 !');
+
+	return fetch(`${wpApiUrl}/wp-json/wp/v2/lead`, {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ title, fields }),
+	});
+};
+
 // Custom backend calls to use mailjet
 // const formData = {
 // 	fromEmailClient: 'eric.renard@ps-renovation.com',
@@ -80,9 +95,16 @@ const customMailData = {
 		"Merci par avance! Grâce à vous, d'autres particuliers et entreprises sauront qu'il peuvent compter sur nous pour la rénovation de leur bien.",
 	// review-rx -----------------------------------------
 	reviewPostedTitle: 'Copie de votre avis',
-	reviewPostedBody: "Voici l'avis que vous avez déposé sur le site de PS-Rénovation",
+	reviewPostedBody:
+		"Voici l'avis que vous avez déposé sur le site de PS-Rénovation",
 	reviewPostedThanks:
 		"Grâce à vous, d'autres particuliers et entreprises sauront qu'il peuvent compter sur nous pour la rénovation de leur bien.",
+			// review-rx -----------------------------------------
+	messagePostedTitle: 'Copie de votre message',
+	messagePostedBody:
+		"Voici le message que vous avez envoyé à Eric Renard, de PS-Rénovation",
+	messagePostedThanks:
+		"Nous mettons un point d'honneur à lire les messages reçus tous les jours. Eric s'engage à vous donner une réponse au plus tôt, le soir même ou le matin suivant, même en période très chargée!",
 };
 
 export const sendEmail = (formData, mailSelector) => {

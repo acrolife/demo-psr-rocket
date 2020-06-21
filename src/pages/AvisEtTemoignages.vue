@@ -28,9 +28,10 @@
         />
       </div>
 
-      <!-- Reviews & Témoignages -->
+      <!-- Reviews & Témoignages -->      
       <section>
         <!-- Reviews -->
+        <!-- CAUTION! Don't forget those review come from a page query = availble after rebuilt, not like in review invitation where it's available thx to GET method -->
         <h2
           class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         >
@@ -151,6 +152,7 @@
             avatar
             stars
             validated
+            date
           } 
         } 
       }

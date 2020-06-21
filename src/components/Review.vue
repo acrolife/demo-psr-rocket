@@ -54,8 +54,8 @@
               <div class="text-sm">
                 <p class="text-gray-800 italic leading-none">
                   {{ `${review.acf.name}, ${review.acf.relation} ${review.acf.structure}` }}
-                </p>
-                <!-- <p class="text-gray-600">Aug 18</p> -->
+                </p>                
+                <p v-if="review.acf.date" class="text-gray-600"> {{ review.acf.date.split(",")[0] }} </p>
               </div>
             </div>
 

@@ -113,6 +113,11 @@
         <ReviewForm :review="review"/>
       </section>
 
+      <!--Success message // currenly a simple redirecct to page, later refactor-->
+      <!-- <section v-if="success">
+        <Success :successText="review"/>
+      </section> -->
+
       <!--Pre-footer slots section -->
       <SlotBottomSection :noCtaButton="true">
         <template slot="main-text">
@@ -143,6 +148,7 @@ import ReviewForm from "~/components/ReviewForm.vue";
 export default {
   data() {
     return {
+      // success: false,
       routeToForm: false,
       showModal: false,
       formValidated: false,

@@ -62,7 +62,10 @@
                     <p class="text-gray-600 text-xs italic">
                       Il s'agit d'un texte d'une longueur entre en une phrase et
                       300 caractères. Il reste
-                      {{ 300 - reviewCharacterCounter }} caractères.
+                      {{
+                        charachtersLimit - reviewCharacterCounter
+                      }}
+                      caractères.
                     </p>
                   </div>
                 </div>
@@ -205,7 +208,8 @@
 <script>
 import StarRating from "vue-star-rating/src";
 // source :  https://github.com/craigh411/vue-star-rating
-import { patchReview } from "~/services/api.js";
+import { patchReview, sendEmail } from "~/services/api.js";
+import { generateDate } from "~/services/utilities.js";
 
 import FormModal from "~/components/FormModal.vue";
 
@@ -221,6 +225,7 @@ export default {
       showModal: false,
       boundRating: 5,
       formValidated: false,
+      charachtersLimit: 300,
       errorList: [],
       formData: {
         fields: {
@@ -229,14 +234,15 @@ export default {
           relation: "",
           review: "",
           stars: "",
-          fromEmailClient: "eric.renard@ps-renovation.com",
-          fromEmailAdmin: "website-admin@ps-renovation.com",
+          date: "",
           toEmail: "",
           toEmailCopy: "david.dedobbeleer@gmail.com",
           nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
           nameEmailAdmin: "PS-Rénovation Website-Admin",
+          fromEmailClient: "eric.renard@ps-renovation.com",
+          fromEmailAdmin: "website-admin@ps-renovation.com",
           subjectClient: "Copie de l'avis écrit pour PS-Rénovation",
-          subjectAdmin: "Copie d'un avis déposé par un client",
+          subjectAdmin: "Copie d'un avis déposé par un client"
         }
       }
     };
@@ -251,8 +257,8 @@ export default {
     },
     reviewCharacterCounter() {
       this.formData.fields.review =
-        this.formData.fields.review.length >= 300
-          ? this.formData.fields.review.slice(0, 300)
+        this.formData.fields.review.length >= this.charachtersLimit
+          ? this.formData.fields.review.slice(0, this.charachtersLimit)
           : this.formData.fields.review;
       return this.formData.fields.review.length;
     },
@@ -283,9 +289,13 @@ export default {
   },
   methods: {
     onSendReview() {
+      this.formData.fields.date = generateDate();
       // Triggers the form validation (formValidation method)
       this.formValidation();
-      this.formData.fields.toEmail = generatePassword(this.formData.fields.token);
+      // Generates a token based on secret + email => email carried y the token ;)
+      this.formData.fields.toEmail = generatePassword(
+        this.formData.fields.token
+      );
       // Triggers the api call, with the patchReview, if the form has been validated
       setTimeout(() => {
         if (this.formValidated) {
@@ -297,12 +307,12 @@ export default {
               if (response.status === 200) {
                 sendEmail(this.formData.fields, "review-rx").then(response => {
                   if (response.status == 200) {
-                    this.$router.push({ path: "/success/" });
+                    this.$router.push({ path: "/avis-transmis/" });
                   } else
                     console.log(
                       "psrmail-api Backend Error: couldn't send warning email about the submitted review"
                     );
-                });                
+                });
               } else {
                 alert(
                   "Un problème technique est survenu quant à l'envoi de votre avis : Erreur " +
