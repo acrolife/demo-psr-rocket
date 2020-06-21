@@ -108,9 +108,10 @@ const customMailData = {
 };
 
 export const sendEmail = (formData, mailSelector) => {
-	console.log(
-		'From GS api.js: ' + JSON.stringify({ formData, customMailData })
-	);
+	// Only for debug purpose !
+	// console.log(
+	// 	'From GS api.js: ' + JSON.stringify({ formData, customMailData })
+	// );
 	return fetch(
 		`${psrmailApiUrl}/api/send-email?mail-selector=${mailSelector}`,
 		{
