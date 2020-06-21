@@ -302,7 +302,6 @@ export default {
         ? null
         : this.errorList.push("rapport à PSR");
       this.formData.fields.toEmail ? null : this.errorList.push("courriel");
-      this.formData.fields.token ? null : this.errorList.push("token");
       this.errorList.length === 0 ? (this.formValidated = true) : null;
       // console.log(this.errorList)
     },
