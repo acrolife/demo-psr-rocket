@@ -209,7 +209,7 @@
 import StarRating from "vue-star-rating/src";
 // source :  https://github.com/craigh411/vue-star-rating
 import { patchReview, sendEmail } from "~/services/api.js";
-import { generateDate } from "~/services/utilities.js";
+import { generateDate, getEmailFromPassword } from "~/services/utilities.js";
 
 import FormModal from "~/components/FormModal.vue";
 
@@ -293,7 +293,7 @@ export default {
       // Triggers the form validation (formValidation method)
       this.formValidation();
       // Generates a token based on secret + email => email carried y the token ;)
-      this.formData.fields.toEmail = generatePassword(
+      this.formData.fields.toEmail = getEmailFromPassword(
         this.formData.fields.token
       );
       // Triggers the api call, with the patchReview, if the form has been validated

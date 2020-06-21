@@ -256,7 +256,7 @@ export default {
       ${this.errorList
         .map(item => "<li>" + "du " + "<strong>" + item + "</strong>" + "</li>")
         .join("")} du client ou partenaire.</p>`
-        : `<p> Veuillez patienter quelques instants, vos données sont transmises au backend afin de créer la strcuture du futur avis!<p>`;
+        : `<p> Veuillez patienter quelques instants, vos données sont transmises au backend afin de créer la structure du futur avis!<p>`;
     }
   },
   methods: {

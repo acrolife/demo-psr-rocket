@@ -46,12 +46,13 @@ const generateDate = () => {
 
 // // Generates a password from an email (string) and secret key
 const secret = 'bUt6t0vJ3eowElk11KzIrAE2kuugFcOu'; // should go in .env
+const separationSecret = '&:&'
 const generatePassword = (email) => {
-	return Buffer.from(email + secret, 'binary').toString('base64');
+	return Buffer.from(email + separationSecret + secret, 'binary').toString('base64');
 };
 
 const getEmailFromPassword = (password) => {
-	return Buffer.from(password, 'base64').toString('ascii');
+	return Buffer.from(password, 'base64').toString('ascii').split(separationSecret)[0];
 };
 
 module.exports = {
