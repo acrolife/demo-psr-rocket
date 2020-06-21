@@ -30,7 +30,8 @@
           <button
             class="mt-10 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg hover:opacity-100 ssm:opacity-75 ssm:flex-none ssm:ml-0 xl:text-2xl xl:py-6"
           >
-            {{ $page.pageaccueil.acf.topCtaText }}
+            Demander un devis
+            <!-- {{ $page.pageaccueil.acf.topCtaText }} -->
           </button>
         </div>
       </div>

@@ -13,7 +13,7 @@
               <g-link to="/" :class="navbarTitleColorClass">
                 <g-image
                   src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/05/logo-prestations-services-renovations-10.png"
-                  class="h-6 w-auto mx-3 mr-5 mb-1 lg:h-8"
+                  class="h-6 w-auto mx-3 mb-1 lg:h-8"
                 >
                 </g-image>
               </g-link>
@@ -23,7 +23,7 @@
               hover:text-gray-100 font-bold hover:px-5 text-xl lg:text-2xl"
                   :class="'polygon-navbar'"
                 >
-                <!-- trial shows when active -->
+                  <!-- trial shows when active -->
                   <!-- <div
                   class="text-white no-underline green-psr
               text-gray-100 font-bold hover:px-5 py-1 text-xl lg:text-2xl"
@@ -221,10 +221,12 @@ export default {
 <style>
 .polygon-navbar {
   /* background: #00b084; */
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    @media screen and (min-width: 450px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  }
 }
 /* 
 Trial new title like Malt !
@@ -235,85 +237,3 @@ Trial new title like Malt !
   clip-path: polygon(30% 50%, 100% 50%, 100% 100%, 30% 100%);
 } */
 </style>
-
-<!--
-           <g-link to="/" :class="navbarTitleColorClass">
-                <div
-                  class="text-white no-underline hover:text-teal-600 font-bold text-xl lg:text-2xl"
-                  :class="navbarTitleColorClass"
-                >
-                  PS-Rénovation
-                </div>
-              </g-link>
-              -->
-
-<!--
-          <g-link
-                to="/services"
-                class="inline-block no-underline green-psr-menu hover:text-gray-300 hover:font-bold py-2 px-6"
-                :class="'polygon-navbar'"
-                >Services</g-link
-              >
--->
-
-<!--
-                        <ul
-            class="list-reset justify-end flex-1 items-center mb-2 lg:flex lg:mb-0 xxl:text-xl"
-          >
-            <li
-              class="mr-3"
-              @click="setActive('Home')"
-              :class="navItemClass('Home')"
-            >
-              <g-link
-                to="/"
-                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
-                >Home</g-link
-              >
-            </li>
-            <li
-              class="mr-3"
-              @click="setActive('Services')"
-              :class="navItemClass('Services')"
-            >
-              <g-link
-                to="/services"
-                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
-                >Services</g-link
-              >
-            </li>
-            <li
-              class="mr-3"
-              @click="setActive('Réalisations')"
-              :class="navItemClass('Réalisations')"
-            >
-              <g-link
-                to="/realisations/"
-                class="inline-block no-underline hover:text-teal-500 py-2 px-4"
-                >Réalisations</g-link
-              >
-            </li>
-            <li
-              class="mr-3"
-              @click="setActive('Blog')"
-              :class="navItemClass('Blog')"
-            >
-              <g-link
-                to="/blog/"
-                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
-                >Blog</g-link
-              >
-            </li>
-            <li
-              class="mr-3"
-              @click="setActive('Lentreprise')"
-              :class="navItemClass('Lentreprise')"
-            >
-              <g-link
-                to="/notre-entreprise/"
-                class="inline-block no-underline hover:text-teal-600 py-2 px-4"
-                >L'entreprise</g-link
-              >
-            </li>
-          </ul>
-          -->

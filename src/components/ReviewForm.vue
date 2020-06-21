@@ -294,8 +294,11 @@ export default {
       this.formValidation();
       // Generates a token based on secret + email => email carried y the token ;)
       this.formData.fields.toEmail = getEmailFromPassword(
-        this.formData.fields.token
+        this.review.acf.token
       );
+      // WP to GS requires my_field to give camelCase output
+      this.formData.fields.to_email = this.formData.fields.toEmail 
+      this.formData.fields.posted_once = this.formData.fields.postedOnce
       // Triggers the api call, with the patchReview, if the form has been validated
       setTimeout(() => {
         if (this.formValidated) {
@@ -345,7 +348,7 @@ export default {
     this.formData.fields.structure = this.review.acf.structure;
     this.formData.fields.relation = this.review.acf.relation;
     this.formData.fields.name = this.review.acf.name;
-    this.formData.fields.token = review.acf.token;
+    this.formData.fields.token = this.review.acf.token;
   }
 };
 </script>

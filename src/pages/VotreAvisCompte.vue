@@ -110,7 +110,7 @@
 
       <!--Filling Form section -->
       <section v-if="routeToForm">
-        <ReviewForm :review="review"/>
+        <ReviewForm :review="review" />
       </section>
 
       <!--Success message // currenly a simple redirecct to page, later refactor-->
@@ -155,7 +155,7 @@ export default {
       errorList: [],
       formData: {
         fields: {
-          postedOnce: true         
+          postedOnce: true
         }
       },
       tokenValidated: false,
@@ -197,25 +197,26 @@ export default {
       if (this.formValidated) {
         // console.log(JSON.stringify(this.review))
         // TEST TOKEN : nIHUbpiEG5FwYgsHfMm3niEbT76ltrFn
-        await this.getOneReview();
-        if (this.review.id) {
-          console.log("Token validated");
-          // console.log("this.review.id: " + JSON.stringify(this.review.id));
-          this.tokenValidated = true;
-          // console.log(
-          //   "this.review.acf.postedOnce: " + this.review.acf.postedOnce
-          // );
-          if (!this.review.acf.postedOnce) {
-            this.errorList = [];
-            this.routeToForm = true;
-            // this.$router.push({ path: `/votre-avis-compte/${this.review.id}` });
+        this.getOneReview().then(() => {
+          if (this.review.id) {
+            console.log("Token validated");
+            // console.log("this.review.id: " + JSON.stringify(this.review.id));
+            this.tokenValidated = true;
+            // console.log(
+            //   "this.review.acf.postedOnce: " + this.review.acf.postedOnce
+            // );
+            if (!this.review.acf.postedOnce) {
+              this.errorList = [];
+              this.routeToForm = true;
+              // this.$router.push({ path: `/votre-avis-compte/${this.review.id}` });
+            } else {
+              this.showModal = true;
+            }
           } else {
+            !this.tokenValidated ? this.errorList.push("token") : null;
             this.showModal = true;
           }
-        } else {
-          !this.tokenValidated ? this.errorList.push("token") : null
-          this.showModal = true;
-        }
+        });
       } else {
         this.showModal = true;
       }
@@ -226,6 +227,12 @@ export default {
       this.review = reviews.filter(
         review => review.acf.token === this.formData.fields.token
       )[0];
+      this.review === undefined
+        ? (this.review = {
+            id: 0
+          })
+        : null;
+
       // console.log(JSON.stringify(this.review));
     }
   }

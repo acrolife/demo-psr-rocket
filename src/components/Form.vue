@@ -56,13 +56,13 @@
             <div class="flex flex-col md:flex-row">
               <div class="w-full md:flex-1">
                 <label
-                  for="toEmail"
+                  for="email"
                   class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1 flex justify-start"
                   >Mon courriel</label
                 >
                 <input
                   type="email"
-                  name="toEmail"
+                  name="email"
                   v-model="formData.fields.toEmail"
                   placeholder="jean.dumont@hotmail.fr"
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -71,7 +71,7 @@
               <div class="hidden md:block md:w-4"></div>
               <div class="w-full md:w-5/12">
                 <label
-                  for="toEmail"
+                  for="mobile"
                   class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1 flex justify-start"
                   >Mon mobile</label
                 >
@@ -126,7 +126,7 @@
     <FormModal v-if="showModal" @close="onCloseFormModal">
       <div slot="header">
         <div class="text-xl text-gray-800 font-bold">
-          Soumission de votre avis...
+          Envoi de votre message...
         </div>
       </div>
       <div slot="body">
@@ -201,7 +201,8 @@ export default {
           item => "<li>" + "votre " + "<strong>" + item + "</strong>" + "</li>"
         )
         .join("")}</p>`
-        : `<p> Veuillez patienter quelques instants pendant l'envoi de votre messsage s'il-vous-plaît, le processus est presque terminé!<p>`;
+        : `<p> Veuillez patienter quelques instants s'il-vous-plaît, la communication a été établie avec le serveur email.<br/> 
+        A l'issue vous recevrez une copie de votre message par courrriel!<p>`;
     }
   },
   methods: {
@@ -247,7 +248,7 @@ export default {
         ? "Sorry it seems you are a bot, only them have access to that field"
         : null;
       this.formData.fields.name ? null : this.errorList.push("name");
-      this.formData.fields.toEmail ? null : this.errorList.push("courriel");
+      this.formData.fields.toEmail ? this.formData.fields.to_email = this.formData.fields.toEmail : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
       this.formData.fields.mobile ? null : this.errorList.push("mobile");
       this.formData.fields.message ? null : this.errorList.push("message");
       this.errorList.length === 0 ? (this.formValidated = true) : null;

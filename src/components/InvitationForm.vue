@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="flex justify-center mt-12 ">
-      <div class="my-10 w-full mx-4 md:mx-0 md:w-1/2">
+      <div class="my-10 w-full mx-4 md:mx-0 md:w-8/12"> <!-- 8/12 because 7 isn't enough => Mademoiselle is too large and field get higher..-->
         <div
           class="w-full bg-gray-200 border rounded-lg py-3 px-4 mb-3 leading-tight"
         >
@@ -302,6 +302,7 @@ export default {
         ? null
         : this.errorList.push("rapport à PSR");
       this.formData.fields.toEmail ? null : this.errorList.push("courriel");
+      this.formData.fields.toEmail ? this.formData.fields.to_email = this.formData.fields.toEmail : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
       this.errorList.length === 0 ? (this.formValidated = true) : null;
       // console.log(this.errorList)
     },
