@@ -262,14 +262,17 @@ export default {
           : this.formData.fields.review;
       return this.formData.fields.review.length;
     },
-    ratingComment() {
+    classTextEval() { 
+      return this.formData.fields.stars <= 3.5 ? 'text-red-600 text-lg' : 'text-green-600 text-lg'
+    },
+    ratingComment() {      
       return this.formData.fields.stars
-        ? `Vous avez choisi d'attribuer une note de ${this.formData.fields
-            .stars * 2}/10${
+        ? `<p class="${this.classTextEval}">Vous avez choisi d'attribuer <strong>une note de ${this.formData.fields
+            .stars * 2}/10</strong>${
             this.formData.fields.stars <= 3.5
               ? "... êtes-vous sûr?"
               : ". Merci!"
-          }`
+          }</p>`
         : `<p>Accorderiez-vous un <strong>10/10</strong> à PSR en nous attribuant <strong>5 étoiles</strong>? 😊</p>`;
     },
     errorMsg() {
