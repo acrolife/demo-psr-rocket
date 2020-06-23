@@ -372,7 +372,7 @@ export default {
     }
   },
   metaInfo: {
-    title: "metainfo to fill"
+    title: "Une nouvelle vie pour votre bien"
   }
 };
 </script>
