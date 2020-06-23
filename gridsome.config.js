@@ -16,6 +16,12 @@ module.exports = {
 
 	plugins: [
 		{
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-89220505-1'
+      }
+    },
+		{
 			use: '@gridsome/source-wordpress',
 			options: {
 				baseUrl: 'https://psr2222.creativityquarks.com/',
