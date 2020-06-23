@@ -27,12 +27,13 @@
           </h2> -->
         </div>
         <div class="flex mx-auto w-3/4 md:w-2/3 md:ml-10 lg:w-1/2 xl:ml-24">
-          <button
+          <a
+            href="/notre-entreprise#contact"
             class="mt-10 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg hover:opacity-100 ssm:opacity-75 ssm:flex-none ssm:ml-0 xl:text-2xl xl:py-6"
           >
             Demander un devis
             <!-- {{ $page.pageaccueil.acf.topCtaText }} -->
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -114,11 +114,12 @@
                 <!-- <p class="text-gray-600">Aug 18</p> -->
               </div>
             </div>
-            <button
+            <a
+              href="/notre-entreprise#contact"
               class="mx-auto green-psr gradient text-white font-bold rounded-full mt-3 mb-3 py-4 px-8 shadow-lg"
             >
               {{ service.acf.pwcCtaText }}
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -131,8 +132,9 @@
     />
 
     <section class="bg-white pt-10 md:pt-16">
-      <div class="mx-auto flex flex-wrap pt-4 pb-12 m-auto p-4 max-w-screen-xl md:p-12">
-
+      <div
+        class="mx-auto flex flex-wrap pt-4 pb-12 m-auto p-4 max-w-screen-xl md:p-12"
+      >
         <h2
           class="w-full my-2 text-3xl md:text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         >
@@ -140,12 +142,12 @@
         </h2>
 
         <div class="w-full mb-4">
-          <div
-            class="h-1 mx-auto w-64 opacity-25 my-0 py-0"
-          ></div>
+          <div class="h-1 mx-auto w-64 opacity-25 my-0 py-0"></div>
         </div>
 
-        <div class="w-full md:w-1/2 lg:w-2/3 py-6 px-2 flex flex-col flex-grow flex-shrink">
+        <div
+          class="w-full md:w-1/2 lg:w-2/3 py-6 px-2 flex flex-col flex-grow flex-shrink"
+        >
           <g-link
             class="flex flex-col h-full shadow-lg hover:shadow-2xl rounded-lg border pt-4"
             :to="
@@ -153,9 +155,7 @@
                 realisations.edges[reaArrayIndex[0]].node.slug
             "
           >
-            <div
-              class="flex-1 bg-white overflow-hidden"
-            >
+            <div class="flex-1 bg-white overflow-hidden">
               <div class="flex flex-wrap no-underline">
                 <div class="w-full text-gray-600 text-xs md:text-sm px-6">
                   Terminé le
@@ -190,7 +190,9 @@
           </g-link>
         </div>
 
-        <div class="w-full md:w-1/2 lg:w-1/3 py-6 px-2  flex flex-col flex-grow flex-shrink">
+        <div
+          class="w-full md:w-1/2 lg:w-1/3 py-6 px-2  flex flex-col flex-grow flex-shrink"
+        >
           <g-link
             class="flex flex-col h-full shadow-lg hover:shadow-2xl rounded-lg border pt-4"
             :to="
@@ -198,9 +200,7 @@
                 realisations.edges[reaArrayIndex[1]].node.slug
             "
           >
-            <div
-              class="flex-1 bg-white overflow-hidden"
-            >
+            <div class="flex-1 bg-white overflow-hidden">
               <div class="flex flex-wrap no-underline">
                 <div class="w-full text-gray-600 text-xs md:text-sm px-6">
                   Terminé le
@@ -235,7 +235,9 @@
           </g-link>
         </div>
 
-        <div class="w-full md:w-1/3 py-6 px-2 flex flex-col flex-grow flex-shrink">
+        <div
+          class="w-full md:w-1/3 py-6 px-2 flex flex-col flex-grow flex-shrink"
+        >
           <g-link
             class="flex flex-col h-full shadow-lg hover:shadow-2xl rounded-lg border pt-4"
             :to="
@@ -243,9 +245,7 @@
                 realisations.edges[reaArrayIndex[2]].node.slug
             "
           >
-            <div
-              class="flex-1 bg-white overflow-hidden shadow"
-            >
+            <div class="flex-1 bg-white overflow-hidden shadow">
               <div class="flex flex-wrap no-underline">
                 <div class="w-full text-gray-600 text-xs md:text-sm px-6">
                   Terminé le
@@ -279,7 +279,6 @@
             </div>
           </g-link>
         </div>
-
       </div>
     </section>
 
@@ -455,10 +454,10 @@ export default {
       Math.floor(Math.random() * this.realisations.edges.length)
     );
     this.reaArrayIndex = [...new Set(reaArrayIndexLocal)];
-        const indexSelector = [...Array(this.nbOfIndexes).keys()];
-    this.reaArrayIndex = this.reaArrayIndex.filter(
-      (item, index) => indexSelector.includes(index)
-    )
+    const indexSelector = [...Array(this.nbOfIndexes).keys()];
+    this.reaArrayIndex = this.reaArrayIndex.filter((item, index) =>
+      indexSelector.includes(index)
+    );
   }
 };
 </script>

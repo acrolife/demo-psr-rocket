@@ -15,16 +15,17 @@
           <slot name="main-text"></slot>
         </h1>
 
-        <h3 class="my-4 text-2xl md:text-3xl leading-tight">
+        <h3 class="my-4 text-2xl md:text-3xl leading-tight mb-10">
           <slot name="secondary-text"></slot>
         </h3>
 
-        <button
+        <a
+          href="/notre-entreprise#contact"
           class="mx-auto lg:mx-0 white-psr bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg"
           v-if="!noCtaButton"
         >
           <slot name="cta-text"></slot>
-        </button>
+        </a>
         <div class="pb-10" v-if="$slots.titleLeft"></div>
       </div>
 
@@ -97,7 +98,7 @@
 <script>
 import SvgWavePreFooter from "~/components/svg/SvgWavePreFooter.vue";
 export default {
-    props: {
+  props: {
     noCtaButton: {
       type: Boolean,
       require: false

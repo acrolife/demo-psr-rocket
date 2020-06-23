@@ -31,13 +31,14 @@
             <!-- {{ service.acf.repeaterTitle[1].title }} -->
           </p>
 
-          <button
+          <a
+            href="/notre-entreprise#contact"
             class="mx-auto white-psr text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg md:mx-0"
             v-if="!noCtaButton"
           >
             <slot name="cta-text"></slot>
             <!-- Demander un devis -->
-          </button>
+          </a>
         </div>
         <!--Right Col-->
         <div class="w-full h-auto md:w-2/5 py-6 text-center">

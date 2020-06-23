@@ -293,7 +293,9 @@
             <div class="flex justify-center mb-0">
               <g-link :to="`/avis-et-temoignages`">
                 <div class="h-16">
+                  <!-- Put the #anchor here because the sccroll is a bit too low -->
                   <div
+                    id="contact"
                     class="text-center mx-auto green-psr text-white font-bold rounded-full py-4 px-8 md:px-16 md:text-lg shadow-lg"
                   >
                     Lire plus d'avis
@@ -335,8 +337,9 @@
         </template>
       </ContactFull>
 
+
       <!--Pre-footer slots section -->
-      <SlotBottomSection>
+      <SlotBottomSection id="coordonnees">
         <template slot="main-text">
           Notre entreprise
         </template>
@@ -614,6 +617,13 @@ export default {
     Form,
     ContactFull
   },
+  // methods: {
+  //   scrollPageTo(refName) {
+  //     const element = this.$refs[refName];
+  //     const top = element.offsetTop;
+  //     window.scrollTo(0, top);
+  //   }
+  // }, 
   created() {
     this.temoignagesArray = this.$page.temoignages.edges.sort(
       (a, b) => a.node.acf.order - b.node.acf.order

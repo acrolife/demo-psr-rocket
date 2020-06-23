@@ -65,10 +65,10 @@
               >
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-              <g-link
-                to="/notre-entreprise#contact"
+              <a
+                href="/notre-entreprise#coordonnees"
                 class="no-underline hover:text-teal-500 text-gray-800"
-                >Nos coordonnées</g-link
+                >Nos coordonnées</a
               >
             </li>
           </ul>
