@@ -20,7 +20,7 @@
       <SvgBlog class="p-10 md:hidden md:p-0" />
 
       <!-- Artiles cards - Horizontal tiles -->
-      <CardGrid cardGridSlug="blog" :cardGridData="$page.posts.edges">
+      <CardGrid cardGridSlug="le-blog" :cardGridData="$page.posts.edges">
         <template slot="cta-text">
           Lire l'article
         </template>

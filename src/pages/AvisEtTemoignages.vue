@@ -28,43 +28,45 @@
         />
       </div>
 
-      <!-- Reviews & Témoignages -->      
+      <!-- Reviews & Témoignages -->
       <section>
         <!-- Reviews -->
         <!-- CAUTION! Don't forget those review come from a page query = availble after rebuilt, not like in review invitation where it's available thx to GET method -->
-        <h2
-          class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
-        >
-          Les mots de nos clients et partenaires
-        </h2>
+        <div v-if="reviewsArray.length">
+          <h2
+            class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
+          >
+            Les mots de nos clients et partenaires
+          </h2>
 
-        <!-- Underline title -->
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
-        </div>
-        <ul>
-          <div class="mt-10 mb-20">
-            <div
-              class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
-            >
-              <li v-for="review in reviewsArray" :key="review.id">
-                <Review :review="review.node" />
-                <!-- <Temoignage
+          <!-- Underline title -->
+          <div class="w-full mb-4">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 rounded-t"></div>
+          </div>
+          <ul>
+            <div class="mt-10 mb-20">
+              <div
+                class="sm:mx-36 md:grid md:grid-cols-2 md:gap-3 md:mx-8 lg:grid-cols-3 lg:gap-1 lg:mx-4 xl:mx-16 xl:gap-2 xl:max-w-screen-xl xl:mx-auto"
+              >
+                <li v-for="review in reviewsArray" :key="review.id">
+                  <Review :review="review.node" />
+                  <!-- <Temoignage
                 :temoignage="temoignage.node"
                 :shortOrCardClass="
                   shortOrCardClass(temoignage.node.acf.cpkSelector)
                 "
               /> -->
-              </li>
+                </li>
+              </div>
             </div>
-          </div>
-        </ul>
+          </ul>
+        </div>
 
         <!-- Témoignages -->
         <h2
           class="w-full px-2 pt-10 mb-2 text-4xl font-bold leading-tight text-center text-gray-800 xl:text-5xl"
         >
-          Autres témoignages
+          {{ this.reviewsArray.length ? 'Autres témoignages' : 'Les mots de nos clients et partenaires' }}
         </h2>
 
         <!-- Underline title -->
@@ -191,10 +193,8 @@ export default {
       (a, b) => a.node.acf.order - b.node.acf.order
     );
     this.reviewsArray = this.$page.reviews.edges
-    .filter( (item) => item.node.acf.validated )
-    .sort(
-      (a, b) => a.node.acf.order - b.node.acf.order
-    );
+      .filter(item => item.node.acf.validated)
+      .sort((a, b) => a.node.acf.order - b.node.acf.order);
     // console.log(this.temoignagesArray);
     // this.temoignagesArray.map(item => console.log(JSON.stringify(item.node.acf.order)));
   }

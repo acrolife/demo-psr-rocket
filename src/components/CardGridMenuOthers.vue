@@ -1,3 +1,8 @@
+
+<!-- 
+Component for cards in a grid, at the bottom af an article / realisation, to display cards pointing to OTHER articles / realisations
+-->
+
 <template>
   <!-- H2 & Card section -->
   <div class="bg-white pb-10">
@@ -66,22 +71,6 @@
       </div>
     </ul>
   </div>
-</template>
-
-<script>
-export default {
-  props: {
-    cardGridMenuOthersSlug: {
-      type: String,
-      required: true
-    },
-    cardGridMenuOthersData: {
-      type: Object,
-      required: true
-    }
-  }
-};
-</script>
 </template>
 
 <script>

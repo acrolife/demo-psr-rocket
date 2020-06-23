@@ -48,7 +48,7 @@
 
     <!-- H2 & Card Menu section -->
     <CardGridMenuOthers
-      cardGridMenuOthersSlug="blog"
+      cardGridMenuOthersSlug="le-blog"
       :cardGridMenuOthersData="postsSelection"
       @gen-rdn-rea-array="genRdnReaArray"
     >
