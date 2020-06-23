@@ -7,7 +7,7 @@
           Nos réalisations
         </template>
         <template slot="repeatable-title-2">
-          Des illustrations de quelques-unes des missions qui nous ont été
+          Illustrations de quelques-unes des missions que nos clients nous ont
           confiées
         </template>
         <template slot="cta-text">

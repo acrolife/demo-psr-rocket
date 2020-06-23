@@ -247,7 +247,7 @@ export default {
       this.formData.botField
         ? "Sorry it seems you are a bot, only them have access to that field"
         : null;
-      this.formData.fields.name ? null : this.errorList.push("name");
+      this.formData.fields.name ? null : this.errorList.push("nom");
       this.formData.fields.toEmail ? this.formData.fields.to_email = this.formData.fields.toEmail : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
       this.formData.fields.mobile ? null : this.errorList.push("mobile");
       this.formData.fields.message ? null : this.errorList.push("message");
