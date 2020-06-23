@@ -71,7 +71,7 @@ module.exports = function(api) {
 		res4.data.allWordPressPost.edges.forEach(({ node }) => {
 			// console.log(JSON.stringify(node))
 			createPage({
-				path: `/blog/${node.slug}`,
+				path: `/le-blog/${node.slug}`,
 				component: './src/templates/Article.vue',
 				context: {
 					postId: node.id,

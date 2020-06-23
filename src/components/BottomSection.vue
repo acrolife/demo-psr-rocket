@@ -20,7 +20,7 @@
         </h3>
 
         <a
-          href="/notre-entreprise#contact"
+          href="/lentreprise#contact"
           class="mx-auto lg:mx-0 white-psr bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg"
           v-if="!noCtaButton"
         >

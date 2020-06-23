@@ -52,21 +52,21 @@
           <ul class="list-reset mb-6">
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
-                to="/blog"
+                to="/le-blog"
                 class="no-underline hover:text-teal-500 text-gray-800"
                 >Notre blog</g-link
               >
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <g-link
-                to="/realisations/"
+                to="/nos-realisations/"
                 class="no-underline hover:text-teal-500 text-gray-800"
                 >Nos clients</g-link
               >
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
-                href="/notre-entreprise#coordonnees"
+                href="/lentreprise#coordonnees"
                 class="no-underline hover:text-teal-500 text-gray-800"
                 >Nos coordonnées</a
               >

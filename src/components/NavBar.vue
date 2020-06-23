@@ -78,7 +78,7 @@
               :class="navItemClass('Services')"
             >
               <g-link
-                to="/services"
+                to="/nos-domaines-dexpertise"
                 class="inline-block no-underline green-psr-menu hover:text-gray-100 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Services</g-link
@@ -90,7 +90,7 @@
               :class="navItemClass('Réalisations')"
             >
               <g-link
-                to="/realisations/"
+                to="/nos-realisations/"
                 class="inline-block no-underline green-psr-menu hover:text-gray-100 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Réalisations</g-link
@@ -102,7 +102,7 @@
               :class="navItemClass('Blog')"
             >
               <g-link
-                to="/blog/"
+                to="/le-blog/"
                 class="inline-block no-underline green-psr-menu hover:text-gray-100 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >Blog</g-link
@@ -114,7 +114,7 @@
               :class="navItemClass('Lentreprise')"
             >
               <g-link
-                to="/notre-entreprise/"
+                to="/lentreprise/"
                 class="inline-block no-underline green-psr-menu hover:text-gray-100 hover:font-bold py-2 px-6"
                 :class="'polygon-navbar'"
                 >L'entreprise</g-link

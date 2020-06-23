@@ -115,7 +115,7 @@
               </div>
             </div>
             <a
-              href="/notre-entreprise#contact"
+              href="/lentreprise#contact"
               class="mx-auto green-psr gradient text-white font-bold rounded-full mt-3 mb-3 py-4 px-8 shadow-lg"
             >
               {{ service.acf.pwcCtaText }}

@@ -32,7 +32,7 @@
           </p>
 
           <a
-            href="/notre-entreprise#contact"
+            href="/lentreprise#contact"
             class="mx-auto white-psr text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg md:mx-0"
             v-if="!noCtaButton"
           >
