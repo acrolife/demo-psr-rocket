@@ -236,7 +236,7 @@ export default {
           stars: "",
           date: "",
           toEmail: "",
-          toEmailCopy: "david.dedobbeleer@gmail.com",
+          toEmailCopy: "eric.renard@ps-renovation.com",
           nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
           nameEmailAdmin: "PS-Rénovation Website-Admin",
           fromEmailClient: "eric.renard@ps-renovation.com",
