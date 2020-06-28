@@ -16,7 +16,7 @@
           Confier un projet à PSR
         </template> -->
         <template slot="form">
-          <div class="flex justify-center">
+          <div class="hidden md:flex md:justify-center">
             <g-image
               class="my-10 rounded-lg"
               src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
@@ -24,6 +24,14 @@
           </div>
         </template>
       </SlotTopSection>
+
+      <!--Svg display for TopSection, in mobile mode section -->
+      <section class="-mb-16 md:mb-0 flex justify-center md:hidden">
+        <g-image
+          class="my-10 rounded-lg"
+          src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
+        />
+      </section>
 
       <!--IdentificationAdmin section -->
       <section v-if="!routeToForm">
