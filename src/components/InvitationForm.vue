@@ -37,18 +37,16 @@
                     >
                       Titre
                     </label>
-                    <div class="container">
-                      <vSelect
-                        :options="guestTitleArray"
-                        v-model="formData.fields.guestTitle"
-                        value="guestTitleArray[1]"
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border-1 border-gray-800 rounded leading-tight focus:outline-none focus:bg-white"
-                      >
-                        <!-- 
+                    <vSelect
+                      :options="guestTitleArray"
+                      v-model="formData.fields.guestTitle"
+                      value="guestTitleArray[1]"
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border-1 border-gray-800 rounded leading-tight focus:outline-none focus:bg-white"
+                    >
+                      <!-- 
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                         @input="storeServiceName()" -->
-                      </vSelect>
-                    </div>
+                    </vSelect>
                     <!-- <input
                         type="text"
                         name="guestTitle"
