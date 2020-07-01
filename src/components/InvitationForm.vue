@@ -227,8 +227,8 @@ export default {
           fromEmailAdmin: "website-admin@ps-renovation.com",
           toEmail: "",
           to_email: "",
-          // toEmailCopy: "eric.renard@ps-renovation.com",
-          toEmailCopy: "david.dedobbeleer@gmail.com",          
+          toEmailCopy: "eric.renard@ps-renovation.com",
+          // toEmailCopy: "david.dedobbeleer@gmail.com",          
           nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
           nameEmailAdmin: "PS-Rénovation Website-Admin",
           subjectClient: "Invitation à écrire un avis pour PS-Rénovation",
@@ -302,11 +302,10 @@ export default {
       this.formData.fields.name ? null : this.errorList.push("nom");
       this.formData.fields.guestTitle && this.formData.fields.structure
         ? null
-        : this.errorList.push("titre personnel ou structure");
+        : this.errorList.push("titre personnel et/ou de la structure");
       this.formData.fields.relation
         ? null
         : this.errorList.push("rapport à PSR");
-      this.formData.fields.toEmail ? null : this.errorList.push("courriel");
       this.formData.fields.toEmail
         ? this.formData.fields.to_email.concat(this.formData.fields.toEmail)
         : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
