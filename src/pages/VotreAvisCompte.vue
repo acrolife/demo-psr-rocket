@@ -235,6 +235,9 @@ export default {
 
       // console.log(JSON.stringify(this.review));
     }
+  },
+  created() {
+    this.formData.fields.token = this.$route.query.token
   }
 };
 </script>

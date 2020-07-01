@@ -54,8 +54,8 @@ module.exports = {
 					'./src/**/*.pug',
 					'./src/**/*.md',
 				],
-				// whitelist: ['vue-select'],
-				whitelistPatterns: [/^vs__/, /^vs--/],
+				whitelist: ['vue-select', 'vue-star-rating'],
+				whitelistPatterns: [/^vs__/, /^vs--/, /^vs1__/],
 				// whitelistPatternsChildren: [/^token/, /^pre/, /^code/],<s></s>
 				defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 			},
