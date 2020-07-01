@@ -2,7 +2,8 @@
 <template>
   <div>
     <div class="flex justify-center mt-12 ">
-      <div class="my-10 w-full mx-4 md:mx-0 md:w-8/12"> <!-- 8/12 because 7 isn't enough => Mademoiselle is too large and field get higher..-->
+      <div class="my-10 w-full mx-4 md:mx-0 md:w-8/12">
+        <!-- 8/12 because 7 isn't enough => Mademoiselle is too large and field get higher..-->
         <div
           class="w-full bg-gray-200 border rounded-lg py-3 px-4 mb-3 leading-tight"
         >
@@ -36,16 +37,18 @@
                     >
                       Titre
                     </label>
-                    <vSelect
-                      :options="guestTitleArray"
-                      v-model="formData.fields.guestTitle"
-                      value="guestTitleArray[1]"
-                      class="appearance-none block w-full bg-gray-200 text-gray-700 border-1 border-gray-800 rounded leading-tight focus:outline-none focus:bg-white"
-                    >
-                      <!-- 
+                    <div class="container">
+                      <vSelect
+                        :options="guestTitleArray"
+                        v-model="formData.fields.guestTitle"
+                        value="guestTitleArray[1]"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border-1 border-gray-800 rounded leading-tight focus:outline-none focus:bg-white"
+                      >
+                        <!-- 
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                         @input="storeServiceName()" -->
-                    </vSelect>
+                      </vSelect>
+                    </div>
                     <!-- <input
                         type="text"
                         name="guestTitle"
@@ -229,7 +232,7 @@ export default {
           nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
           nameEmailAdmin: "PS-Rénovation Website-Admin",
           subjectClient: "Invitation à écrire un avis pour PS-Rénovation",
-          subjectAdmin: "Copie d'une invitation à laisser un avis",
+          subjectAdmin: "Copie d'une invitation à laisser un avis"
         }
       },
       status: "publish",
@@ -262,7 +265,9 @@ export default {
   methods: {
     onSendInvite() {
       this.validation();
-      this.formData.fields.token = generatePassword(this.formData.fields.toEmail);
+      this.formData.fields.token = generatePassword(
+        this.formData.fields.toEmail
+      );
       // console.log(this.formData.fields.token)
       setTimeout(() => {
         if (this.formValidated) {
@@ -302,7 +307,9 @@ export default {
         ? null
         : this.errorList.push("rapport à PSR");
       this.formData.fields.toEmail ? null : this.errorList.push("courriel");
-      this.formData.fields.toEmail ? this.formData.fields.to_email = this.formData.fields.toEmail : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
+      this.formData.fields.toEmail
+        ? (this.formData.fields.to_email = this.formData.fields.toEmail)
+        : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
       this.errorList.length === 0 ? (this.formValidated = true) : null;
       // console.log(this.errorList)
     },
