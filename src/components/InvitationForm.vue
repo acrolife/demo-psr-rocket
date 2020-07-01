@@ -226,6 +226,7 @@ export default {
           fromEmailClient: "eric.renard@ps-renovation.com",
           fromEmailAdmin: "website-admin@ps-renovation.com",
           toEmail: "",
+          to_email: "",
           // toEmailCopy: "eric.renard@ps-renovation.com",
           toEmailCopy: "david.dedobbeleer@gmail.com",          
           nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
@@ -307,7 +308,7 @@ export default {
         : this.errorList.push("rapport à PSR");
       this.formData.fields.toEmail ? null : this.errorList.push("courriel");
       this.formData.fields.toEmail
-        ? (this.formData.fields.to_email = this.formData.fields.toEmail)
+        ? this.formData.fields.to_email.concat(this.formData.fields.toEmail)
         : this.errorList.push("courriel"); // WP to GS requires my_field to give camelCase output
       this.errorList.length === 0 ? (this.formValidated = true) : null;
       // console.log(this.errorList)
