@@ -16,11 +16,11 @@ module.exports = {
 
 	plugins: [
 		{
-      use: '@gridsome/plugin-google-analytics',
-      options: {
-        id: 'UA-89220505-1'
-      }
-    },
+			use: '@gridsome/plugin-google-analytics',
+			options: {
+				id: 'UA-89220505-1',
+			},
+		},
 		{
 			use: '@gridsome/source-wordpress',
 			options: {
@@ -52,10 +52,13 @@ module.exports = {
 					'./src/**/*.js',
 					'./src/**/*.jsx',
 					'./src/**/*.pug',
-					'./src/**/*.md'
+					'./src/**/*.md',
 				],
-				defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-			}
+				whitelist: ['vue-select', 'vs'],
+				whitelistPatterns: [/^vs__/, /^vs--/],
+				// whitelistPatternsChildren: [/^token/, /^pre/, /^code/],<s></s>
+				defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+			},
 		},
 	],
 	// chainWebpack: (config) => {
@@ -66,12 +69,12 @@ module.exports = {
 	// 		.loader('postcss-loader');
 	// },
 	// css: {
-  //   loaderOptions: {
-  //     postcss: {
-  //       plugins: [
-  //         tailwindcss
-  //       ],
-  //     },
-  //   },
-  // }
+	//   loaderOptions: {
+	//     postcss: {
+	//       plugins: [
+	//         tailwindcss
+	//       ],
+	//     },
+	//   },
+	// }
 };
