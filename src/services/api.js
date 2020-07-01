@@ -88,7 +88,7 @@ const customMailData = {
 	// review-tx -----------------------------------------
 	invitationTitle: 'Invitation à déposer un avis',
 	// invitationIntro: 'Pour ce faire il vous suffit de vous rendre sur ',
-	invitationLink: 'https://demo-psr-rocket.netlify.app/votre-avis-compte',
+	invitationLink: 'https://ps-renovation/votre-avis-compte',
 	invitationMsgBody:
 		"Vous avez fait confiance à PS-Rénovation lors de travaux réalisés récemment dans votre bâtiment. Voudriez-vous nous accorder environ 6 minutes de votre temps que nous savons précieux, afin d'écrire un avis et laisser une évaluation ?",
 	invitationThanks:
@@ -112,6 +112,7 @@ export const sendEmail = (formData, mailSelector) => {
 	// console.log(
 	// 	'From GS api.js: ' + JSON.stringify({ formData, customMailData })
 	// );
+	customMailData.invitationLink += `?token=${formData.token}`
 	return fetch(
 		`${psrmailApiUrl}/api/send-email?mail-selector=${mailSelector}`,
 		{
