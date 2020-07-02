@@ -37,23 +37,33 @@
                     >
                       Titre
                     </label>
-                    <vSelect
-                      :options="guestTitleArray"
-                      v-model="formData.fields.guestTitle"
-                      value="guestTitleArray[1]"
-                      class="appearance-none block w-full bg-gray-200 text-gray-700 border-1 border-gray-800 rounded leading-tight focus:outline-none focus:bg-white"
-                    >
-                      <!-- 
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                        @input="storeServiceName()" -->
-                    </vSelect>
-                    <!-- <input
+                    <div class="relative mb-3">
+                      <div
+                        @click="isOpen = !isOpen"
                         type="text"
                         name="guestTitle"
-                        v-model="formData.fields.guestTitle"
-                        placeholder="Monsieur"
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                      /> -->
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 h-12 leading-tight focus:outline-none focus:bg-white"
+                      >
+                        {{ formData.fields.guestTitle }}
+                      </div>
+                      <div
+                        v-if="isOpen"
+                        class="absolute w-full mt-1 py-4 bg-white rounded shadow"
+                      >
+                        <div
+                          v-for="guestTitleItem in guestTitleArray"
+                          :key="guestTitleItem"
+                        >
+                          <div
+                            @click="onGuestTitleChoice(guestTitleItem)"
+                            class="py-2 pl-4 green-psr-menu hover:text-white"
+                            :class="dropDownMenuClassSelected"
+                          >
+                            {{ guestTitleItem }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="w-full md:w-1/12"></div>
                   <div class="w-full my-6 md:w-6/12 md:my-0">
@@ -90,7 +100,9 @@
                           value="particulier"
                           v-model="formData.fields.structure"
                         />
-                        <label for="particulier">un particulier</label>
+                        <label for="particulier" class="text-gray-700"
+                          >un particulier</label
+                        >
                       </div>
                       <div class="mx-3">
                         <input
@@ -100,7 +112,9 @@
                           value="entreprise"
                           v-model="formData.fields.structure"
                         />
-                        <label for="entreprise">une société</label>
+                        <label for="entreprise" class="text-gray-700"
+                          >une société</label
+                        >
                       </div>
                     </div>
                   </div>
@@ -123,7 +137,7 @@
                           value="client"
                           v-model="formData.fields.relation"
                         />
-                        <label for="client">client</label>
+                        <label for="client" class="text-gray-700">client</label>
                       </div>
                       <div class="mx-3">
                         <input
@@ -133,7 +147,7 @@
                           value="partenaire"
                           v-model="formData.fields.relation"
                         />
-                        <label for="partenaire">collaborateur</label>
+                        <label for="partenaire" class="text-gray-700">collaborateur</label>
                       </div>
                     </div>
                   </div>
@@ -204,18 +218,21 @@
 <script>
 import { postReview, sendEmail } from "~/services/api.js";
 import { generatePassword } from "~/services/utilities.js";
-import vSelect from "vue-select";
-import "~/custom-modules/vue-select-css/vue-select.css";
 
 import FormModal from "~/components/FormModal.vue";
 
 export default {
+  components: {
+    FormModal
+  },
   data() {
     return {
+      isOpen: false,
+      dropDownMenuClassSelected: "",
       formData: {
         fields: {
           name: "",
-          guestTitle: "",
+          guestTitle: "Monsieur",
           token: "",
           // Issue with the image upload => anyway, have to implement the <upload></upload>
           avatar:
@@ -228,7 +245,7 @@ export default {
           toEmail: "",
           to_email: "",
           toEmailCopy: "eric.renard@ps-renovation.com",
-          // toEmailCopy: "david.dedobbeleer@gmail.com",          
+          // toEmailCopy: "david.dedobbeleer@gmail.com",
           nameEmailClient: "PS-Rénovation - Une nouvelle vie pour votre bien!",
           nameEmailAdmin: "PS-Rénovation Website-Admin",
           subjectClient: "Invitation à écrire un avis pour PS-Rénovation",
@@ -240,10 +257,6 @@ export default {
       showModal: false,
       errorList: []
     };
-  },
-  components: {
-    vSelect,
-    FormModal
   },
   computed: {
     title() {
@@ -263,6 +276,13 @@ export default {
     }
   },
   methods: {
+    onGuestTitleChoice(item) {
+      this.dropDownMenuClassSelected = "green-psr";
+      this.formData.fields.guestTitle = item;
+      setTimeout(() => {
+        this.isOpen = false;
+      }, 500);
+    },
     onSendInvite() {
       this.validation();
       this.formData.fields.token = generatePassword(
