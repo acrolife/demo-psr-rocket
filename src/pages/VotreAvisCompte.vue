@@ -15,9 +15,9 @@
           Confier un projet à PSR
         </template> -->
         <template slot="form">
-          <div class="flex justify-center">
+          <div class="pt-6 pb-10 px-4 md:px-0">
             <g-image
-              class="my-10 rounded-lg w-full h-auto"
+              class="block rounded-lg"
               src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
             />
           </div>
@@ -237,7 +237,7 @@ export default {
     }
   },
   created() {
-    this.formData.fields.token = this.$route.query.token
+    this.formData.fields.token = this.$route.query.token;
   }
 };
 </script>

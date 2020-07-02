@@ -16,9 +16,9 @@
           Confier un projet à PSR
         </template> -->
         <template slot="form">
-          <div class="hidden md:flex md:justify-center">
+          <div class="pt-6 pb-10 px-4 md:px-0">
             <g-image
-              class="my-10 rounded-lg"
+              class="block rounded-lg"
               src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
             />
           </div>
@@ -26,12 +26,13 @@
       </SlotTopSection>
 
       <!--Svg display for TopSection, in mobile mode section -->
-      <section class="-mb-16 md:mb-0 h80 w-auto sm:h-96 md:h-0 flex justify-center md:hidden">
+      <!-- !Refactor : <SvgBlog>..  here under, to display the svg outside the TopSection -->
+      <!-- <section class="mt-10 -mb-6 md:mb-0 w-auto md:h-0 flex justify-center md:hidden">
         <g-image
-          class="my-10 rounded-lg"
+          class="block h-56 rounded-lg"
           src="https://psr2222.creativityquarks.com/wp-content/uploads/2020/06/undraw_status_update_jjgk.png"
         />
-      </section>
+      </section> -->
 
       <!--IdentificationAdmin section -->
       <section v-if="!routeToForm">

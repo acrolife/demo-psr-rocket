@@ -13,11 +13,11 @@
           Suggérer un article
         </template>
         <template slot="form">
-          <SvgBlog class="hidden md:block" />
+          <SvgBlog class="block mt-8" />
         </template>
       </SlotTopSection>
 
-      <SvgBlog class="p-10 md:hidden md:p-0" />
+      <!-- <SvgBlog class="mt-10 -mb-6 md:mb-0 w-auto md:h-0 flex justify-center md:hidden" /> -->
 
       <!-- Artiles cards - Horizontal tiles -->
       <CardGrid cardGridSlug="le-blog" :cardGridData="$page.posts.edges">
