@@ -1,7 +1,11 @@
 
 <template>
   <Layout>
-      <Realisation :realisation="$page.realisation" :realisations="$page.realisations" />
+    <Realisation
+      :realisation="$page.realisation"
+      :realisations="$page.realisations"
+      :reproduciblebannerqual="$page.reproduciblebannerqual"
+    />
   </Layout>
 </template>
 
@@ -11,7 +15,8 @@ query ($realisationId: ID!) {
           slug
     			id
 				  acf {  
-            topImage
+            topImage2
+            landscapeImage
             name
             cpkSelector            
             place
@@ -51,7 +56,7 @@ query ($realisationId: ID!) {
           slug
           title
           acf {
-            topImage
+            topImage2
             repeaterCard { 
             	repeaterParagraph { 
               htmlParagraph
@@ -60,8 +65,37 @@ query ($realisationId: ID!) {
           }
         }
       }
+    }
+  reproduciblebannerqual: wordPressReproducible(id: 438) {
+      id
+      slug
+      acf {
+        repeaterCard { 
+          title
+          repeaterParagraph { 
+            htmlParagraph                
+          }
+          picture
+          ctaText
+        }
+        riTitle
+        riEmail
+        riAdress
+        riPhoneNumber
+        riCtaText
+        riRepeaterContent { 
+          content
+        }
+        rfTitle
+        rfRepeaterField { 
+          text
+        }
+        rGallery { 
+          repeaterImages
+        }                  	  
+      }
     } 
-}
+  }
 </page-query>
 
 <script>
@@ -71,8 +105,8 @@ import Realisation from "~/components/Realisation.vue";
 export default {
   components: {
     // Pager,
-    Realisation
-  }
+    Realisation,
+  },
   // metaInfo () {
   //   return {
   //     title: this.$page.allWordPressRealisations.title

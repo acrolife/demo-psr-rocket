@@ -1,7 +1,7 @@
 
 <template>
   <Layout>
-      <Article :post="$page.article" :posts="$page.articles" />
+      <Article :post="$page.article" :posts="$page.articles" :reproduciblebannerqual="$page.reproduciblebannerqual" />
   </Layout>
 </template>
 
@@ -45,7 +45,7 @@ query ($postId: ID!) {
           slug
           title
           acf {
-            topImage
+            topImage2
             repeaterCard { 
             	repeaterParagraph { 
               htmlParagraph
@@ -53,6 +53,35 @@ query ($postId: ID!) {
             }
           }
         }
+      }
+    } 
+  reproduciblebannerqual: wordPressReproducible(id: 438) {
+      id
+      slug
+      acf {
+        repeaterCard { 
+          title
+          repeaterParagraph { 
+            htmlParagraph                
+          }
+          picture
+          ctaText
+        }
+        riTitle
+        riEmail
+        riAdress
+        riPhoneNumber
+        riCtaText
+        riRepeaterContent { 
+          content
+        }
+        rfTitle
+        rfRepeaterField { 
+          text
+        }
+        rGallery { 
+          repeaterImages
+        }                  	  
       }
     }   
 }

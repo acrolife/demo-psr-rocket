@@ -17,7 +17,7 @@
           <div class="flex justify-center">
             <g-image
               class="h-40 my-20"
-              :src="$page.pageentreprise.acf.topImage"
+              :src="$page.pageentreprise.acf.topImage2"
             />
           </div>
         </template>
@@ -416,7 +416,7 @@
           title
  					acf {     
           repeaterTitle { title } 
-          topImage
+          topImage2
           topCtaText             
           pwcTitle
           pwcImage

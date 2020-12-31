@@ -6,6 +6,7 @@
       :services="$page.services"
       :pageservices="$page.pageservices"
       :pageaccueil="$page.pageaccueil"
+      :reproduciblebannerqual="$page.reproduciblebannerqual"
     />
   </Layout>
 </template>
@@ -17,7 +18,7 @@ query ($serviceId: ID!) {
     id
     acf {     
           repeaterTitle { title } 
-          topImage
+          topImage2
           topCtaText 
           pwcTitle
           pwcImage
@@ -99,7 +100,7 @@ query ($serviceId: ID!) {
           } 
         }
       }
-   pageservices: wordPressPage(id: 490) {
+  pageservices: wordPressPage(id: 490) {
       acf {
         repeaterCard {
           title
@@ -107,6 +108,35 @@ query ($serviceId: ID!) {
         }
       }
     }
+  reproduciblebannerqual: wordPressReproducible(id: 438) {
+      id
+      slug
+      acf {
+        repeaterCard { 
+          title
+          repeaterParagraph { 
+            htmlParagraph                
+          }
+          picture
+          ctaText
+        }
+        riTitle
+        riEmail
+        riAdress
+        riPhoneNumber
+        riCtaText
+        riRepeaterContent { 
+          content
+        }
+        rfTitle
+        rfRepeaterField { 
+          text
+        }
+        rGallery { 
+          repeaterImages
+        }                  	  
+      }
+    } 
 }
 </page-query>
 

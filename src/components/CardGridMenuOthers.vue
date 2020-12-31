@@ -32,7 +32,7 @@ Component for cards in a grid, at the bottom af an article / realisation, to dis
                 <div
                   class="flex h-64 bg-cover bg-center border-r border-t border-l border-gray-400 rounded-t text-center overflow-hidden shadow-lg"
                   :style="{
-                    backgroundImage: 'url(' + item.node.acf.topImage + ')'
+                    backgroundImage: 'url(' + item.node.acf.topImage2 + ')'
                   }"
                 ></div>
               </g-link>

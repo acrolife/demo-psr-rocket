@@ -6,8 +6,8 @@
         :style="{
           backgroundImage:
             'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 69%, #00b084 100%), url(' +
-            $page.pageaccueil.acf.topImage +
-            ')'
+            $page.pageaccueil.acf.topImage2 +
+            ')',
         }"
         class="bg-cover h-64 sm:h-80 mt-0 pb-16 md:h-128 xl:h-160"
       >
@@ -51,9 +51,7 @@
       :cardGridMenuData2="$page.pageaccueil"
       :cardGridMenuSlug="$page.services"
     >
-      <template slot="title">
-        Nos domaines d'expertise
-      </template>
+      <template slot="title"> Nos domaines d'expertise </template>
     </CardGridMenu>
 
     <!-- Youtube embbeder section -->
@@ -119,10 +117,12 @@
             <!-- bg-purple-500 -->
             <div class="h-auto md:h-96 lg:px-8">
               <div class="text-gray-700 text-lg xl:text-xl">
-                <div
-                  class="text-justify"
-                  v-html="$page.pageaccueil.acf.icContent"
-                ></div>
+                <g-link to="/nos-realisations/">
+                  <div
+                    class="text-justify"
+                    v-html="$page.pageaccueil.acf.icContent"
+                  ></div>
+                </g-link>
               </div>
             </div>
           </div>
@@ -199,15 +199,9 @@
 
     <!--Pre-footer slots section -->
     <SlotBottomSection>
-      <template slot="main-text">
-        Notre expertise
-      </template>
-      <template slot="secondary-text">
-        Au service de votre projet !
-      </template>
-      <template slot="cta-text">
-        J'ai un projet
-      </template>
+      <template slot="main-text"> Notre expertise </template>
+      <template slot="secondary-text"> Au service de votre projet ! </template>
+      <template slot="cta-text"> J'ai un projet </template>
     </SlotBottomSection>
   </Layout>
 </template>
@@ -219,7 +213,7 @@
           title
  					acf {     
           repeaterTitle { title } 
-          topImage
+          topImage2
           topCtaText             
           pwcTitle
           pwcImage
@@ -349,7 +343,7 @@ export default {
   data() {
     return {
       videoOnTopClass: "",
-      showModal: false
+      showModal: false,
     };
   },
   components: {
@@ -359,7 +353,7 @@ export default {
     // SvgWavesAnimation,
     SvgPlayButton,
     VideoModal,
-    CardGridMenu
+    CardGridMenu,
     // BannerQualifLong
   },
   methods: {
@@ -369,11 +363,11 @@ export default {
       // setTimeout(() => {
       //   this.videoOnTopClass = "";
       // }, 95000);
-    }
+    },
   },
   metaInfo: {
-    title: "Une nouvelle vie pour votre bien"
-  }
+    title: "Une nouvelle vie pour votre bien",
+  },
 };
 </script>
 

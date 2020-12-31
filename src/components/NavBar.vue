@@ -19,8 +19,7 @@
               </g-link>
               <g-link to="/" :class="navbarTitleColorClass">
                 <div
-                  class="text-white no-underline text-gray-700 green-psr-menu
-              hover:text-gray-100 font-bold hover:px-5 text-xl lg:text-2xl"
+                  class="text-white no-underline text-gray-700 green-psr-menu hover:text-gray-100 font-bold hover:px-5 text-xl lg:text-2xl"
                   :class="'polygon-navbar'"
                 >
                   <!-- trial shows when active -->
@@ -34,6 +33,27 @@
               </g-link>
             </div>
           </div>
+
+          <!-- START RGE Icons-->
+          <div class="flex flex-1"></div>
+          <ul class="hidden md:flex pt-0 lg:pt-2 justify-center">
+            <li
+              v-for="(image, index) in galleryArray"
+              :key="index"
+              class="flex-1"
+            >
+              <div class="flex px-1">
+                <div class="flex-1"></div>
+                <g-image
+                  class="h-8 lg:h-6 xl:h-10 w-auto rounded flex-1"
+                  :src="image.repeaterImages"
+                />
+                <div class="flex-1"></div>
+              </div>
+            </li>
+          </ul>
+          <div class="flex flex-1"></div>
+          <!-- END Icons -->
 
           <div class="block lg:hidden pr-4">
             <button
@@ -54,7 +74,7 @@
         </div>
 
         <div
-          class="mt-2 mr-2 md:mr-4 bg-white p-4 z-20 lg:flex lg:items-center lg:w-auto lg:block lg:mt-0 lg:bg-transparent lg:p-0"
+          class="mt-2 mr-2 md:mr-4 bg-white p-4 z-20 lg:flex lg:items-center w-full lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0"
           :class="isExpandedClass"
         >
           <ul
@@ -123,12 +143,34 @@
           </ul>
           <div class="flex md:hidden">
             <g-link
-              class="mx-auto white-psr text-gray-800 font-bold rounded-full py-4  px-8 shadow opacity-75 lg:mx-0 lg:mt-0 xxl:text-xl"
+              class="mx-auto white-psr text-gray-800 font-bold rounded-full -mt-2 py-4 px-8 shadow opacity-75 lg:mx-0 lg:mt-0 xxl:text-xl"
               to="tel:06 37 77 75 32"
             >
               Appeler
             </g-link>
           </div>
+          <!-- START RGE Icons-->
+          <div class="flex w-full pt-4 -mb-2 md:hidden">
+            <div class="flex flex-1"></div>
+            <ul class="flex justify-center w-3/4">
+              <li
+                v-for="(image, index) in galleryArray"
+                :key="index"
+                class="flex-1"
+              >
+                <div class="flex px-1">
+                  <div class="flex-1"></div>
+                  <g-image
+                    class="h-8 lg:h-6 xl:h-10 w-auto rounded flex-1"
+                    :src="image.repeaterImages"
+                  />
+                  <div class="flex-1"></div>
+                </div>
+              </li>
+            </ul>
+            <div class="flex flex-1"></div>
+          </div>
+          <!-- END Icons -->
         </div>
       </div>
 
@@ -154,6 +196,12 @@ export default {
   //     test: test
   //   };
   // },
+  props: {
+    reproduciblebannerqual: {
+      type: Object,
+      required: true
+    },
+  },
   beforeMount() {
     // // Uncomment this to make the navbar color reactive + handleScroll()
     this.$store.commit("setColor0ther");
@@ -166,9 +214,9 @@ export default {
   },
   computed: {
     ...mapState({
-      isExpanded: state => state.expandNavBar,
-      colorNavBarBin: state => state.colorNavBarBin,
-      navItemStored: state => state.navItem
+      isExpanded: (state) => state.expandNavBar,
+      colorNavBarBin: (state) => state.colorNavBarBin,
+      navItemStored: (state) => state.navItem,
     }),
     isExpandedClass() {
       return this.isExpanded ? "block" : "hidden";
@@ -182,7 +230,10 @@ export default {
     },
     menuSvgColor() {
       return this.colorNavBarBin ? "" : "text-teal-500";
-    }
+    },
+    galleryArray() {
+      return this.reproduciblebannerqual.acf.rGallery
+    },
     // paddingDependsOnEnv() {
     //   // console.log('mode = ' + process.env.GS_ENV)
     //   console.log("mode (data, not .env): " + this.mode);
@@ -209,12 +260,12 @@ export default {
         : this.isExpanded
         ? this.$store.commit("toggleMMenu")
         : this.$store.commit("setColor0ther");
-    }
+    },
     // handleScroll(event) {
     //   return window.scrollY >= 10
     //   ? this.isExpanded ? this.$store.commit("toggleMMenu") : null : null
     // }
-  }
+  },
 };
 </script>
 

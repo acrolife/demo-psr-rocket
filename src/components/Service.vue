@@ -1,5 +1,6 @@
 <template>
   <div class="gradient">
+
     <!--Hero slots -->
     <SlotTopSection>
       <template v-if="service.acf.repeaterTitle" slot="repeatable-title-1">
@@ -61,7 +62,7 @@
           <div
             class="h-48 lg:h-auto lg:w-1/2 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
             :style="{
-              backgroundImage: 'url(' + service.acf.topImage + ')'
+              backgroundImage: 'url(' + service.acf.topImage2 + ')'
             }"
           ></div>
 
@@ -404,6 +405,40 @@
     </SlotBottomSection>
   </div>
 </template>
+
+<page-query>
+  query {    
+    reproduciblebannerqual: wordPressReproducible(id: 438) {
+          id
+          slug
+          acf {
+            repeaterCard { 
+              title
+              repeaterParagraph { 
+                htmlParagraph                
+              }
+              picture
+              ctaText
+            }
+         		riTitle
+            riEmail
+            riAdress
+            riPhoneNumber
+            riCtaText
+            riRepeaterContent { 
+              content
+            }
+            rfTitle
+            rfRepeaterField { 
+              text
+            }
+            rGallery { 
+              repeaterImages
+            }                  	  
+         }
+       }  
+    }           
+</page-query>
 
 <script>
 import SlotTopSection from "~/components/TopSection.vue";

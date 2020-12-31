@@ -175,10 +175,6 @@ export default {
     post: {
       type: Object,
       required: true
-    },
-    posts: {
-      type: Object,
-      required: true
     }
   },
   methods: {

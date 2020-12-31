@@ -113,7 +113,7 @@ export default {
   data() {
     return {
       // mode : "DEV", //simulate .env, as I can't make it work
-      mode: "PROD" //simulate .env, as I can't make it work
+      mode: "PROD", //simulate .env, as I can't make it work
       // process.env.GS_ENV === "DEV
     };
   },
@@ -128,9 +128,9 @@ export default {
   },
   computed: {
     ...mapState({
-      isExpanded: state => state.expandNavBar,
-      colorNavBarBin: state => state.colorNavBarBin,
-      navItemStored: state => state.navItem
+      isExpanded: (state) => state.expandNavBar,
+      colorNavBarBin: (state) => state.colorNavBarBin,
+      navItemStored: (state) => state.navItem,
     }),
     isExpandedClass() {
       return this.isExpanded ? "block" : "hidden";
@@ -144,7 +144,7 @@ export default {
     },
     menuSvgColor() {
       return this.colorNavBarBin ? "" : "text-teal-700";
-    }
+    },
     // paddingDependsOnEnv() {
     //   // console.log('mode = ' + process.env.GS_ENV)
     //   console.log("mode (data, not .env): " + this.mode);
@@ -171,7 +171,7 @@ export default {
         : this.isExpanded
         ? this.$store.commit("toggleMMenu")
         : this.$store.commit("setColor0ther");
-    }
-  }
+    },
+  },
 };
 </script>

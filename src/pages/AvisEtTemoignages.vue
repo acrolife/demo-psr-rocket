@@ -109,7 +109,7 @@
 </template>
 
 <page-query>
-  query {
+  query {    
    temoignages: allWordPressTemoignages (sortBy: "pSelecto", order: DESC) {
       edges {
         node {
@@ -159,7 +159,36 @@
         } 
       }
     }
-  }
+    reproduciblebannerqual: wordPressReproducible(id: 438) {
+          id
+          slug
+          acf {
+            repeaterCard { 
+              title
+              repeaterParagraph { 
+                htmlParagraph                
+              }
+              picture
+              ctaText
+            }
+         		riTitle
+            riEmail
+            riAdress
+            riPhoneNumber
+            riCtaText
+            riRepeaterContent { 
+              content
+            }
+            rfTitle
+            rfRepeaterField { 
+              text
+            }
+            rGallery { 
+              repeaterImages
+            }                  	  
+         }
+       }     
+  }         
 </page-query>
 
 

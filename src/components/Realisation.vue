@@ -13,8 +13,8 @@
         <div class="flex justify-center">
           <g-image
             class="h-64 object-cover rounded-lg border border-white border-1"
-            :src="realisation.acf.topImage"
-            v-if="realisation.acf.topImage"
+            :src="realisation.acf.landscapeImage"
+            v-if="realisation.acf.landscapeImage"
           />
         </div>
       </template>
