@@ -1,60 +1,60 @@
 
 <template>
-  <Layout>
+  <Layout>    
       <Article :post="$page.article" :posts="$page.articles" :reproduciblebannerqual="$page.reproduciblebannerqual" />
   </Layout>
 </template>
 
 <page-query>
 query ($postId: ID!) {
-	 article: wordPressPost (id: $postId) {
-          slug
-    			id
-          title
-          date
-          author {
-            name
-          }
-          acf {  
-         		repeaterCard {
-            ctaText
-            picture
-          	repeaterParagraph { 
-              htmlParagraph
-            }
-            title            
-          } 
-          lcTitle
-          lcContent
-          repeaterLink {              
-              textBeforeLink      
-              link {  
-                title          
-                target                    
-              }
-            }
-          tbpTitle
-          tbpContent
-          tbpPageLink
-      		} 
-   }
+	article: wordPressPost (id: $postId) {
+    slug
+    id
+    title
+    date
+    author {
+      name
+    }
+    acf {  
+      repeaterCard {
+      ctaText
+      picture
+      repeaterParagraph { 
+        htmlParagraph
+      }
+      title            
+    } 
+    lcTitle
+    lcContent
+    repeaterLink {              
+        textBeforeLink      
+        link {  
+          title          
+          target                    
+        }
+      }
+      tbpTitle
+      tbpContent
+      tbpPageLink
+    } 
+  }
   articles: allWordPressPost {
-      edges {
-        node {    
-          id      
-          slug
-          title
-          acf {
-            topImage2
-            repeaterCard { 
-            	repeaterParagraph { 
-              htmlParagraph
-              }
+    edges {
+      node {    
+        id      
+        slug
+        title
+        acf {
+          topImage2
+          repeaterCard { 
+            repeaterParagraph { 
+            htmlParagraph
             }
           }
         }
       }
-    } 
+    }
+  } 
   reproduciblebannerqual: wordPressReproducible(id: 438) {
       id
       slug
