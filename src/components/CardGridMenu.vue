@@ -18,7 +18,7 @@
       class="sm:w-2/3 md:w-full m-auto p-4 max-w-screen-xl md:p-12 md:grid md:grid-cols-2 lg:grid-cols-3"
     >
       <li
-        v-for="(item, index) in cardGridMenuData1.acf.repeaterCard"
+        v-for="(item, index) in sortedPageServices"
         :key="index"
       >
         <div>
@@ -28,7 +28,7 @@
             <g-link
               :to="
                 `/nos-domaines-dexpertise/${
-                  cardGridMenuSlug.edges[index].node.slug
+                  cardGridMenuSlug.edges[orderMap[index][0]].node.slug
                 }`
               "
             >
@@ -76,6 +76,11 @@
 
 <script>
 export default {
+    data() {
+    return {
+      orderMap: []
+    };
+  },
   props: {
     cardGridMenuSlug: {
       type: Object,
@@ -89,6 +94,20 @@ export default {
       type: Object,
       required: true
     }
-  }
+  },
+      mounted() {
+      // creating an array mapping the index with the order (set by the site manager, from node.acf.order)
+      const orderArray = this.$page.services.edges.map(item => Number(item.node.acf.order))
+      const indexArray = Array.from(Array(orderArray.length).keys())
+      const indexAndOrderArray = indexArray.map((item => [item, orderArray[item]]))
+      const orderedIndexAndOrderArray = indexAndOrderArray.sort((s1, s2) => s1[1] - s2[1])
+      this.orderMap = orderedIndexAndOrderArray
+  },
+  computed: {
+    // Have to create a new matrix, otherwise the original get sorted (with .sort() method)
+    sortedPageServices(){
+    return this.orderMap.map( item => this.cardGridMenuData1.acf.repeaterCard[item[0]])
+    },
+  }, 
 };
 </script>

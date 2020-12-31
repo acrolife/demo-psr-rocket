@@ -1,7 +1,7 @@
     
 <template>
   <Layout>
-    <section>
+    <section>     
       <div
         :style="{
           backgroundImage:
@@ -307,6 +307,9 @@
         node {
           id
           slug
+          acf {
+            order
+          }
         }
       }
     }
@@ -355,7 +358,7 @@ export default {
     VideoModal,
     CardGridMenu,
     // BannerQualifLong
-  },
+  },    
   methods: {
     playVideo() {
       this.showModal = true;
