@@ -32,15 +32,37 @@
   /* background: linear-gradient(90deg, #04AF84 0%, #1b83c7 100%); */
   background: #00b084;
 }
+/* <div class="py-20" style="background: linear-gradient(90deg, #64C389 0%, #00B084 100%)">
+          </div> */
 .router-link-active {
   @apply font-bold;
 }
 .green-psr {
   background: #00b084;
 }
-.green-psr:hover {
+.white-psr {
+  background: #ffffff;
+}
+.green-psr-hover {
   background: #59BE9C;
 }
+.green-psr:hover {
+  @apply green-psr-hover;
+}
+.white-psr:hover {
+  @apply green-psr-hover;
+}
+.green-psr-menu {
+  background: transparent;
+}
+.green-psr-menu:hover {
+  background: #00b084;
+}
+.green-psr-font {
+  color: #00b084;
+}
+
+
 
 .pin-c-x {
   left: 50%;

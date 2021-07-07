@@ -14,13 +14,15 @@
         <div
           class="flex flex-col w-full md:w-3/5 justify-center items-start text-center md:text-left"
         >
-                <!-- <div
+          <!-- <div
           class="flex flex-col w-full md:w-3/5 justify-center items-start text-center md:text-left"
         > -->
           <!-- <p class="uppercase tracking-loose w-full">
             
           </p> -->
-          <h1 class="mb-4 mx-auto mx-auto text-4xl font-bold leading-tight md:lg-6 md:ml-0 md:text-5xl">
+          <h1
+            class="mb-4 mx-auto mx-auto text-4xl font-bold leading-tight md:lg-6 md:ml-0 md:text-5xl"
+          >
             <slot name="repeatable-title-1"></slot>
             <!-- {{ service.acf.repeaterTitle[0].title }} -->
           </h1>
@@ -29,12 +31,14 @@
             <!-- {{ service.acf.repeaterTitle[1].title }} -->
           </p>
 
-          <button
-            class="mx-auto hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg md:mx-0"
+          <a
+            href="/lentreprise#contact"
+            class="mx-auto white-psr text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg md:mx-0"
+            v-if="!noCtaButton"
           >
             <slot name="cta-text"></slot>
             <!-- Demander un devis -->
-          </button>
+          </a>
         </div>
         <!--Right Col-->
         <div class="w-full md:w-2/5 py-6 text-center">
@@ -45,14 +49,19 @@
     </div>
 
     <!-- Wave section header -->
-    <SvgWavePostHeader />    
+    <SvgWavePostHeader />
   </section>
-  
 </template>
 
 <script>
 import SvgWavePostHeader from "~/components/svg/SvgWavePostHeader.vue";
 export default {
+  props: {
+    noCtaButton: {
+      type: Boolean,
+      require: false
+    }
+  },
   components: {
     SvgWavePostHeader
   }

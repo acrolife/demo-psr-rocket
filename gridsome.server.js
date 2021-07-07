@@ -28,6 +28,81 @@ module.exports = function(api) {
 			});
 		});
 
-		
+		// Realisations
+		const res2 = await graphql(`
+			{
+				allWordPressRealisations {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}
+		`);
+
+		res2.data.allWordPressRealisations.edges.forEach(({ node }) => {
+			// console.log(JSON.stringify(node))
+			createPage({
+				path: `/nos-realisations/${node.slug}`,
+				component: './src/templates/Realisation.vue',
+				context: {
+					realisationId: node.id,
+					realisationSlug: node.slug,
+				},
+			});
+		});
+
+		// Posts
+		const res4 = await graphql(`
+			{
+				allWordPressPost {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}
+		`);
+
+		res4.data.allWordPressPost.edges.forEach(({ node }) => {
+			// console.log(JSON.stringify(node))
+			createPage({
+				path: `/le-blog/${node.slug}`,
+				component: './src/templates/Article.vue',
+				context: {
+					postId: node.id,
+					postSlug: node.slug,
+				},
+			});
+		});
+
+		// // Reviews
+		// const res5 = await graphql(`
+		// 	{
+		// 		allWordPressReview {
+		// 			edges {
+		// 				node {
+		// 					id
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// `);
+
+		// res5.data.allWordPressReview.edges.forEach(({ node }) => {
+		// 	createPage({
+		// 		path: `/votre-avis-compte/${node.id}`,
+		// 		component: './src/templates/VotreAvisCompte.vue',
+		// 		context: {
+		// 			reviewId: node.id,
+		// 		},
+		// 	});
+		// });
+
+
 	});
 };
